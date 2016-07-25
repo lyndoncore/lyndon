@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Lyndon Core</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+@keyframes animateBg {
+	from { background-position: 0 0; }
+	to { background-position: 100% 100%; }
+}
+#animate { 
+	background-image: url(texture.png);
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+	animation: animateBg 12s linear infinite;
+}
+
+</style>
 </head>
-<body>
+<body style="
+color: #363636; 
+font-family: helvetica; 
+padding-left: 10vw;
+display: flex;
+align-items: center;
+height: 100vh;
+margin: 0;">
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<div style="
+max-width: 480px; 
+padding-right: 10vw;">
+	<h1 style="
+	font-size: 4em;
+	color: #6385ce;
+    margin-top: 0;
+    /* background-repeat: repeat-x;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text; */"
+    >Lyndon Core</h1>
+	<h4>Frontend Developer / Designer</h4>
+	<p style="
+	line-height: 2;"
+	>I'm most notably passionate about optimizing the delivery, construction, and performance of frontend resources. If you want an example of what I mean, check out <a href="intro.html" style="color: #6385ce;"">why my site is awesome</a>.</p>
+	<a href="mailto:lyndoncore@gmail.com">
+		<button style="
+		cursor: pointer;
+		border: none;
+	    border-radius: 3px;
+	    padding: 10px 15px;
+	    color: white;
+	    background: #6385ce;
+	    margin-top: 20px;"
+    	>email me</button>
+    </a>
 
+</div>
 </body>
 </html>
