@@ -7,7 +7,7 @@
 	margin-bottom: 35px;
 }
 
-.title {
+.page-title {
 	margin: 10px 0 55px;
 }
 
@@ -41,6 +41,19 @@
 	width: 680px;
 }
 
+.content-title {
+	margin-top: 45px;
+}
+
 .content-body {
 	line-height: 2;
+	color: #666;
+}
+
+.content-body--example {
+	line-height: 2;
+	color: #666;
+	background: #eee;
+	padding: 8px 15px;
+	border-radius: 5px;
 }

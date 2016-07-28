@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Optimizations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="main.css">
+<style>
+
+.i-body {color: #363636; font-family: helvetica; margin: 0;}
+.i-name {margin-top: 45px;}
+.i-name-text {color: #6385ce;}
+
+</style>
+</head>
+
+<body class="i-body">
+
+<div class="header">
+	<h5 class="i-name"><a href="index.html" class="i-name-text">Lyndon Core<a></h5>
+	<h1 class="page-title">Why My Site Is Awesome</h1>
+</div>
+
+<div class="main">
+	<div class="nav-container">
+		<ul class="nav">
+			<li><a class="nav-item" href="intro.html">Intro</a></li>
+			<li><a class="nav-item" href="">Critical Rendering</a></li>
+			<li><a class="nav-item--current" href="css_optimizations.html">CSS Optimizations</a></li>
+			<li><a class="nav-item" href="">Compression</a></li>
+			<li><a class="nav-item" href="">Design</a></li>
+			<li><a class="nav-item" href="">Caching</a></li>
+		</ul>
+	</div>
+
+	<div class="content">
+		<h3>Inlining CSS Where It Matters</h3>
+		<p class="content-body">Inlining CSS can be a very simple way to speed up the rendering and perceived performance of your sites. As you'd expect, users want to see something on the screen as soon as possible. It has been observed, that after 300ms without response from an application, users start to perceive delay, after 1,000ms, a users engagement with a task is broken, and after 10,000ms, tasks are frequently abandoned by the user altogether. This can have serious implications on a users engagement with our sites - so, it's important we give our users some type of visual feedback, and fast. By inlining CSS in the head of our HTML, we can give users an almost immediate experience. It's important to inline CSS within the head of our HTML and not as style attributes on HTML elements for two main reasons: Unessecary code duplication happens quickly, and <a href="https://www.w3.org/TR/CSP/">Content Security Policy</a> will, by default, disable the execution of inline styles/scripts. If you're unfamiliar with Content Security Policy, HTML5rocks has a good <a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">introduction</a> to the topic.</p>
+		<p class="content-body">Although it can have its drawbacks, inlining CSS can ultimately eliminate render-blocking requests to the server right off the bat. This is a huge performance win against unnessecary latency. Because CSS parsing isn't incremental like HTML parsing, the browser requires the whole CSS file in order to start constructing the CSSOM. This is due to the cascading nature of CSS.</p>
+		<p class="content-body--example">On index.html, I've inlined all CSS. Because I can keep the entire HTML file under 14kb, I can serve the entire document within the first round trip to the server. Aditionally, I've loaded the css for the rest of the site, but defered </p>
+		<h3 class="content-title">Selector Matching Performance</h3>
+		<p class="content-body">Calculating the style of a page entails the browser matching CSS classes with elements specified within the HTML. The more complex these selectors are, the more expensive the operation of selector matching becomes for the browser. Intuitively, this means we should probably stick to simpler class names when writing css, to avoid unnessecary work for the browser. Although this takes considerable power away from the developer/designer, it can be a worthwhile performance consideration. There are several CSS naming conventions, like SMACSS(link) and BEM(link), that allow the authors of CSS to keep their... </p>
+		<h3 class="content-title">I've weighed the cost of relative values</h3>
+		<p class="content-body">Working with relative values can make responsive design very easy, but at the same time, defers work from the developer to the browser. In order for the browser to enevitably paint pixels to the screen, it must first make sense of a relative value (like "3rem" or "50%") by translating it to a computed value - something the browser can work with. On the other hand, absolute values (like "14px" or "blue") do not require the broswer to do any interpretation. In a sense, absolute values are delivered ready-to-use for the browser. The decision between using relative and absolute values, is a design decision that should be measured and considered when optimizing for frontend performance. https://www.w3.org/TR/1998/REC-CSS2-19980512/cascade.html</p>
+	</div>
+</div>
+
+</body>
+</html>
