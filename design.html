@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lyndon Core</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="main.css">
+<script async src="script.js"></script>
+<style>
+
+body {
+	color: #363636;
+	font-family: helvetica;
+	margin: 0;}
+.home {
+	margin: 45px 0 40px;}
+.home-text {
+	color: #fff;
+    border: 2px solid white;
+    padding: 10px 15px;
+    text-decoration: none;}
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+	<h5 class="home"><a href="index.html" class="home-text">Lyndon Core<a></h5>
+	<h1 class="page-title">Site Design</h1>
+</div>
+
+<div class="main">
+	<div class="nav-container">
+		<ul class="nav" id="sidebar">
+			<li><a class="nav-item" href="#setup">Setup</a></li>
+			<li><a class="nav-item" href="#responsiveness">Responsiveness</a></li>
+			<li><a class="nav-item" href="#compression">Compression</a></li>
+			<li><a class="nav-item" href="#design">Design</a></li>
+			<li><a class="nav-item" href="#caching">Caching</a></li>
+			<li><a class="nav-item" href="#cssOptimizations">CSS Optimizations</a></li>
+			<li><a class="nav-item" href="#imageOptimizations">Image Optimizations</a></li>
+		</ul>
+	</div>
+
+	<div class="content">
+
+
+		<h3 id="setup" class="content-title">Setup</h3>
+
+			<p class="content-body"></p>
+
+		<h3 id="responsiveness" class="content-title">Responsiveness</h3>
+
+			<p class="content-body">Lorem ipsum dolor sit amet, id sed fermentum purus, sit dictumst leo sed nulla, a ac fusce ut ipsum, faucibus scelerisque wisi lorem, quis quam. In nisl, wisi diam arcu ac felis ligula. Enim id platea, pharetra pede vestibulum nunc, lorem porta lacus risus, tincidunt pellentesque et et quisque ullamcorper. Ut vel venenatis eget mollis magna augue, dolor libero mi sollicitudin enim senectus at. Suscipit ac sem, neque volutpat turpis, lorem morbi fringilla etiam netus diam, pulvinar interdum et, id ipsum lorem.</p>
+
+		<h3 id="compression" class="content-title">Compression</h3>
+
+			<p class="content-body">I've used <a href="http://www.gzip.org/">gzip</a> to compress my main.css file and have effectively reduced the file size from XXXX bytes, to XXX bytes - a XX% reduction. The gzip utility can be employed on an Amazon S3 instance by first compressing the resource locally, uploading that compressed file to your S3 bucket, then explicitly setting the resource's "content-encoding" directive to "gzip".</p>
+
+		<h3 id="design" class="content-title">Design</h3>
+
+			<p class="content-body">Lorem ipsum dolor sit amet, id sed fermentum purus, sit dictumst leo sed nulla, a ac fusce ut ipsum, faucibus scelerisque wisi lorem, quis quam. In nisl, wisi diam arcu ac felis ligula. Enim id platea, pharetra pede vestibulum nunc, lorem porta lacus risus, tincidunt pellentesque et et quisque ullamcorper. Ut vel venenatis eget mollis magna augue, dolor libero mi sollicitudin enim senectus at. Suscipit ac sem, neque volutpat turpis, lorem morbi fringilla etiam netus diam, pulvinar interdum et, id ipsum lorem.</p>
+
+		<h3 id="caching" class="content-title">Caching</h3>
+
+			<p class="content-body">In an effort to reduce server expenses, avoid network latency, and reduce client data charges, I've specified <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">cache-control</a> directives on certain resources. By default, Amazon S3 has also assigned each resource a validation token (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a>), which eliminates the unnecessary re-transfer of unchanged resources upon new requests.</p>
+
+			<p class="content-body">**need to write section about fingerprinting css file. Also think about how this affects the caching and addition of new images (because they are referenced in the CSS stylesheet)**</p>
+
+		<h3 id="cssOptimizations" class="content-title">CSS Optimizations</h3>
+
+			<p class="content-body">Lorem ipsum dolor sit amet, id sed fermentum purus, sit dictumst leo sed nulla, a ac fusce ut ipsum, faucibus scelerisque wisi lorem, quis quam. In nisl, wisi diam arcu ac felis ligula. Enim id platea, pharetra pede vestibulum nunc, lorem porta lacus risus, tincidunt pellentesque et et quisque ullamcorper. Ut vel venenatis eget mollis magna augue, dolor libero mi sollicitudin enim senectus at. Suscipit ac sem, neque volutpat turpis, lorem morbi fringilla etiam netus diam, pulvinar interdum et, id ipsum lorem.</p>
+
+		<h3 id="imageOptimizations" class="content-title">Image Optimizations</h3>
+
+			<p class="content-body">The image that I've included on this site, in its original form (from a stock photo site), was a 6500 x 5000 JPEG weighing in at 8.9MB (floral.jpeg). Although this is a super high-res image, and great for flexibility when designing, it's also a horrendously innapporpriate file to serve in production. This is not only because of the image's large file size, but also because this high of a resolution is simply not nessecary for its purposes on this site; ergo, some optimization is in order.</p>
+
+			<p class="content-body">To make floral.jpeg a better fit for the web, and at the same time, accomplish its design purpose, it was converted to a PNG-8 in Photoshop CS6 (now floral.png). This reformatting not only reduces the file size, but preserves the desired detail within the image - as PNG makes use of lossless compression algorithms. Then, the file size of floral.png was further reduced by limiting the color palette to 128 colors, from 256 colors. This adjustment to the palette renders little perceivable difference in floral.png, but yields an additional 29.1% reduction in file size. By doing this, floral.jpeg has gone from 8.9MB to 4.0MB - an overall 55% savings.</p>
+
+			<p class="content-body">Intuitively, the most direct image optimization is to just make the image smaller; so, floral.png was then pruned down to a reasonable resolution, from 6500 x 5000 to 1400 x 1077. Because floral.png is seamless, it could've afforded a much larger reduction in resolution, but the decision to keep it at 1400 x 1077 was based on the design objectives of the site, the contents of the image, and the image's engagement with accompanying text on the site. floral.png has now gone from a 8.9MB file to 377KB - an overall 95.8% savings</p>
+
+			<p class="content-body">The last attempt at making the image as compact as possible, was to run it through <a href="http://optipng.sourceforge.net/">OptiPNG</a> - a command line "PNG optimizer that recompresses image files to a smaller size, without losing any information". Because floral.png had already been optimized through Photoshop, the additional savings from running OptiPNG's compression were only limited to 0.06%, or 239 bytes. To learn more about how OptiPNG compresses PNGs, <a href="http://optipng.sourceforge.net/optipng-0.7.6.man.pdf">read this</a>. If you'd like more general info on how to optimize PNGs, <a href="http://optipng.sourceforge.net/pngtech/optipng.html">this</a> is a good resource.</p>
+
+			<p class="content-body"></p>
+		
+	</div>
+</div>
+
+</body>
+</html>
