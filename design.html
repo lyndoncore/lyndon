@@ -1,89 +1,246 @@
 <!DOCTYPE html>
-<html>
+<html id="html">
 <head>
 <title>Lyndon Core</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="main.css">
-<script async src="script.js"></script>
-<style>
-
-body {
-	color: #363636;
-	font-family: helvetica;
-	margin: 0;}
-.home {
-	margin: 45px 0 40px;}
-.home-text {
-	color: #fff;
-    border: 2px solid white;
-    padding: 10px 15px;
-    text-decoration: none;}
-
-</style>
-
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script async src="js/dev-scripts.js"></script>
+<script>window.onscroll=function(){navMove()};function navMove(){262<document.body.scrollTop||262<document.documentElement.scrollTop?document.getElementById("sidebar").className="nav__list--fixed":document.getElementById("sidebar").className="nav__list"};
+</script>
 </head>
 <body>
 
 <div class="header">
-	<h5 class="home"><a href="index.html" class="home-text">Lyndon Core<a></h5>
-	<h1 class="page-title">Site Design</h1>
+	<h5 class="header__btn"><a href="index.html" class="header__btn-text">Lyndon Core<a></h5>
+	<h1 class="header__title">Site Design</h1>
 </div>
 
 <div class="main">
-	<div class="nav-container">
-		<ul class="nav" id="sidebar">
-			<li><a class="nav-item" href="#setup">Setup</a></li>
-			<li><a class="nav-item" href="#responsiveness">Responsiveness</a></li>
-			<li><a class="nav-item" href="#compression">Compression</a></li>
-			<li><a class="nav-item" href="#design">Design</a></li>
-			<li><a class="nav-item" href="#caching">Caching</a></li>
-			<li><a class="nav-item" href="#cssOptimizations">CSS Optimizations</a></li>
-			<li><a class="nav-item" href="#imageOptimizations">Image Optimizations</a></li>
+
+	<nav class="nav">
+		<ul class="nav__list" id="sidebar">
+			<li><a class="nav__item" href="#intro">Intro</a></li>
+			<li><a class="nav__item" href="#toolkit">Toolkit</a></li>
+			<li><a class="nav__item" href="#responsiveness">Responsiveness</a></li>
+			<li><a class="nav__item" href="#compression">Compression</a></li>
+			<li><a class="nav__item" href="#design">Design</a></li>
+			<li><a class="nav__item" href="#caching">Caching</a></li>
+			<li><a class="nav__item" href="#cssOptimizations">CSS optimizations</a></li>
+			<li><a class="nav__item" href="#imageOptimizations">Image optimizations</a></li>
+			<li><a class="nav__item" href="#resiliency">Resiliency</a></li>
 		</ul>
-	</div>
+	</nav>
 
-	<div class="content">
+	<article class="content">
+
+		<h3 id="intro" class="content__heading">Intro</h3>
+
+			<p class="content__body">Brutally simple. From conception, this site was designed to embody that attribute visually, but not so much under the hood. This decevingly simple site is a performance pet project, and utilizes some neat technology, so it runs fast just about anywhere, on just about anything. This page's purpose is to document the design decisions that were made during the creation of this site, and the reasoning/methodology behind them. I encourage you to verify and challenge these design methods before implementing them yourself in your own projects. It has been a learning process, so if you discover any information here that is definitively incorrect/outdated, any of the links have broken, any typos, or find a bug of sorts, please reach out to me so it can be corrected.</p>
+
+		<h3 id="toolkit" class="content__heading">Toolkit</h3>
+
+			<ul class="content__list">
+				<li>HTML5</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+				<li>Sass</li>
+				<li>Gulp</li>
+				<li>Modernizr</li>
+				<li>Git/Github</li>
+				<li>Sublime Text</li>
+				<li>Chrome DevTools</li>
+				<li>Google Analytics</li>
+				<li>Amazon S3</li>
+				<li>Amazon Route 53</li>
+				<li>Amazon CloudFront</li>
+				<li>AWS Certificate Manager</li>
+				<li>Photoshop CS6</li>
+			</ul>
+			<h5 class="content__title">Honorable Mentions:</h5>
+			<ul class="content__list">
+				<li>WebPageSpeedTest</li>
+				<li>Google's Closure Compiler</li>
+				<li>PNG to WEBP converter</li>
+				<li><a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/">Image to URI converter</a></li>
+				<li>CanIUse</li>
+			</ul>
+
+		<h3 id="responsiveness" class="content__heading">Responsiveness</h3>
+
+			<p class="content__body">I've employed media queries, flexbox containers, vendor prefixes, and some other minor tweaks to ensure this site's accessibility to all users on any reasonably modern device.</p>
+
+			<h5 class="content__title">Mobile-first</h5>
+			<p class="content__body">It may have been somewhat clear from my <a href="#intro">intro</a>, but <a href="http://alistapart.com/article/understandingprogressiveenhancement">progressive enhancement</a> was the motive behind the design of this site. A content-first strategy goes hand-and-hand with a mobile-first strategy, as the most important content is boiled down in its most restrictive enviorment. I talk a little more about this in <a href="">Design > Semantics</a>. When wireframing...... the A series of breakpoints were defined, with CSS media queries, to accomodate appropriate balance of positive and negative space as the screen grew. I find it important to mention that the breakpoints on this site were dictated by its content, and not optimized for any particular device or user-agent. Although CSS media queries are simply rules for conditional CSS, they're a very powerful component in the design of responsive websites.</p>
+
+			<h5 class="content__title">Image considerations</h5>
+			<p class="content__body">TALK ABOUT HOW floral image was chosen because it was a tiled pattern, and media queries are used to stop its growth at a certain point and repeat instead. Also how it was centered in order to have a predictable overlay of text on smaller screen sizes.</p>
+
+			<h5 class="content__title">Flexbox</h5>
+			<p class="content__body">What has made designing responsive web experiences easy and intuitive, is using relative units, more specifically, flexbox. Using fixed-width elements also introduces potential issues with the viewport - which is something we'd like to avoid. Alternitively, flexbox provides a fluid experience that scales well on any screen. It's also criminally easy to use, and its newer implementation ("display: flex") is <a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#use_flexbox_over_older_layout_models">quite fast</a>.</p>
+
+			<h5 class="content__title">Vendor-Prefixes</h5>
+			<p class="content__body">Another critical part of responsive web design is an annoying but nessecary evil - CSS vendor-prefixes. Vendor-prefixes are just one of the downsides to having a competitive enviorment between browsers. Although competition is good and encourages innovation, it means developers are left with the burden of makings sure their applications run in all enviorments. For the most part, all I've had to do to ensure this website is cross-broswer compatable, is incorporate the gulp task, <a href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a>. All I have to do is run this task during the build process, and styles.css will be ready to be used in all major browsers.</p>
+
+			<h5 class="content__title">The Viewport</h5>
+			<p class="content__body">One of the important-to-mention but also well-known tweaks to ensure a responsive experience, is setting the meta viewport tag to include "width=device-width" and "initial-scale=1". Specifying these is nessecary for having the browser render your site in the way your would probably expect it to. Without these directives, the browser will most likely try to render your web page at a desktop width of 800 to 1024 CSS pixels. Setting the initial-scale also helps mobile devises take advantage of the full sceen width when rotated into landscape mode.</p>
+
+		<h3 id="compression" class="content__heading">Compression</h3>
+
+			<p class="content__body">I've used <a href="http://www.gzip.org/">gzip</a> to compress my text-based files, and have effectively reduced the file sizes of index.html, design.html, main.scss, and script.js by X%, X%, X%, and X% respectively.</p>
+
+			<h5 class="content__title">Gzip</h5>
+			<p class="content__body">The gzip utility can be employed on an Amazon S3 instance by first compressing the resource locally, uploading that compressed file to an S3 bucket, then explicitly setting the resource's "content-encoding" directive to "gzip". I currently implement gzip with gulp task <a href="https://www.npmjs.com/package/gulp-gzip">gulp-gzip</a>, because this is easy and seemlessly fits into my build process, although, this is not the only option when implementing gzip. For some time, I'd use the gzip command line utility, which is straighforward, but became relitively cumbersome. Another option is Amazon Cloudfront's configuration that automaticlly compress certain files on-the-fly. With this configuration, there are <i>some</i> side effects to be considered. CloudFront will only compress files that are bewteen 1000 and 10,000,000 bytes, and will only do so if that file-size is pulled from the Content-Length header. These limitiations are put into place by Amazon for good reason, but they relinquish the developer of the discression when choosing where to implement gzip. Moreover, CloudFront also strips the Etag Header (see <a href="#caching">Caching</a>) when it compresses files on-the-fly. This means that when a file expires at the edge location, and another request is sent to the origin server, the origin always responds with the entire file, as opposed to a 304 (Not Modified) HTTP status code. By having to send the entire file again, this cuts into our performance latency budget. Lastly, CloudFront reserves the right to simply ignore compression instructions when servers are unusually busy. Consequently, I handle gzip in my Gulp build process, where I have more discresion and oversight.</p>
+
+			<h5 class="content__title">Brotli</h5>
+			<p class="content__body">For now, this site is sticking with gzip, but as of late, a new compression library has immerged as a more compelling alternative - one that offers consistantly better compression rates than gzip, and has newfound support in <a href="http://caniuse.com/#feat=brotli">many browsers</a>; it's called Brotli. Facebook is using it, as well as Google, however, the same access to infrastructure is not afforded to me and this site :(. CloudFront distributions normalize the "Accept-Encoding" header to gzip, so the only way around this limitation is with <a href="http://calendar.perfplanet.com/2016/enabling-brotli-even-on-cdns-that-dont-support-it-yet/">a Service Worker script</a> to detect support.</p>
+
+			<h5 class="content__title">Google's Closure Compiler</h5>
+			<p class="content__body">I used <a href="https://developers.google.com/closure/compiler/">Google's Closure Compiler</a> to minify, and compress scripts.js on this site - although we're only employing one original function. The other javascript in our scripts.js file is from the Modernizr build we are using to check for our User Agent's Webp support (see <a href="#usingWebp">Using Webp</a> in the Image Optimizations section). The custom build of Modernizr was already minified, so the savings from GCC were small.</p>
+
+			<h5 class="content__title">HTTP/2</h5>
+			<p class="content__body">HTTP/2 uses <a href="https://http2.github.io/faq/#why-do-we-need-header-compression">header compression</a> to reduce overhead and can provide vast improvements in latency - being especially valuable for mobile users. HTTP/2 also offers multiplexing and stream priority - which should be additional improvements to overall performance and UX. The best part is, HTTP/2 is <a href="https://aws.amazon.com/about-aws/whats-new/2016/09/amazon-cloudfront-now-supports-http2/">enabled on CloudFront</a> by defualt - Woo! Easy performance win. However, Amazon hasn't yet provided the support for all HTTP/2 features. The main feature I would like to see support for is <a href="https://http2.github.io/faq/#how-can-i-use-http2-server-push">Server Push</a>, which is arguably the most compelling aspect of implementing HTTP/2. Server push enables the server to send multiple parallel responses to a single request from the client, which means we can send all the assets we'd like, even before the client discovers them, eliminating round-trips and massively improving latency costs. But hey, this section is suppose to be about compression, and I cant use server push with CloudFront anyways, so I'll table the topic for now.</p>
 
 
-		<h3 id="setup" class="content-title">Setup</h3>
+		<h3 id="design" class="content__heading">Design</h3>
 
-			<p class="content-body"></p>
+			<p class="content__body">(coming soon) Introducing complexity into systems results in a greater exposure to unanticipated faults. What book did i read? Tiny Tweaks design as stated by <a href="http://www.lukew.com/ff/entry.asp?1514">Luke Wroblewski</a>. I can afford this design because I have the "luxury of brutally simple Web pages". Although there are more invariably models than the ones identified by Mr. Wroblewski, deviating far from normal design patterns typically results in an uncomfortable and unfamiliar UX.
 
-		<h3 id="responsiveness" class="content-title">Responsiveness</h3>
+			Also maybe talk about the email button and it's issues with emailto. 
 
-			<p class="content-body">Lorem ipsum dolor sit amet, id sed fermentum purus, sit dictumst leo sed nulla, a ac fusce ut ipsum, faucibus scelerisque wisi lorem, quis quam. In nisl, wisi diam arcu ac felis ligula. Enim id platea, pharetra pede vestibulum nunc, lorem porta lacus risus, tincidunt pellentesque et et quisque ullamcorper. Ut vel venenatis eget mollis magna augue, dolor libero mi sollicitudin enim senectus at. Suscipit ac sem, neque volutpat turpis, lorem morbi fringilla etiam netus diam, pulvinar interdum et, id ipsum lorem.</p>
+			Image selection. To be perfectly honest, I'm not in love with floral.png, but it gets the job done, and I'm just so incredibly sick of searching for stock images, really. Requirements 1) something that can have text overlayed on top of it, and still be legible. this goes hand and hand with it also being able to be overlaid onto text with a solid background. so not too much sudden contrast in the image 2) Is seamless along the y axis for larger screen sizes. 3) it's content is complicated enough that it visually doesn't LOOK like tile. 4) color variation. 5) wasn't made for a preteen's myspace. 
 
-		<h3 id="compression" class="content-title">Compression</h3>
+			Mention font scaling with EMs and REM and Handling touch inputs on mobile, line height to touch links easier, buttons large enough for touch. -- maybe in a Stuff I dont Have To Worry About section?
 
-			<p class="content-body">I've used <a href="http://www.gzip.org/">gzip</a> to compress my main.css file and have effectively reduced the file size from XXXX bytes, to XXX bytes - a XX% reduction. The gzip utility can be employed on an Amazon S3 instance by first compressing the resource locally, uploading that compressed file to your S3 bucket, then explicitly setting the resource's "content-encoding" directive to "gzip".</p>
+			<a href="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png">Semantic HTML</a> and <a href="https://schema.org/docs/gs.html">Schema.org Microdata</a>. This site was designed to still make sense, even if styles.css fails to deliver. 
 
-		<h3 id="design" class="content-title">Design</h3>
+			Enabling HTTPS with cloudfront and AWS Certificate Manager. Protecting your resources with HTTPS protects your users, protects the integrity of your assets, enables the use of newer web platform features and APIs for devs, may boost your pagerank in search engines, <i>and</i> is free - this one's a no-brainer. 
 
-			<p class="content-body">Lorem ipsum dolor sit amet, id sed fermentum purus, sit dictumst leo sed nulla, a ac fusce ut ipsum, faucibus scelerisque wisi lorem, quis quam. In nisl, wisi diam arcu ac felis ligula. Enim id platea, pharetra pede vestibulum nunc, lorem porta lacus risus, tincidunt pellentesque et et quisque ullamcorper. Ut vel venenatis eget mollis magna augue, dolor libero mi sollicitudin enim senectus at. Suscipit ac sem, neque volutpat turpis, lorem morbi fringilla etiam netus diam, pulvinar interdum et, id ipsum lorem.</p>
+			</p>
 
-		<h3 id="caching" class="content-title">Caching</h3>
+		<h3 id="caching" class="content__heading">Caching</h3>
 
-			<p class="content-body">In an effort to reduce server expenses, avoid network latency, and reduce client data charges, I've specified <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">cache-control</a> directives on certain resources. By default, Amazon S3 has also assigned each resource a validation token (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a>), which eliminates the unnecessary re-transfer of unchanged resources upon new requests.</p>
+			<h5 class="content__title">Cache-control & ETag</h5>
+			<p class="content__body">In an effort to reduce server expenses, avoid network latency, and reduce client data charges, I've specified <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">cache-control</a> directives on certain resources within the Amazon S3 console. By default, Amazon S3 has also assigned each resource a validation token (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a>), which eliminates the unnecessary re-transfer of unchanged resources upon new requests. The ETag is stored on the client's machine and sent along with the client's HTTP request to the server - after the browser has recognized that a resource in the cache has expired. If the server's ETag matches the one in the client's "If-None-Match" HTTP header, then the server responds with a "304 Not Modified" response, and updates the timestamp in the user's cache.</p>
 
-			<p class="content-body">**need to write section about fingerprinting css file. Also think about how this affects the caching and addition of new images (because they are referenced in the CSS stylesheet)**</p>
+			<h5 class="content__title">CloudFront caching</h5>
+			<p class="content__body">Because this site runs on an S3 origin server that is integrated with Amazon's CloudFront CDN, additional caching at edge locations provides lower latency and is a better performance optimization over one origin server. This added layer of caching makes our site more resilient, available, and performant, but does introduce issues when our assets become outdated. If we make a change to a file on our origin server, we must wait for that file to expire in the caches of our edge locations before the latest content can be delivered to our users. This can be mitigated by versioning frequently-changing files, but at the same time, implementing versioning introduces complexity into applications. Because of this site's requirements, updating content isn't typically time-sensitive nor frequent, so I can confidently set cache-control directives very high, and cach-bust with <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">CloudFront Invalidations</a>. The downside is that these invalidations take approximatly 15 to 30 minutes to affect all Amazon edge locations. Furthermore, there is a cap on the quantity of free invalidations that can be made per month per AWS account, but thankfully it's capped at a copious 1000 paths (at the time of this writing). Although caching can introduce issues, they can be easily managed, and caching as a whole provides large performance wins for this site.</p>
 
-		<h3 id="cssOptimizations" class="content-title">CSS Optimizations</h3>
+		<h3 id="cssOptimizations" class="content__heading">CSS optimizations</h3>
 
-			<p class="content-body">Lorem ipsum dolor sit amet, id sed fermentum purus, sit dictumst leo sed nulla, a ac fusce ut ipsum, faucibus scelerisque wisi lorem, quis quam. In nisl, wisi diam arcu ac felis ligula. Enim id platea, pharetra pede vestibulum nunc, lorem porta lacus risus, tincidunt pellentesque et et quisque ullamcorper. Ut vel venenatis eget mollis magna augue, dolor libero mi sollicitudin enim senectus at. Suscipit ac sem, neque volutpat turpis, lorem morbi fringilla etiam netus diam, pulvinar interdum et, id ipsum lorem.</p>
+			<p class="content__body">On this site, the CSS has been written in such a way that is maintainable and performant. It too, has been delivered in a form that's suitable for quick interpretation and construction by the browser.</p>
 
-		<h3 id="imageOptimizations" class="content-title">Image Optimizations</h3>
+			<h5 class="content__title">Simple CSS selectors</h5>
+			<p class="content__body">First, as trivial as it may sound, a lot of care went into the CSS class names (CSS selectors) on this site. Class names should be descriptive, but not limit their applications. I'm sure most web developers, at some point, have written two completely separate CSS classes in different parts of the stylesheet that have the <i>exact</i> same declarations - not very DRY. It's an easy trap to fall into if sufficient consideration isn't given to class naming and stylesheet structure. Nowadays, smart CSS preprocessors will collapse similar classes into eachother to save bytes, but doing this still leaves the development versions of stylesheets bloated and mismanaged. Incorporating a CSS-naming-convention like <a href="https://en.bem.info/methodology/">BEM</a> or <a href="https://smacss.com/">SMACSS</a>, can help navigate around these issues. At the same time, we also need to consider our class naming conventions when optimizing for CSSOM construction. The less logic we use to describe our CSS rules, the easier and more straightforawrd it will be (and the faster it will take) for the browser to interpret those rules, calculate styles, and apply them to the DOM.</p>
 
-			<p class="content-body">The image that I've included on this site, in its original form (from a stock photo site), was a 6500 x 5000 JPEG weighing in at 8.9MB (floral.jpeg). Although this is a super high-res image, and great for flexibility when designing, it's also a horrendously innapporpriate file to serve in production. This is not only because of the image's large file size, but also because this high of a resolution is simply not nessecary for its purposes on this site; ergo, some optimization is in order.</p>
+			<h5 class="content__title">Inlining critical CSS</h5>
+			<p class="content__body">Because CSS is a render-blocking resource, it's benefitial for this website to inline critical CSS, especially on index.html. It's important to breifly note that CSS should be inlined in the head of a HTML document, and not on individual HTML elements. This is because inlining on elements can quickly lead to duplication of CSS rules, and on top of this, if a site has made use of <a href="https://www.w3.org/TR/CSP/">Content Security Policy</a>, CSS inlined on HTML elements will be blocked by default. Anways, to verify that inlining is a good performance optimization for this site, I tested the page load of index.html over the network with styles.css.gz, and with inlined critical CSS and the remaining styles (for the other pages on this site) prefetched. The results showed that.......................</p>
 
-			<p class="content-body">To make floral.jpeg a better fit for the web, and at the same time, accomplish its design purpose, it was converted to a PNG-8 in Photoshop CS6 (now floral.png). This reformatting not only reduces the file size, but preserves the desired detail within the image - as PNG makes use of lossless compression algorithms. Then, the file size of floral.png was further reduced by limiting the color palette to 128 colors, from 256 colors. This adjustment to the palette renders little perceivable difference in floral.png, but yields an additional 29.1% reduction in file size. By doing this, floral.jpeg has gone from 8.9MB to 4.0MB - an overall 55% savings.</p>
+			<h5 class="content__title">Minification</h5>
+			<p class="content__body">Throughout this site, Gulp has been put to work in many cases, and in this case, I'm using it to minify my CSS with <a href="https://www.npmjs.com/package/gulp-clean-css">glup-clean-css</a>. Clean-CSS minification strips out unnessecary whitespace, along with <a href="https://github.com/jakubpawlowicz/clean-css">a number of other optimizations</a>. However, I've still been looking for a gulp task that will safely compress my CSS class names across CSS, HTML, and JavaScript resources, without introducing buggy behavior.</p>
 
-			<p class="content-body">Intuitively, the most direct image optimization is to just make the image smaller; so, floral.png was then pruned down to a reasonable resolution, from 6500 x 5000 to 1400 x 1077. Because floral.png is seamless, it could've afforded a much larger reduction in resolution, but the decision to keep it at 1400 x 1077 was based on the design objectives of the site, the contents of the image, and the image's engagement with accompanying text on the site. floral.png has now gone from a 8.9MB file to 377KB - an overall 95.8% savings</p>
+			<h5 class="content__title">SASS</h5>
+			<p class="content__body">I wanted to mention that Syntastically Awesome Style Sheets (SASS) has been a godsend in some of my larger projects, however, its utility on this site hasn't really been valuable thus far. I've mainly just used SASS within this project to define a few variables, compartmentalize my css rules, and create a CSS infrastructure that will scale - that is, <i>if</i> the decision is made to add more modules to this site. At the time of this writing, SASS has been minimally incorporated, but is poised to contribute significantly if this site's stylesheet grows.</p>
 
-			<p class="content-body">The last attempt at making the image as compact as possible, was to run it through <a href="http://optipng.sourceforge.net/">OptiPNG</a> - a command line "PNG optimizer that recompresses image files to a smaller size, without losing any information". Because floral.png had already been optimized through Photoshop, the additional savings from running OptiPNG's compression were only limited to 0.06%, or 239 bytes. To learn more about how OptiPNG compresses PNGs, <a href="http://optipng.sourceforge.net/optipng-0.7.6.man.pdf">read this</a>. If you'd like more general info on how to optimize PNGs, <a href="http://optipng.sourceforge.net/pngtech/optipng.html">this</a> is a good resource.</p>
+		<h3 id="imageOptimizations" class="content__heading">Image optimizations</h3>
 
-			<p class="content-body"></p>
+			<p class="content__body">The image that I've included on this site, in its original form (from a stock photo site), was a 6500 x 5000 JPEG weighing in at 8.9MB (floral.jpeg). Although this is a super high-res image, and great for flexibility when designing, it's also a horrendously innapporpriate file to serve in production. This is not only because of the image's large file size, but also because this high of a resolution is simply not nessecary for its purposes on this site; ergo, some serious optimization is in order. <i>Quick disclaimer:</i> This is, by far, the most lengthy section of this site's documentation, but because images typically account for the most bytes on a web page and also occupy so much visual space on websites, it makes image optimization a compelling task.</p>
+
+			<h5 class="content__title">Image formats</h5>
+			<p class="content__body">To make floral.jpeg a better fit for the web, and at the same time, accomplish its design purpose, it was converted to a PNG-8 in Photoshop CS6 (now floral.<i>png</i>). This reformatting not only reduces the file size, but preserves the desired detail within the image - as PNG makes use of lossless compression algorithms. The size of floral.png was then further reduced by limiting the color palette to 128 colors, from 256 colors. This adjustment to the palette renders little perceivable difference in floral.png, but yields an additional 29.1% reduction in file size. By doing this, floral.jpeg has quickly gone from 8.9MB to 4.0MB - a quick 55% savings.</p>
+
+			<h5 class="content__title">Gulp-imagemin & OptiPNG</h5>
+			<p class="content__body">The next attempt at making the image as compact as possible, was to run it through <a href="http://optipng.sourceforge.net/">OptiPNG</a> - a command line "PNG optimizer that recompresses image files to a smaller size, without losing any information". Because floral.png had already been optimized through Photoshop, the additional savings from running OptiPNG's compression were only limited to 0.06%, or 239 bytes. To learn more about how OptiPNG compresses PNGs, <a href="http://optipng.sourceforge.net/optipng-0.7.6.man.pdf">read this</a>. If you'd like more general info on how to optimize PNGs, <a href="http://optipng.sourceforge.net/pngtech/optipng.html">this</a> is a good resource. To make this process streamline with my build process, I incorporated Gulp task <a href="https://www.npmjs.com/package/gulp-imagemin">gulp-imagemin</a>, which actually leverages the OptiPNG compression methods among others.</p>
+
+			<h5 class="content__title">Resizing</h5>
+			<p class="content__body">Intuitively, the most direct image optimization is to just make the image dimensions smaller; so, floral.png was then sized down to a reasonable resolution, from 6500 x 5000 to 1400 x 1077. Because floral.png is seamless, it could've afforded a much larger reduction in resolution, but the decision to keep it at 1400 x 1077 was based on the design objectives of the site, the contents of the image, and the image's engagement with accompanying text on the site. floral.png has now gone from a 8.9MB file to 377KB - a 95.8% savings.</p>
+
+			<h5 class="content__title">Using seperate images</h5>
+			<p class="content__body">floral.png is being used in more than one place on the site, and in these different spots, there different functional uses of floral.png. The two situationally different uses are:</p>
+
+			<ol class="content__list">
+				<li>The header background-image on resume.html/design.html</li>
+				<li>The text background-image for the "Lyndon Core" heading on index.html</li>
+			</ol>
+
+			<p class="content__body">These two applications demand different requirements from floral.png, and both only utilize bits-and-pieces of the full resolution image; therefore, we have an oppurtunity to further optimize for each of the two cases for their unique purposes. <a href="">Later on</a>, I test to make sure that delivering two seperate images is, in fact, more performant than only using one.</p>
+
+			<h5 class="content__title">Optimizing floral.png on design.html/resume.html</h5>
+			<p class="content__body">In our first case, we have floral.png being used as the background-image in the header of resume.html and design.html. On these pages, we need the detail of the image preserved, but don't need the image in its entirety. Only the middle section of floral.png is visable in the header (because of "background-position-y: center;"), so it looks like there are expensive pixels being transfered over the network, but never being seen because they've been placed out-of-view via CSS. Because those parts of the image will never be seen, the top and bottom of floral.png were trimmed off to produce an entirely new image - floral-cropped.png. Using floral-cropped.png over our full-sized floral.png maintains the seamlessness along the y-axis (nessecary on larger screen sizes), while also saving 68.0% on file size.<br><br>
+
+			<i>Note: We will have to monitor the length of our page titles (e.g. "Site Design" on this page) to make sure that the text doesn't wrap on smaller screen sizes. In the case that it does, because floral.png was cropped, the background-image is no longer seamless along the x-axis, so the result will look pretty ugly. If we must use a longer page title in the future, a media query will have to handle resizing the text so it doesn't wrap.</i></p>
+
+			<h5 class="content__title">Optimizing floral.png on index.html</h5>
+			<p class="content__body">In our second case, the background-image of "Lyndon Core" on index.html, floral.png was originaly being resized down to fit the desired overlay pattern on the text. This was for aesthetics, so it <i>did</i> look good, but it wasn't an optimal use of the image. There were a lot of pixels that were loaded and never even seen due to the loss of detail in the resizing. Here, it makes sense to create a smaller instance of floral.png as floral-sm.png, and simply show it at 100% of it's display size. This way, we can spend our server's time & resources serving only pixels that will be used, and nothing more. Using a seperate and smaller version of floral.png saves us 94.6% of the file size over using the full-sized PNG.<br><br>
+
+			This is great and all, and it feels like we're done, but there are <i>still</i> large areas of floral-sm.png that we never see painted on top of the "Lyndon Core" letters. Unfortunately for us, raster images on the web are rectangular in nature, and not "Lyndon Core" shaped, or any other shape for that matter, so we can't directly avoid sending the unseen content of floral-sm.png - dang it. But, as it turns out, we can still save ourselves from incurring a lot of that information cost thanks to <a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">PNG's "filtering"</a> process that draws on <a href="https://en.wikipedia.org/wiki/Delta_encoding">delta encoding</a>. If we open up floral-sm.png in Photoshop, and white-out all the parts of floral-sm.png that aren't seen on the letters of "Lyndon Core", we can seriously reduce the size of the background-image. So, we'll still be sending all the parts of the image that won't be used, however, those parts will now be much less data heavy. On top of all of this, there were still 44 pixels on the bottom of the new image (floral-xsm.png) that could be trimmed off because, even when the text "Core" wrapped on smaller screen sizes, the image was never seen below that point. This new PNG, <a href="">floral-xsm.png</a> (XXXX bytes), is about a third of the size of <a href="">floral-sm.png</a> (XXXX bytes), and in total XX% smaller than our original floral.png.<br><br>
+
+			<i>Note: The byte savings associated with floral-xsm.png are considerable, however it's created somewhat of a nightmare with how our "Lyndon Core" text is displayed. As it turns out, browsers aren't too consistent with how text is rendered, more specifically the content area of the text itself. <a href="http://stackoverflow.com/questions/14573445/why-does-firefox-treat-helvetica-differently-from-chrome">This stack overflow entry</a> highlights this issue. Because we risk accidentally rendering a whited-out part of our image over our text, floral-xsm.png is quite liberal on how much of the image remains. Also, it's a good precautionary measure that we specify <code>font-size</code>, <code>background-size</code>, and <code>line-height</code> in the same units (px) to ensure that if they are scaled up/down in any enviornment, they are scaled together one-for-one.</i></p>
+
+			<h5 id="preloading" class="content__title">Preload vs. Data URI</h5>
+			<p class="content__body">I noticed, while loading index.html over the network, that floral-sm.png was taking lower priority and had a later "start-time" than other resources in the in the <a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/resource-loading">Chrome Devtools Network Tab</a>. This was probably because the browser's <a href="http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/">look-ahead pre-loader</a> wasn't recognizing the url for floral-sm.png within the CSS, and was most likely waiting for the CSSOM to be constructed before fetching it........ VERIFY. This is an incredibly important issue; Not only do we need floral-sm.png to load like lightning, because it's the only way it will render "Lyndon Core", it's also the centerpeice of our users first impression on this site. So, to solve this, I've considered two solutions:</p>
+			<ol class="content__list">
+				<li>A link element in the head of index.html to preload floral-sm.png</li>
+				<li>Inline our floral-xsm.png as a base-64 encoded URI within our HTML</li>
+			</ol>
+
+			<h5 class="content__title">Data URI approach</h5>
+			<p class="content__body">The URI approach ensures that all of our content is loaded within the first round trip, and fits within 14KB or 10 TCP packets, which is a huge performance win! This threshold is significant because it's the initial size of the congestion window on a new TCP connection, part of the process known as <a href="">TCP Slow Start</a>. But this reduction in latency isn't without some gotchas: First, utilizing a URI increases the size of our image data because the <a href="http://stackoverflow.com/questions/11402329/base64-encoded-image-size">base64 output to input ratio is 4:3</a>, not including padding and other data. But, at the same time, when the HTML file is gziped, it negates a lot of this bloat. Another tradeoff of inlining URIs is that the HTML typically isn't cached, so it's sent over the wire on every HTML request, but again, because we are caching our HTML, and floral-xsm.png is only used on index.html, it only makes it so that <i>changes</i> to the URI or HTML require the invalidation and retransmition of both - which isn't too costly in our case. The real gotcha here, is that on every request of index.html, cached or not, we must deal with the overhead of memory allocation to decode the URI into the PNG, <a href="http://dev.mobify.com/blog/data-uris-are-slow-on-mobile/">which can be slow</a>.</p>
+
+			<h5 id="preloading" class="content__title">Preloading approach</h5>
+			<p class="content__body">Link Preloading (just like <a href="#prefetching">prefetching</a>) is a resource hint that we can leverage to let the browser know that we plan to use the specified asset somewhere on the current page, and prioritze its retreival over other requested assets. <a href="http://caniuse.com/#feat=link-rel-preload">Browser support for Preload</a> isn't optimal, sitting at just less than 50% (at the time of this writing). So, in about half of our cases, we will have to fetch floral-xsm.png normally - when the client's browser finds it in our CSS.</p>
+
+			<h5 class="content__title">Testing the two approaches</h5>
+			<p class="content__body">Ultimately, both methods need to be tested on our pages. The initial results of index.html load with URI are...... TEST.  A quick test run with the preloading approach hints at........ TEST........ <a href="http://caniuse.com/#search=data%20uri">Browser support for Data URIs</a>, with our use case in mind, is just about perfect, so it's safe to say that..........  CONCLUSION.</p>
+
+			<h5 class="content__title">Art direction</h5>
+			<p class="content__body">Regardless of the image delivery method we decide on, there's a good chance we will have to make another round trip anyways - Why? Because <a href="https://developers.google.com/web/fundamentals/design-and-ui/media/images#art_direction">art direction</a> is important. It's easy to send a small image to a user and call it performant, although it doesn't always provide an optimal user experience. Go figure. For one, screen resolution varies wildly between <a href="https://material.io/devices/">all the devices</a> front-end devs have to accomodate nowadays. It's unacceptable to show users with a 3dppx screen (i.e. the Samsung Galaxy S5) an image that was optimized for a 1dppx screen (i.e. my Macbook Air). Blurry images degrade the UX. For this reason, I use our implementation of floral-xsm.png as a <a href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholder</a> (or LQIP), then query the client's device resolution with some javascript (<code>window.matchMedia</code>), and go fetch the best image for the user <i>after</i> floral-xsm.png loads. This means the user gets visual feedback immediatly, then they recieve <a href="images/floral-xsm2x.png">floral-xsm2x.png</a> or <a href="images/floral-xsm3x.png">floral-xsm3x.png</a> to appropiratly complement their device capabilities.<br><br>
+
+			Because mobile networks can vary wildly in bandwidth and latency, partially due to some <a href="https://hpbn.co/assets/diagrams/773ecb15832075c0b56021aa3ad15233.svg">infrastructure overhead</a>, it's also important to consider the network connection and serve appropriate images based on network constraints. However, the <code>navigator.connection</code> web API is simply too unreliable and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API#Browser_compatibility">unsupported</a> at the moment. For now, we're going to leave this test out of our javascript.</p>
+
+			<h5 class="content__title">Back to floral-cropped.png</h5>
+			<p class="content__body">When a user of this site lands on index.html, and subsequently clicks on the link that brings them to this page, it would be nice if the image used at the top (floral-cropped.png) had already been downloaded by the browser. This would save us a lot of time in rendering the page, and would've been the case when using a single cached image asset (floral.png) all over the site - instead, we have decided to use seperate image assets that aren't interchangable. This occurance seems like a performance loss, or at least a negative externality of using two modified versions of the same image. However, there is a way we can get the best of both worlds by prefetching floral-cropped.png.</p>
+
+			<h5 id="prefetching" class="content__title">Prefetching</h5>
+			<p class="content__body"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ">Link prefetching</a> is a feature of modern browsers that uses idle time to fetch and download specified resources that will most likely be needed on subsequest requests. The browser then stores them in the cache for later use. Because prefetching is initiated after page load, it doesn't impact the critical rendering path, which keeps our percieved page loads fast. floral-cropped.png is the perfect candidate to be prefetched, mainly because every other page on this site uses it, and it's being <i>assumed</i> that a significant number of visitors will make the navigation to a second page. Because floral-cropped.png seems like a good fit to be prefetched, we can apply this mechanism on the load of index.html - so the image will be pulled locally from the user's cache on subsequent navigations. But of course, there are tradeoffs. The obvious caveat is the extra upfront data transfer costs for both the client and the server. Also, the prefetch resource hint <a href="http://caniuse.com/#feat=link-rel-prefetch">isn't supported</a> in all browsers, so there will be unavoidable instances where clients must wait a little longer for floral-cropped.png while loading design.html. We must decide whether or not it's a good design decision to risk incurring potentially slower subsequent page loads by leveraging prefetch in unsupported browsers, or if we should just use one image and have a slower inital page load (index.html) but fast subsequent page loads by leveraging the user's cache.</p>
+
+			<h5 class="content__title">Testing the two-image prefetch method</h5>
+			<p class="content__body">When deciding which method we would like to deliver our image(s) with, there are two main considerations: How much data are we transfering (what are our and the user's data costs), and how is each method going to affect time-to-load?<br><br>
+
+			Using the two-image prefetch method, the cumulative transfer size of images is 138.1KB on index.html, and 0KB on design.html (cached). This will be the case with 71% probability, where the prefetch is successful because of <a href="http://caniuse.com/#search=prefetch">browser support</a>. Which means, in the remaining 29% of cases where the user agent doesn't support the prefetch resource hint (iOS, Safari, and Opera), 20.1KB of image resources will be downloaded on index.html, and the remaining 118KB on design.html. Real usage data would be much more representative/valuable in this caculation, however, this site has yet to aquire enough traffic to derive a statistically significant UA sample, so global browser support data gives us <i>some</i> idea of how well our image delivery will be supported. To get a realistic idea of how much data we will actually serve to real users, the data sent must be weighed by the click-through rate to subsequent pages. The total amount of image data transfered is only affected by the click-through rate when prefetch fails. This basically means, for 0 > P > 1, where P is the probability of click-through, 20.1KB to 138.1KB will be served over the network.<br><br>
+
+			In summary, 138.1KB will be served 71% of the time, and 20.1KB (0% click-through-rate) - 138.1KB (100% click-though-rate) will be served 29% of the time. In our worst case cost-of-data-transfer senario, we serve 138.1KB. With our click-though-rate in mind, given very low engagement it <i>may</i> make sense to not prefetch floral-cropped.png at all. This would save us the load on our server, data transfer costs, and save our user's the data transfer.<br><br>
+
+			On the other hand, if we implement the one-image and cache method, the transfer size of image (just floral.png) is 367KB on index.html, with the image being provided from the user's cache on subsequent pages. Consequently, we will serve 367KB in our best <i>and</i> worst case situation, with certainty. This size of 367KB is much larger than our two-image 138.1KB cost-of-data-transfer worse case senario, but truthfully, this method was never designed to be lighter; it's being challenged because of performance. This is all assuming that caching is equally successful in both instances. 
+
+			ADD IN THAT FLORAL-CROPPED WILL BE WEBP in whatever % of cases.
+
+			But how does this method of using seperate floral images affect load times?
+
+			</p>
+
+			<h5 id="usingWebp" class="content__title">Using Webp</h5>
+			<p class="content__body">As it turns out, we can provide even smaller image files with Google's Webp image format... yep, still not done optimizing our images. <a href="https://developers.google.com/speed/webp/">Webp</a> is a relatively new image format, developed by the smart people at over at Google, that provides superior lossy and lossless compression for images on the web. However, the native support for webp (as of this writing) is only in Chrome, Opera, and Andriod Browser, which is around <a href="http://caniuse.com/#feat=webp">73% of the web</a>. But we're going to need 100% of our users to be able to see our images. If we could detect what browser the user was on, and serve them the best image format, that would be ideal. We can do this type of feature detection client-side with a custom <a href="https://modernizr.com/">Modernizr</a> javascript build. If the client's browser supports Webp, Modernizr will be able to detect it, and a "webp" class will be added to the html element. We can check for the presence of the "webp" class in our CSS, and conditionally set different background images (.webp or .png). But there's a performance gotcha when using Modernizr this way - <i>first</i>, the initial response will first be recieved by the user, <i>then</i> the external javascript file will be discovered during parsing, <i>then</i> the browser will have to wait for the javascript file to be fetched, <i>then</i> the javascript will execute and add our "webp" class to the html element, at which point the CSS can <i>finally</i> recognize which image format to go retreive. This approach doesn't seem optimal.<br><br>
+
+			Alternatively, we could do this with server-side logic, and avoid the extra trips over the network, but we must also consider the additional CPU overhead, setup, and latency. In terms of performance, the CPU overhead and setup are pretty much neglectable, but added latency between Amazon's edge locations and our origin sever has a considerable performance implication - applicable in some cases when providing dynamic content. To simplify things and be decisive, we will just send floral-sm.png with index.html because: 1) we can fetch it right from the get-go with <a href="#preloading">our preload</a>, 2) the browser support for png is ideal, and 3) the difference between floral-sm.png (19.6KB) and floral-sm.webp (16.4KB) is only 3.2KB.<br><br>
+
+			But hey, we still have floral-cropped.png to think about. The difference between floral-cropped.png (117.2KB) and floral-cropped.webp (88.8KB) is 28.4KB, so the case to serve the image as a Webp is much more compelling. Because we'd like to use Webp, we're going to have to specify the appropriate format of floral-cropped during our prefetch, which means inserting a little javascript logic to handle which file to retreive. I've written a little function that queries the result of our Modernizr script, and injects the proper prefetch request into the document head. It's only 319 bytes, and although this complicates our prefetching process, it's worth the 28.4KB savings.</p>
 		
-	</div>
+		<h3 id="resiliency" class="content__heading">Resiliency</h3>
+
+			<p class="content__body">Using CloudFront edge locations makes it so that there is no single point of failure to the site. if my origin server goes down, there are many distrubuted versions of the site cached all over the US (and canada or whatever). </p>
+
+		<h3 id="inTheWorks" class="content__heading">In the works</h3>
+
+			<p class="content__body">Over time, I will gradually add components to this site that test design principals and create challenging performance problems. There's so much I'd like to do with this site, and so many cool new toys I want to play around with, but they'll have to come one-at-a-time. For now, this is what's in the pipeline:</p>
+
+			<h5 class="content__title">Service worker</h5>
+			<p class="content__body">Device states (low power mode, device overheating, memory constraints, etc.) and netowrks (especially mobile networks) are unpredictable. This unpredictability means that fast isn't always enough. Our applications must be resilient. Offline first, bro</p>
+
+			<h5 class="content__title">Server Push - HTTP/2</h5>
+			<p class="content__body">I'd love to figure out how to implement <a href="https://http2.github.io/faq/#how-can-i-use-http2-server-push">Server Push</a> with CloudFront so I can play around with it, but it's not availbale with cloudfront.</p>
+
+	</article>
+
 </div>
 
 </body>

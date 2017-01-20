@@ -1,0 +1,244 @@
+body {
+	color: #363636;
+	font-family: helvetica;
+	margin: 0;
+}
+
+code {
+	background: #eee;
+    border: solid 1px #ddd;
+    border-radius: 2px;
+    padding: 0 5px;
+}
+
+.webp .header {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	background: #F3F3F3;
+	background-position-y: center;
+	background: url(../images/floral-cropped.webp);
+	background-size: 100%;
+	padding: 10px 0;
+	color: #fff;
+}
+
+.no-webp .header {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	background: #F3F3F3;
+	background-position-y: center;
+	background: url(../images/floral-cropped.png);
+	background-size: 100%;
+	padding: 10px 0;
+	color: #fff;
+}
+
+.header__btn {
+	margin: 45px 0 40px;
+}
+
+.header__btn-text {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px #42203a;
+    border-radius: 3px;
+    background-color: rgba(66, 32, 58, 0.95);
+}
+
+.header__title {
+	margin: 10px 0 55px;
+	font-size: 45px;
+	text-shadow: 0px 0px 20px #422139;
+}
+
+.main {
+	display: flex;
+	justify-content: center;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.nav {
+	width: 240px;
+	padding-right: 10px;
+	margin-top: 0px;
+}
+
+.nav__list {
+	list-style: none;
+	line-height: 2;
+	margin-top: 42px;
+}
+
+.nav__item {
+	color: #b4ba51;
+	text-decoration: none;
+}
+
+.nav__list--fixed {
+	list-style: none;
+	line-height: 2;
+	position: fixed;
+	top: 35px;
+}
+
+.nav--m {
+	display: none;
+}
+
+.content {
+	width: 680px;
+	padding-right: 10px;
+}
+
+.content__heading {
+	margin-top: 45px;
+	font-size: 22px;
+	color: #b4ba51;
+}
+
+.content__title {
+	font-size: 14px;
+	/* padding-left: 24px; */
+	margin-bottom: 0px;
+}
+
+.content__title2 {
+	font-size: 14px;
+	/* padding-left: 24px; */
+	margin: 4px 0 20px 0;
+}
+
+.content__subtitle {
+	font-size: 14px;
+	/* padding-left: 24px; */
+	margin: 4px 0 20px 0;
+	color: #666;
+}
+
+.content__list--bold {
+	font-size: 14px;
+	margin: 5px 0 5px;
+}
+
+.content__list {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #666;
+	margin-left: -24px;
+}
+
+.content__body {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #666;
+}
+
+.content__body2 {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #666;
+	margin-left: -40px;
+}
+
+.content__body--example {
+	line-height: 2;
+	color: #666;
+	background: #eee;
+	padding: 8px 15px;
+	border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+
+	.main {
+		display: flex;
+		justify-content: center;
+		margin-top: 0px;
+		margin-bottom: 35px;
+	}
+
+	.nav {
+		display: none;
+	}
+
+	.nav--m {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 20px;
+		background: #00687b;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.content {
+		margin-left: 20px;
+	}
+
+}
+
+@media (max-width: 950px) {
+
+	.webp .header {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		background: #F3F3F3;
+		background: url(../images/floral-cropped.webp);
+		background-size: 950px;
+		background-position: center center;
+		padding: 10px 0;
+		color: #fff;
+	}
+
+	.no-webp .header {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		background: #F3F3F3;
+		background: url(../images/floral-cropped.png);
+		background-size: 950px;
+		background-position: center center;
+		padding: 10px 0;
+		color: #fff;
+	}
+}
+
+@media (min-width: 1400px) {
+
+	.webp .header {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		background: #F3F3F3;
+		background: url(../images/floral-cropped.webp);
+		background-size: 1450px;
+		background-position: center center;
+		background-repeat: repeat-x;
+		padding: 10px 0;
+		color: #fff;
+	}
+
+	.no-webp .header {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		background: #F3F3F3;
+		background: url(../images/floral-cropped.png);
+		background-size: 1450px;
+		background-position: center center;
+		background-repeat: repeat-x;
+		padding: 10px 0;
+		color: #fff;
+	}
+}

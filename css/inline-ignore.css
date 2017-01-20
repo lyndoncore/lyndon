@@ -1,0 +1,30 @@
+.i-body {
+	color: #363636;
+	font-family: helvetica;
+	padding-left: 10vw;
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	margin: 0;}
+.i-container {
+	max-width: 480px;
+	padding-right: 10vw;}
+.i-name {
+	font-size: 4em;
+	color: #0d0e23;
+	margin-top: 0;
+	background: url(floral22-sm.png);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;}
+p {
+	line-height: 2;}
+a {
+	color: #b4ba51;}
+button {
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 15px;
+	color: white;
+	background: #b4ba51;
+	margin-top: 22px;}
