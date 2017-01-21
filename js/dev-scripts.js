@@ -17,58 +17,68 @@
 // Prefetch the proper image format based on Modernizr 
 // COMMENTED OUT BECAUSE IT BELONGS INLINE ON INDEX.HTML
 //
-function prefetch() {
-	var link = document.createElement('link');
-	link.rel = 'prefetch';
-	if (html.classList.contains('webp')) {
-		link.href = 'images/floral-cropped.webp';
-	} else {
-		link.href = 'images/floral-cropped.png';
-	}
-	link.as = 'image';
-	document.head.appendChild(link);
-}
+//function prefetch() {
+//	var link = document.createElement('link');
+//	link.rel = 'prefetch';
+//	if (html.classList.contains('webp')) {
+//		link.href = 'images/floral-cropped.webp';
+//	} else {
+//		link.href = 'images/floral-cropped.png';
+//	}
+//	link.as = 'image';
+//	document.head.appendChild(link);
+//}
 
 // Prefetch the proper image size based on media queries DPPX
 // COMMENTED OUT BECAUSE IT BELONGS INLINE ON INDEX.HTML
 //
-function setBg() {
-	var textBgImage = document.getElementsByTagName('h1');
-	if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
-		if (html.classList.contains('webp')) {
-  			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm3x.webp")');
-  		} else {
-  			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm3x.png")');
-  		}
-  		var c = textBgImage[0].getAttribute('data-bg-img');
-			textBgImage[0].style.background = c;
-			textBgImage[0].style.webkitBackgroundClip = "text";
-			textBgImage[0].style.backgroundClip = "text";
-			textBgImage[0].style.webkitTextFillColor = "transparent";
-			textBgImage[0].style.backgroundSize = "235px";
-	} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
-		if (html.classList.contains('webp')) {
-  			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm2x.webp")');
-  		} else {
-  			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm2x.png")');
-  		}
-  		var c = textBgImage[0].getAttribute('data-bg-img');
-			textBgImage[0].style.background = c;
-			textBgImage[0].style.webkitBackgroundClip = "text";
-			textBgImage[0].style.backgroundClip = "text";
-			textBgImage[0].style.webkitTextFillColor = "transparent";
-			textBgImage[0].style.backgroundSize = "235px";
-	} else {
-	}
-}
-
-
-
-function run(){
-	prefetch();
-	setBg();
-}
-window.onload = run;
+//function setBg() {
+//	var textBgImage = document.getElementsByTagName('h1');
+//	function loadBg(src, callback) {
+//    	var image = new Image();
+//    	image.onload = callback;
+//    	image.src = src;
+//	}
+//	function updateBg() {
+//		var c = textBgImage[0].getAttribute('data-bg-img');
+//		textBgImage[0].style.background = c;
+//		textBgImage[0].style.webkitBackgroundClip = "text";
+//		textBgImage[0].style.backgroundClip = "text";
+//		textBgImage[0].style.webkitTextFillColor = "transparent";
+//		textBgImage[0].style.backgroundSize = "235px";
+//	}
+//	if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
+//		if (html.classList.contains('webp')) {
+//			loadBg('images/floral-xsm3x.webp', function() {
+//    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm3x.webp")');
+//    			updateBg();
+//			});
+//  		} else {
+//  			loadBg('images/floral-xsm3x.png', function() {
+//    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm3x.png")');
+//    			updateBg();
+//			});
+//  		}
+//	} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
+//		if (html.classList.contains('webp')) {
+//			loadBg('images/floral-xsm2x.webp', function() {
+//    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm2x.webp")');
+//    			updateBg();
+//			});
+//  		} else {
+//  			loadBg('images/floral-xsm2x.png', function() {
+//    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm2x.png")');
+//    			updateBg();
+//			});
+//  		}
+//	} else {
+//	}
+//}
+//function run(){
+//	prefetch();
+//	setBg();
+//}
+//window.onload = run;
 
 
 
