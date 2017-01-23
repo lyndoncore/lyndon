@@ -1,3 +1,8 @@
+html {
+	/* Prevent font scaling in landscape while allowing user zoom */
+	-webkit-text-size-adjust: 100%;
+}
+
 body {
 	color: #363636;
 	font-family: helvetica;
@@ -201,7 +206,7 @@ code {
 		width: 100%;
 		background: #F3F3F3;
 		background: url(../images/floral-cropped.webp);
-		background-size: 950px;
+		background-size: 950px 100%;
 		background-position: center center;
 		padding: 10px 0;
 		color: #fff;
@@ -214,7 +219,7 @@ code {
 		width: 100%;
 		background: #F3F3F3;
 		background: url(../images/floral-cropped.png);
-		background-size: 950px;
+		background-size: 950px 100%;
 		background-position: center center;
 		padding: 10px 0;
 		color: #fff;
