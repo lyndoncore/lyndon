@@ -1,14 +1,83 @@
+
+
 // Event Handler to make the sidenav sticky function run on scroll
 // COMMENTED OUT BECAUSE IT BELONGS INLINE ON DESIGN.HTML
-//window.onscroll = function() {navMove()};
 //
-//function navMove() {
-//    if (document.body.scrollTop > 262 || document.documentElement.scrollTop > 262) {
-//        document.getElementById("sidebar").className = "nav__list--fixed";
-//    } else {
-//        document.getElementById("sidebar").className = "nav__list";
-//    }
-//}
+function navMove() {
+    if (document.body.scrollTop > 262 || document.documentElement.scrollTop > 262) {
+        document.getElementById("sidebar").className = "nav__list--fixed";
+    } else {
+        document.getElementById("sidebar").className = "nav__list";
+    }
+}
+
+
+// Highlight the correct item in sidebar nav based on users scroll height
+function highlight() {
+
+	// Variables for the window Scrolling
+	var distanceToTop = document.body.scrollTop;
+	var distanceToTop2 = document.documentElement.scrollTop;
+
+	// An Array of the title's distances to top
+	var heading = document.body.getElementsByTagName("h3");
+	var distances = [];
+	for (i = 0; i < heading.length; i++) {
+		distances[i] = heading[i].offsetTop - 200;
+	}
+	// Value to ensure the In The Works fits in between it's heading and somewhere (aka pageBottom)
+	distances.push(99999999);
+
+	// Variables to get each Title's ID
+	var navIntro = document.getElementById("navIntro");
+	var navToolkit = document.getElementById("navToolkit");
+	var navResponsiveness = document.getElementById("navResponsiveness");
+	var navCompression = document.getElementById("navCompression");
+	var navDesign = document.getElementById("navDesign");
+	var navCaching = document.getElementById("navCaching");
+	var navCssOptimizations = document.getElementById("navCssOptimizations");
+	var navImageOptimizations = document.getElementById("navImageOptimizations");
+	var navInTheWorks = document.getElementById("navInTheWorks");
+
+	// An Array of the nav items
+	var titles = [
+		navIntro, 
+		navToolkit, 
+		navResponsiveness, 
+		navCompression, 
+		navDesign, 
+		navCaching, 
+		navCssOptimizations, 
+		navImageOptimizations, 
+		navInTheWorks
+	];
+
+	// Variable to count how many loops are done, and which nav__item to add the active class to.
+	var counter = 0;
+
+	// for each title, check the distance to the top...
+	for (i = 0; i < distances.length; i++) {
+		// increment counter...
+		counter = counter + 1;
+		// Test to see if the window is scrolled between one heading and another...
+		if ((distanceToTop > distances[i] && distanceToTop < distances[i + 1]) || (distanceToTop2 > distances[i] && distanceToTop2 < distances[i + 1])) {
+			// Remove nav__item--active from all nav__items by setting it to nav__item...
+			for (i = 0; i < titles.length; i++) {
+				titles[i].className = "nav__item";
+			}
+			// Set the desired nav__item to active
+			titles[counter - 1].className = "nav__item--active";
+		} 
+	}
+}
+
+function scrolling(){
+	navMove();
+	highlight();
+}
+
+window.onscroll = scrolling;
+
 
 // modernizr 3.3.1 (Custom Build) | MIT
 // https://modernizr.com/download/?-webp-setclasses
@@ -26,6 +95,16 @@
 //		link.href = 'images/floral-cropped.png';
 //	}
 //	link.as = 'image';
+//	document.head.appendChild(link);
+//}
+
+// defer the loading of CSS so it's non-render-blocking 
+// COMMENTED OUT BECAUSE IT BELONGS INLINE ON INDEX.HTML
+//
+//function deferStyles() {
+//	var link = document.createElement('link');
+//	link.rel = 'next stylesheet';
+//	link.href = 'css/main.css.gz';
 //	document.head.appendChild(link);
 //}
 

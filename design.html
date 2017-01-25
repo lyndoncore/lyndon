@@ -3,10 +3,9 @@
 <head>
 <title>Lyndon Core</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/main.css.gz">
-<script async src="js/scripts.js.gz"></script>
-<script>window.onscroll=function(){navMove()};function navMove(){262<document.body.scrollTop||262<document.documentElement.scrollTop?document.getElementById("sidebar").className="nav__list--fixed":document.getElementById("sidebar").className="nav__list"};
-</script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script async src="js/dev-scripts.js"></script>
+
 </head>
 <body>
 
@@ -19,15 +18,15 @@
 
 	<nav class="nav">
 		<ul class="nav__list" id="sidebar">
-			<li><a class="nav__item" href="#intro">Intro</a></li>
-			<li><a class="nav__item" href="#toolkit">Toolkit</a></li>
-			<li><a class="nav__item" href="#responsiveness">Responsiveness</a></li>
-			<li><a class="nav__item" href="#compression">Compression</a></li>
-			<li><a class="nav__item" href="#design">Design</a></li>
-			<li><a class="nav__item" href="#caching">Caching</a></li>
-			<li><a class="nav__item" href="#cssOptimizations">CSS optimizations</a></li>
-			<li><a class="nav__item" href="#imageOptimizations">Image optimizations</a></li>
-			<li><a class="nav__item" href="#resiliency">Resiliency</a></li>
+			<li><a id="navIntro" class="n nav__item" href="#intro">Intro</a></li>
+			<li><a id="navToolkit" class="n nav__item" href="#toolkit">Toolkit</a></li>
+			<li><a id="navResponsiveness" class="n nav__item" href="#responsiveness">Responsiveness</a></li>
+			<li><a id="navCompression" class="n nav__item" href="#compression">Compression</a></li>
+			<li><a id="navDesign" class="n nav__item" href="#design">Design</a></li>
+			<li><a id="navCaching" class="n nav__item" href="#caching">Caching</a></li>
+			<li><a id="navCssOptimizations" class="n nav__item" href="#cssOptimizations">CSS optimizations</a></li>
+			<li><a id="navImageOptimizations" class="n nav__item" href="#imageOptimizations">Image optimizations</a></li>
+			<li><a id="navInTheWorks" class="n nav__item" href="#inTheWorks">In the works</a></li>
 		</ul>
 	</nav>
 
@@ -35,7 +34,7 @@
 
 		<h3 id="intro" class="content__heading">Intro</h3>
 
-			<p class="content__body">Brutally simple. From conception, this site was designed to embody that attribute visually, but not so much under the hood. This decevingly simple site is a performance pet project, and utilizes some neat technology, so it runs fast just about anywhere, on just about anything. This page's purpose is to document the design decisions that were made during the creation of this site, and the methodology behind them. I encourage you to verify and challenge these design methods before implementing them yourself in your own projects. It has been a learning process, so if you discover any information here that is definitively incorrect/outdated, any of the links have broken, any typos, or find a bug of sorts, please reach out to me so it can be corrected.</p>
+			<p class="content__body">Brutally simple. From conception, this site was designed to embody that attribute visually, but not so much under the hood. This decevingly simple site is a performance pet project, and utilizes some neat technology, so it runs fast just about anywhere, on just about anything. This page's purpose is to document the design decisions that were made during the creation of this site, and the methodology behind them. I encourage you to verify and challenge these design methods before implementing them yourself in your own projects. It has been a learning process, so if you discover any information here that is definitively incorrect/outdated, any of the links have broken, any typos, or find a bug of sorts, please <a href="mailto:lyndoncore@gmail.com">reach out to me</a> so it can be corrected.</p>
 
 		<h3 id="toolkit" class="content__heading">Toolkit</h3>
 
@@ -59,6 +58,7 @@
 			<h5 class="content__title">Honorable Mentions:</h5>
 			<ul class="content__list">
 				<li>WebPageSpeedTest</li>
+				<li>PageSpeed Insights</li>
 				<li>Google's Closure Compiler</li>
 				<li>PNG to WEBP converter</li>
 				<li><a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/">Image to URI converter</a></li>
@@ -114,6 +114,10 @@
 			<a href="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png">Semantic HTML</a> and <a href="https://schema.org/docs/gs.html">Schema.org Microdata</a>. This site was designed to still make sense, even if styles.css fails to deliver. 
 
 			Enabling HTTPS with cloudfront and AWS Certificate Manager. Protecting your resources with HTTPS protects your users, protects the integrity of your assets, enables the use of newer web platform features and APIs for devs, may boost your pagerank in search engines, <i>and</i> is free - this one's a no-brainer. 
+
+			resiliency
+
+			Using CloudFront edge locations makes it so that there is no single point of failure to the site. if my origin server goes down, there are many distrubuted versions of the site cached all over the US (and canada or whatever). As soon as I get around to implementing a srvice worker, resilency will get it's own section entirely.
 
 			</p>
 
@@ -177,7 +181,7 @@
 			<i>Note: The byte savings associated with floral-xsm.png are considerable, however it's created somewhat of a nightmare with how our "Lyndon Core" text is displayed. As it turns out, browsers aren't too consistent with how text is rendered, more specifically the content area of the text itself. <a href="http://stackoverflow.com/questions/14573445/why-does-firefox-treat-helvetica-differently-from-chrome">This stack overflow entry</a> highlights this issue. Because we risk accidentally rendering a whited-out part of our image over our text, floral-xsm.png is quite generous with how much of the original image remains. Also, it's a good precautionary measure that we specify <code>font-size</code>, <code>background-size</code>, and <code>line-height</code> in the same units (px) to ensure that if they are scaled up/down in any enviornment, they are scaled together one-for-one.</i></p>
 
 			<h5 id="preloading" class="content__title">Preload vs. Data URI</h5>
-			<p class="content__body">I noticed, while loading index.html over the network, that floral-sm.png was taking lower priority and had a later "start-time" than other resources in the in the <a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/resource-loading">Chrome Devtools Network Tab</a>. This was probably because the browser's <a href="http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/">look-ahead pre-loader</a> wasn't recognizing the url for floral-sm.png within the CSS, and was most likely waiting for the CSSOM to be constructed before fetching it........ VERIFY. This is an incredibly important issue; Not only do we need floral-sm.png to load like lightning, because it's the only way it will render "Lyndon Core", it's also the centerpeice of our users first impression on this site. So, to solve this, I've considered two solutions:</p>
+			<p class="content__body">I noticed, while loading index.html over the network, that floral-sm.png was taking lower priority and had a later "start-time" than other resources in the in the <a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/resource-loading">Chrome Devtools Network Tab</a>. This was probably because the browser's <a href="http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/">look-ahead pre-loader</a> wasn't recognizing the url for floral-sm.png within the CSS in a timely manner. This is an incredibly important issue; Not only do we need floral-sm.png to load like lightning, because it's the only way it will render "Lyndon Core", it's also the centerpeice of our users first impression on this site. So, to solve this, I've considered two solutions:</p>
 			<ol class="content__list">
 				<li>A link element in the head of index.html to preload floral-sm.png</li>
 				<li>Inline our floral-xsm.png as a base-64 encoded URI within our HTML</li>
@@ -193,9 +197,9 @@
 			<p class="content__body">Ultimately, both methods need to be tested on our pages. The initial results of index.html load with URI are...... TEST.  A quick test run with the preloading approach hints at........ TEST........ <a href="http://caniuse.com/#search=data%20uri">Browser support for Data URIs</a>, with our use case in mind, is just about perfect, so it's safe to say that..........  CONCLUSION.</p>
 
 			<h5 class="content__title">Art direction</h5>
-			<p class="content__body">Regardless of the image delivery method we decide on, there's a good chance we will have to make another round trip anyways - Why? Because <a href="https://developers.google.com/web/fundamentals/design-and-ui/media/images#art_direction">art direction</a> is important. It's easy to send a small image to a user and call it performant, although it doesn't always provide an optimal user experience. Go figure. For one, screen resolution varies wildly between <a href="https://material.io/devices/">all the devices</a> front-end devs have to accomodate nowadays. It's unacceptable to show users with a 3dppx screen (i.e. the Samsung Galaxy S5) an image that was optimized for a 1dppx screen (i.e. my Macbook Air). Blurry images degrade the UX. For this reason, I use our implementation of floral-xsm.png as a <a href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholder</a> (or LQIP), then query the client's device resolution with some javascript (<code>window.matchMedia</code>), and go fetch the best image for the user <i>after</i> floral-xsm.png loads. This means the user gets visual feedback immediatly, then they recieve <a href="images/floral-xsm2x.png">floral-xsm2x.png</a> or <a href="images/floral-xsm3x.png">floral-xsm3x.png</a> to appropiratly complement their device capabilities.<br><br>
+			<p class="content__body">Regardless of the image delivery method we decide on, there's a good chance we will have to make another round trip anyways - Why? Because <a href="https://developers.google.com/web/fundamentals/design-and-ui/media/images#art_direction">art direction</a> is important. It's easy to send a small image to a user and call it performant, although it doesn't always provide an optimal user experience. Go figure. For one, screen resolution varies wildly between <a href="https://material.io/devices/">all the devices</a> front-end devs have to accomodate nowadays. It's unacceptable to show users with a 3dppx screen (i.e. the Samsung Galaxy S5) an image that was optimized for a 1dppx screen (i.e. my Macbook Air). Blurry images degrade the UX and are no bueno. For this reason, I use our implementation of floral-xsm.png as a <a href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholder</a> (or LQIP), then query the client's device resolution with some javascript (<code>window.matchMedia</code>), and go fetch the best image for the user <i>after</i> floral-xsm.png loads. This means the user gets visual feedback immediatly, then they recieve <a href="images/floral-xsm2x.png">floral-xsm2x.png</a> or <a href="images/floral-xsm3x.png">floral-xsm3x.png</a> to appropiratly complement their device capabilities.<br><br>
 
-			Because mobile networks can vary wildly in bandwidth and latency, partially due to some <a href="https://hpbn.co/assets/diagrams/773ecb15832075c0b56021aa3ad15233.svg">infrastructure overhead</a>, it's also important to consider the network connection and serve appropriate images based on network constraints. However, the <code>navigator.connection</code> web API is simply too unreliable and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API#Browser_compatibility">unsupported</a> at the moment. For now, we're going to leave this test out of our javascript.</p>
+			Because mobile networks can vary wildly in bandwidth and latency, partially due to some <a href="https://hpbn.co/assets/diagrams/773ecb15832075c0b56021aa3ad15233.svg">infrastructure overhead</a>, it's also important to consider the network connection and serve appropriate images based on network constraints. However, the <code>navigator.connection</code> API is simply too unreliable and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API#Browser_compatibility">unsupported</a> at the moment. For now, we're going to leave this test out of our javascript.</p>
 
 			<h5 class="content__title">Back to floral-cropped.png</h5>
 			<p class="content__body">When a user of this site lands on index.html, and subsequently clicks on the link that brings them to this page, it would be nice if the image used at the top (floral-cropped.png) had already been downloaded by the browser. This would save us a lot of time in rendering the page, and would've been the case when using a single cached image asset (floral.png) all over the site - instead, we have decided to use seperate image assets that aren't interchangable. This occurance seems like a performance loss, or at least a negative externality of using two modified versions of the same image. However, there is a way we can get the best of both worlds by prefetching floral-cropped.png.</p>
@@ -225,9 +229,6 @@
 
 			But hey, we still have floral-cropped.png to think about. The difference between floral-cropped.png (117.2KB) and floral-cropped.webp (88.8KB) is 28.4KB, so the case to serve the image as a Webp is much more compelling. Because we'd like to use Webp, we're going to have to specify the appropriate format of floral-cropped during our prefetch, which means inserting a little javascript logic to handle which file to retreive. I've written a little function that queries the result of our Modernizr script, and injects the proper prefetch request into the document head. It's only 319 bytes, and although this complicates our prefetching process, it's worth the 28.4KB savings.</p>
 		
-		<h3 id="resiliency" class="content__heading">Resiliency</h3>
-
-			<p class="content__body">Using CloudFront edge locations makes it so that there is no single point of failure to the site. if my origin server goes down, there are many distrubuted versions of the site cached all over the US (and canada or whatever). </p>
 
 		<h3 id="inTheWorks" class="content__heading">In the works</h3>
 
@@ -238,6 +239,9 @@
 
 			<h5 class="content__title">Server Push - HTTP/2</h5>
 			<p class="content__body">I'd love to figure out how to implement <a href="https://http2.github.io/faq/#how-can-i-use-http2-server-push">Server Push</a> with CloudFront so I can play around with it, but it's not availbale with cloudfront.</p>
+
+			<h5 class="content__title">Contact form</h5>
+			<p class="content__body">I've implemented contact forms before, specifically <a href="https://formspree.io/">formspree.io</a>, that are incredibly easy (and free) to integrate into a static webpage (this is not an endorsement); however, I'd consider it a low priority relative to everything else I'd like to do on this site. Nevertheless, there is one strong case to implement a contact form sooner than later - the emailto link behavior is pretty unpredictable, and can be annoying. I had a buddy look at my site, and he tested the "email me" button on index.html, and it opened his default email client on his Macbook... you know, the one nobody uses. It was this exact pain that drove me to customize my mailto behavior in Chrome to open Gmail in a browser window. It escaped me that not everybody customizes this behavior within their browsers, and still deal with this. But on the other hand, if <a href="https://jakearchibald.com/">Jake Archibold</a> is using the mailto method (on the sidebar), then it should be good enough for me - for now, at least.</p>
 
 	</article>
 
