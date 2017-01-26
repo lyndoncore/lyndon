@@ -148,6 +148,15 @@ code {
 	margin-left: -24px;
 }
 
+.content__list a {
+	color: #b4ba51;
+	text-decoration: none;
+}
+
+.content__list a:hover {
+	text-decoration: underline;
+}
+
 .content__body {
 	font-size: 14px;
 	line-height: 2;
@@ -176,6 +185,26 @@ code {
 	background: #eee;
 	padding: 8px 15px;
 	border-radius: 5px;
+}
+
+footer {
+	display: flex;
+    align-items: center;
+    justify-content: flex-end;
+	width: 100%;
+	background: #f3f3f3;
+	border-top: solid 3px #eee;
+}
+
+footer > img {
+	width: 40px;
+	margin:20px;
+}
+
+footer > span {
+	color: #999;
+	font-size: 14px;
+	font-family: monospace;
 }
 
 @media (max-width: 800px) {
