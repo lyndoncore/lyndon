@@ -4,7 +4,7 @@
 // COMMENTED OUT BECAUSE IT BELONGS INLINE ON DESIGN.HTML
 //
 function navMove() {
-    if (document.body.scrollTop > 262 || document.documentElement.scrollTop > 262) {
+    if (document.body.scrollTop > 178 || document.documentElement.scrollTop > 178) {
         document.getElementById("sidebar").className = "nav__list--fixed";
     } else {
         document.getElementById("sidebar").className = "nav__list";
@@ -71,12 +71,35 @@ function highlight() {
 	}
 }
 
+function stickyHeader() {
+    if (document.body.scrollTop > 238 || document.documentElement.scrollTop > 238) {
+        document.getElementById("breadcrumbs").className = "breadcrumbs breadcrumbs--fixed";
+    } else {
+        document.getElementById("breadcrumbs").className = "breadcrumbs";
+    }
+}
+
+function headerDim() {
+	var distanceToTop = document.body.scrollTop;
+	var distanceToTop2 = document.documentElement.scrollTop;
+
+	if (distanceToTop < 178 || distanceToTop2 < 178) {
+        var x = 178 - distanceToTop;
+        var y = x/178;
+        // set the opacity of the bg cover to 1 - y. 
+        document.getElementById("cloak").style.opacity = 1-y;
+    }
+}
+
 function scrolling(){
 	navMove();
 	highlight();
+	stickyHeader();
+	headerDim();
 }
 
 window.onscroll = scrolling;
+window.onload = scrolling;
 
 
 // modernizr 3.3.1 (Custom Build) | MIT
