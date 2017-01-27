@@ -4,7 +4,7 @@
 // COMMENTED OUT BECAUSE IT BELONGS INLINE ON DESIGN.HTML
 //
 function navMove() {
-    if (document.body.scrollTop > 178 || document.documentElement.scrollTop > 178) {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         document.getElementById("sidebar").className = "nav__list--fixed";
     } else {
         document.getElementById("sidebar").className = "nav__list";
@@ -13,7 +13,7 @@ function navMove() {
 
 
 // Highlight the correct item in sidebar nav based on users scroll height
-function highlight() {
+function navHighlight() {
 
 	// Variables for the window Scrolling
 	var distanceToTop = document.body.scrollTop;
@@ -71,30 +71,19 @@ function highlight() {
 	}
 }
 
-function stickyHeader() {
-    if (document.body.scrollTop > 238 || document.documentElement.scrollTop > 238) {
-        document.getElementById("breadcrumbs").className = "breadcrumbs breadcrumbs--fixed";
-    } else {
-        document.getElementById("breadcrumbs").className = "breadcrumbs";
-    }
-}
-
 function headerDim() {
 	var distanceToTop = document.body.scrollTop;
 	var distanceToTop2 = document.documentElement.scrollTop;
 
-	if (distanceToTop < 178 || distanceToTop2 < 178) {
-        var x = 178 - distanceToTop;
-        var y = x/178;
-        // set the opacity of the bg cover to 1 - y. 
-        document.getElementById("cloak").style.opacity = 1-y;
+	if (distanceToTop < 300 || distanceToTop2 < 300) {
+        var x = (300 - distanceToTop) / 300;
+        document.getElementById("cloak").style.opacity = 1.1 - x;
     }
 }
 
 function scrolling(){
 	navMove();
-	highlight();
-	stickyHeader();
+	navHighlight();
 	headerDim();
 }
 
