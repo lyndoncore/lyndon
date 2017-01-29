@@ -1,10 +1,14 @@
 
-
 // Event Handler to make the sidenav sticky function run on scroll
 // COMMENTED OUT BECAUSE IT BELONGS INLINE ON DESIGN.HTML
 //
 function navMove() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+
+	// Variables for the window Scrolling
+	var distanceToTop = document.body.scrollTop;
+	var distanceToTop2 = document.documentElement.scrollTop;
+
+    if (distanceToTop > 300 || distanceToTop2 > 300) {
         document.getElementById("sidebar").className = "nav__list--fixed";
     } else {
         document.getElementById("sidebar").className = "nav__list";
@@ -71,20 +75,20 @@ function navHighlight() {
 	}
 }
 
-function headerDim() {
-	var distanceToTop = document.body.scrollTop;
-	var distanceToTop2 = document.documentElement.scrollTop;
-
-	if (distanceToTop < 300 || distanceToTop2 < 300) {
-        var x = (300 - distanceToTop) / 300;
-        document.getElementById("cloak").style.opacity = 1.1 - x;
-    }
-}
+// TEMPORARILY DISABLED
+// function headerDim() {
+// 	var distanceToTop = document.body.scrollTop;
+// 	var distanceToTop2 = document.documentElement.scrollTop;
+// 	if (distanceToTop < 300 || distanceToTop2 < 300) {
+//         var x = (300 - distanceToTop) / 300;
+//         document.getElementById("cloak").style.opacity = 1.1 - x;
+//     }
+// }
 
 function scrolling(){
 	navMove();
 	navHighlight();
-	headerDim();
+//	headerDim();
 }
 
 window.onscroll = scrolling;

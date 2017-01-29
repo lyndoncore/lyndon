@@ -3,8 +3,8 @@
 <head>
 <title>Lyndon Core</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<script async src="js/dev-scripts.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css.gz">
+<script async src="js/scripts.js.gz"></script>
 </head>
 <body>
 
@@ -252,9 +252,18 @@
 
 	</main>
 
-	<footer class="">
-		<span>made with <code>code</code> by this guy ---&#62</span>
-		<img src="images/lyndon.png">
+	<footer>
+		<div class="footer__contain">
+			<div class="footer__contain--left">
+				<a href="index.html" class="footer__link">HOME</a>
+				<a href="design.html" class="footer__link">DESIGN</a>
+				<a href="resume.html" class="footer__link">RESUME</a>
+			</div>
+			<div class="footer__contain--right">
+				<span class="footer__blurb">made with <span class="footer__pseudo-code">code</span> by this guy ---&#62</span>
+				<img class="footer__avatar" src="images/avatar-1x.png" srcset="images/avatar-2x.png 2x, images/avatar-3x.png 3x">
+			</div>
+		</div>
 	</footer>
 
 </body>
