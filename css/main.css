@@ -26,6 +26,32 @@ code {
     opacity: 0.15;
 }
 
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	height: 190px;
+	width: 100%;
+	background: #422039;
+	background-position-y: center;
+	background-size: 100%;
+	padding: 55px 0;
+	color: #fff;
+}
+
+.webp .header {
+	background-image: url(../images/floral-cropped.webp);
+}
+
+.no-webp .header {
+	background-image: url(../images/floral-cropped.png);
+}
+
+.no-js-header .header {
+	background-image: url(../images/floral-cropped.png);
+}
+
 .header__home {
     padding: 10px 14px 10px 20px;
     text-decoration: none;
@@ -43,55 +69,21 @@ code {
 	background: #35182e;
 }
 
-.header {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
-	height: 190px;
-	width: 100%;
-	background: #422039;
-	background-position-y: center;
-	background-image: url(../images/floral-cropped.png);
-	background-size: 100%;
-	padding: 55px 0;
-	color: #fff;
-}
-
-.webp .header {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
-	height: 190px;
-	width: 100%;
-	background: #422039;
-	background-position-y: center;
-	background-image: url(../images/floral-cropped.webp);
-	background-size: 100%;
-	padding: 55px 0;
-	color: #fff;
-}
-
-.no-webp .header {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
-	height: 190px;
-	width: 100%;
-	background: #422039;
-	background-position-y: center;
-	background-image: url(../images/floral-cropped.png);
-	background-size: 100%;
-	padding: 55px 0;
-	color: #fff;
-}
-
 .title-bg {
-	background-image: url(../images/floral-cropped.png);
 	background-height: 100%;
 	z-index: 5;
+}
+
+.webp .title-bg {
+	background-image: url(../images/floral-cropped.webp);
+}
+
+.no-webp .title-bg {
+	background-image: url(../images/floral-cropped.png);
+}
+
+.no-js-header .title-bg {
+	background-image: url(../images/floral-cropped.png);
 }
 
 .title-bg-faux {
@@ -307,99 +299,40 @@ footer {
 
 @media (min-width: 1400px) {
 
-	.header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.png);
+	.no-js-header .header {
 		background-size: 1450px;
 		background-position: center center;
 		background-repeat: repeat-x;
-		padding: 55px 0;
-		color: #fff;
 	}
 
 	.webp .header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		background: #422039;
-		background: url(../images/floral-cropped.webp);
 		background-size: 1450px;
 		background-position: center center;
 		background-repeat: repeat-x;
-		padding: 55px 0;
-		color: #fff;
 	}
 
 	.no-webp .header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.png);
 		background-size: 1450px;
 		background-position: center center;
 		background-repeat: repeat-x;
-		padding: 55px 0;
-		color: #fff;
 	}
 }
 
 @media (max-width: 1200px) {
 
-	.header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.png);
+	.no-js-header .header {
 		background-size: 1200px 100%;
 		background-position: center center;
-		padding: 55px 0;
-		color: #fff;
 	}
 
 	.webp .header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.webp);
 		background-size: 1200px 100%;
 		background-position: center center;
-		padding: 55px 0;
-		color: #fff;
 	}
 
 	.no-webp .header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.png);
 		background-size: 1200px 100%;
 		background-position: center center;
-		padding: 55px 0;
-		color: #fff;
 	}
 }
 
