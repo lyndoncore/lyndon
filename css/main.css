@@ -111,10 +111,6 @@ code {
 	justify-content: center;
 }
 
-.main--moved {
-	margin-top: 274px;
-}
-
 .nav {
 	width: 240px;
 	padding-right: 10px;
@@ -286,6 +282,14 @@ footer {
 	font-family: monospace;
 }
 
+.footer__blurb--sm {
+	display: none;
+}
+
+.footer__blurb--xsm {
+	display: none;
+}
+
 .footer__pseudo-code {
 	background: #eee;
     border: solid 1px #ddd;
@@ -298,99 +302,8 @@ footer {
     margin: 20px 10px 20px 30px;
 }
 
-@media (max-width: 410px) {
 
-	.footer__blurb {
-		font-size: 12px;
-	}
 
-}
-
-@media (max-width: 800px) {
-
-	.breadcrumbs__contain {
-    	width: 710px;
-	}
-
-	.breadcumbs__item--parent {
-    	padding: 0 10px 0 0;
-    	margin-left: 20px;
-	}
-
-	.main {
-		display: flex;
-		justify-content: center;
-		margin-top: 0px;
-		margin-bottom: 35px;
-	}
-
-	.nav {
-		display: none;
-	}
-
-	.nav--m {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0 20px;
-		background: #00687b;
-		color: #fff;
-		cursor: pointer;
-	}
-
-	.content {
-		margin-left: 20px;
-	}
-
-}
-
-@media (max-width: 1200px) {
-
-	.header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.png);
-		background-size: 1200px 100%;
-		background-position: center center;
-		padding: 55px 0;
-		color: #fff;
-	}
-
-	.webp .header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.webp);
-		background-size: 1200px 100%;
-		background-position: center center;
-		padding: 55px 0;
-		color: #fff;
-	}
-
-	.no-webp .header {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		height: 190px;
-		width: 100%;
-		background: #422039;
-		background: url(../images/floral-cropped.png);
-		background-size: 1200px 100%;
-		background-position: center center;
-		padding: 55px 0;
-		color: #fff;
-	}
-}
 
 @media (min-width: 1400px) {
 
@@ -441,3 +354,140 @@ footer {
 		color: #fff;
 	}
 }
+
+@media (max-width: 1200px) {
+
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: column;
+		height: 190px;
+		width: 100%;
+		background: #422039;
+		background: url(../images/floral-cropped.png);
+		background-size: 1200px 100%;
+		background-position: center center;
+		padding: 55px 0;
+		color: #fff;
+	}
+
+	.webp .header {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: column;
+		height: 190px;
+		width: 100%;
+		background: #422039;
+		background: url(../images/floral-cropped.webp);
+		background-size: 1200px 100%;
+		background-position: center center;
+		padding: 55px 0;
+		color: #fff;
+	}
+
+	.no-webp .header {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: column;
+		height: 190px;
+		width: 100%;
+		background: #422039;
+		background: url(../images/floral-cropped.png);
+		background-size: 1200px 100%;
+		background-position: center center;
+		padding: 55px 0;
+		color: #fff;
+	}
+}
+
+@media (max-width: 800px) {
+
+	.nav {
+		display: none;
+	}
+
+	.nav--m {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 20px;
+		background: #00687b;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.content {
+		margin-left: 20px;
+	}
+
+	.footer__contain {
+		display: flex;
+		align-items: center;
+  		justify-content: space-between;
+		width: 680px;
+		margin: 0 10px;
+	}
+
+	.footer__contain--left {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		padding: 0;
+	}
+
+	.footer__avatar {
+		margin-left: 15px;
+	}
+
+}
+
+@media (max-width: 700px) {
+
+	.footer__blurb {
+		display: none;
+	}
+
+	.footer__blurb--sm {
+		color: #999;
+		font-size: 14px;
+		font-family: monospace;
+		display: block;
+	}
+
+}
+
+@media (max-width: 575px) {
+
+	.footer__blurb--sm {
+		display: none;
+	}
+
+	.footer__blurb--xsm {
+		color: #999;
+		font-size: 14px;
+		font-family: monospace;
+		display: block;
+	}
+
+}
+
+@media (max-width: 500px) {
+
+	.footer__blurb--xsm {
+		display: none;
+	}
+
+}
+
+@media (max-width: 410px) {
+
+	.footer__blurb {
+		font-size: 12px;
+	}
+
+}
+
+
