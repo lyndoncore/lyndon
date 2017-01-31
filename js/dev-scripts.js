@@ -75,24 +75,106 @@ function navHighlight() {
 	}
 }
 
-// TEMPORARILY DISABLED
-// function headerDim() {
-// 	var distanceToTop = document.body.scrollTop;
-// 	var distanceToTop2 = document.documentElement.scrollTop;
-// 	if (distanceToTop < 300 || distanceToTop2 < 300) {
-//         var x = (300 - distanceToTop) / 300;
-//         document.getElementById("cloak").style.opacity = 1.1 - x;
-//     }
-// }
+// In the header, load the right background images
+function setHeaderBgs() {
+	// Two backgrounds we are changing
+	var headerBg = document.getElementById('header');
+	var titleBg = document.getElementById('title-bg');
+	// Callback function to switch the background once the image has loaded
+	function loadBg(src, callback) {
+    	var image = new Image();
+    	image.onload = callback;
+    	image.src = src;
+	}
+	// Take placeholder data attribute (set below), then update the backgrounds, and set accompanying styless
+	function updateBgs() {
+		var x = headerBg.getAttribute('data-bg-img');
+		headerBg.style.backgroundImage = x;
+		headerBg.style.backgroundSize = '540px 100%';
+		headerBg.style.backgroundPosition = 'center center';
+		var y = titleBg.getAttribute('data-bg-img');
+		titleBg.style.backgroundImage = y;
+		titleBg.style.backgroundSize = '540px 300px';
+	}
+	// Check for User's pixel density, webp support, and viewport width, and set placeholder data attribute with bg image. 
+	if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
+		if (html.classList.contains('webp')) {
+			if (window.matchMedia('(max-width: 540px)').matches) {
+				loadBg('images/floral-crop-540w-3x.webp', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.webp")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.webp")');
+					updateBgs();
+				});
+			} else {
+				loadBg('images/floral-crop-3x.webp', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-3x.webp")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-3x.webp")');
+					updateBgs();
+				});
+			}
+  		} else {
+			if (window.matchMedia('(max-width: 540px)').matches) {
+				loadBg('images/floral-crop-540w-3x.png', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.png")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.png")');
+					updateBgs();
+				});
+			} else {
+				loadBg('images/floral-crop-3x.png', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-3x.png")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-3x.png")');
+					updateBgs();
+				});
+			}
+  		}
+	} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
+		if (html.classList.contains('webp')) {
+			if (window.matchMedia('(max-width: 540px)').matches) {
+				loadBg('images/floral-crop-540w-2x.webp', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.webp")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.webp")');
+					updateBgs();
+				});
+			} else {
+				loadBg('images/floral-crop-2x.webp', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-2x.webp")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-2x.webp")');
+					updateBgs();
+				});
+			}
+  		} else {
+			if (window.matchMedia('(max-width: 540px)').matches) {
+				loadBg('images/floral-crop-540w-2x.png', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.png")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.png")');
+					updateBgs();
+				});
+			} else {
+				loadBg('images/floral-crop-2x.png', function() {
+					headerBg.setAttribute('data-bg-img','url("images/floral-crop-2x.png")');
+					titleBg.setAttribute('data-bg-img','url("images/floral-crop-2x.png")');
+					updateBgs();
+				});
+			}
+  		}
+  	}
+}
+
+
 
 function scrolling(){
 	navMove();
 	navHighlight();
-//	headerDim();
+}
+
+function load(){
+	navMove();
+	navHighlight();
+	setHeaderBgs();
 }
 
 window.onscroll = scrolling;
-window.onload = scrolling;
+window.onload = load;
 
 
 // modernizr 3.3.1 (Custom Build) | MIT
@@ -102,59 +184,25 @@ window.onload = scrolling;
 // BELONGS INLINE ON INDEX.HTML
 // Prefetch the proper image format based on Modernizr 
 //
-function prefetch() {
-	var link = document.createElement('link');
-	link.rel = 'prefetch';
-	// If webp is supported
-	if (html.classList.contains('webp')) {
-		if (window.matchMedia('(max-width: 540px)').matches) {
-			if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
-				link.href = 'images/floral-cropped-540w-3x.webp';
-			} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
-				link.href = 'images/floral-cropped-540w-2x.webp';
-			} else {
-				link.href = 'images/floral-cropped-540w.webp';
-			}
-		} else {
-			if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
-				link.href = 'images/floral-cropped-3x.webp';
-			} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
-				link.href = 'images/floral-cropped-2x.webp';
-			} else {
-				link.href = 'images/floral-cropped.webp';
-			}
-		}
-	// If webp isn't supported
-	} else {
-		if (window.matchMedia('(max-width: 540px)').matches) {
-			if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
-				link.href = 'images/floral-cropped-540w-3x.png';
-			} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
-				link.href = 'images/floral-cropped-540w-2x.png';
-			} else {
-				link.href = 'images/floral-cropped-540w.png';
-			}
-		} else {
-			if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
-				link.href = 'images/floral-cropped-3x.png';
-			} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
-				link.href = 'images/floral-cropped-2x.png';
-			} else {
-				link.href = 'images/floral-cropped.png';
-			}
-		}
-	}
-	link.as = 'image';
-	document.head.appendChild(link);
-}
-
-// BELONGS INLINE ON INDEX.HTML
-// defer the loading of CSS so it's non-render-blocking 
-//
-//function deferStyles() {
+//function prefetch() {
 //	var link = document.createElement('link');
-//	link.rel = 'next stylesheet';
-//	link.href = 'css/main.css.gz';
+//	link.rel = 'prefetch';
+//	// If webp is supported, load 1x webp versions of floral-crop
+//	if (html.classList.contains('webp')) {
+//		if (window.matchMedia('(max-width: 540px)').matches) {
+//			link.href = 'images/floral-crop-540w.webp';
+//		} else {
+//			link.href = 'images/floral-crop.webp';
+//		}
+//	// If webp isn't supported, load 1x png versions of floral-crop
+//	} else {
+//		if (window.matchMedia('(max-width: 540px)').matches) {
+//			link.href = 'images/floral-crop-540w.png';
+//		} else {
+//			link.href = 'images/floral-crop.png';
+//		}
+//	}
+//	link.as = 'image';
 //	document.head.appendChild(link);
 //}
 
@@ -203,12 +251,20 @@ function prefetch() {
 //	} else {
 //	}
 //}
-function run(){
-	prefetch();
+//function run(){
+//	prefetch();
 //	setBg();
-}
-window.onload = run;
+//}
+//window.onload = run;
 
-
+// BELONGS INLINE ON INDEX.HTML
+// defer the loading of main.css so it's non-render-blocking 
+//
+//function deferStyles() {
+//	var link = document.createElement('link');
+//	link.rel = 'next stylesheet';
+//	link.href = 'css/main.css.gz';
+//	document.head.appendChild(link);
+//}
 
 

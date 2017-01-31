@@ -41,15 +41,15 @@ code {
 }
 
 .webp .header {
-	background-image: url(../images/floral-cropped.webp);
+	background-image: url(../images/floral-crop.webp);
 }
 
 .no-webp .header {
-	background-image: url(../images/floral-cropped.png);
+	background-image: url(../images/floral-crop.png);
 }
 
 .no-js-header .header {
-	background-image: url(../images/floral-cropped.png);
+	background-image: url(../images/floral-crop.png);
 }
 
 .header__home {
@@ -75,15 +75,15 @@ code {
 }
 
 .webp .title-bg {
-	background-image: url(../images/floral-cropped.webp);
+	background-image: url(../images/floral-crop.webp);
 }
 
 .no-webp .title-bg {
-	background-image: url(../images/floral-cropped.png);
+	background-image: url(../images/floral-crop.png);
 }
 
 .no-js-header .title-bg {
-	background-image: url(../images/floral-cropped.png);
+	background-image: url(../images/floral-crop.png);
 }
 
 .title-bg-faux {
@@ -297,41 +297,41 @@ footer {
 
 
 
-@media (min-width: 1450px) {
+@media (min-width: 1400px) {
 
 	.no-js-header .header {
-		background-size: 1450px;
+		background-size: 1400px;
 		background-position: center center;
 		background-repeat: repeat-x;
 	}
 
 	.webp .header {
-		background-size: 1450px;
+		background-size: 1400px;
 		background-position: center center;
 		background-repeat: repeat-x;
 	}
 
 	.no-webp .header {
-		background-size: 1450px;
+		background-size: 1400px;
 		background-position: center center;
 		background-repeat: repeat-x;
 	}
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
 
 	.no-js-header .header {
-		background-size: 1200px 100%;
+		background-size: 1400px 100%;
 		background-position: center center;
 	}
 
 	.webp .header {
-		background-size: 1200px 100%;
+		background-size: 1400px 100%;
 		background-position: center center;
 	}
 
 	.no-webp .header {
-		background-size: 1200px 100%;
+		background-size: 1400px 100%;
 		background-position: center center;
 	}
 }
@@ -403,6 +403,40 @@ footer {
 		font-size: 14px;
 		font-family: monospace;
 		display: block;
+	}
+
+}
+
+@media (max-width: 540px) {
+
+	.webp .header {
+		background-image: url(../images/floral-crop-540w.webp);
+		background-size: 540px 100%;
+		background-position: center center;
+	}
+
+	.no-webp .header {
+		background-image: url(../images/floral-crop-540w.png);
+		background-size: 540px 100%;
+		background-position: center center;
+	}
+
+	.no-js-header .header {
+		background-image: url(../images/floral-crop-540w.png);
+		background-size: 540px 100%;
+		background-position: center center;
+	}
+
+	.webp .title-bg {
+		background-image: url(../images/floral-crop-540w.webp);
+	}
+
+	.no-webp .title-bg {
+		background-image: url(../images/floral-crop-540w.png);
+	}
+
+	.no-js-header .title-bg {
+		background-image: url(../images/floral-crop-540w.png);
 	}
 
 }
