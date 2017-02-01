@@ -86,44 +86,32 @@ function setHeaderBgs() {
     	image.onload = callback;
     	image.src = src;
 	}
-	// Take placeholder data attribute (set below), then update the backgrounds, and set accompanying styless
-	function updateBgs() {
-		var x = headerBg.getAttribute('data-bg-img');
-		headerBg.style.backgroundImage = x;
-		headerBg.style.backgroundSize = '540px 100%';
-		headerBg.style.backgroundPosition = 'center center';
-		var y = titleBg.getAttribute('data-bg-img');
-		titleBg.style.backgroundImage = y;
-		titleBg.style.backgroundSize = '540px 300px';
-	}
 	// Check for User's pixel density, webp support, and viewport width, and set placeholder data attribute with bg image. 
 	if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
 		if (html.classList.contains('webp')) {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-3x.webp', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.webp")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.webp")');
-					updateBgs();
+					headerBg.className = "header--webp-3x";
+					titleBg.className = "title-bg--webp-3x";
 				});
 			} else {
-				loadBg('images/floral-crop-3x.webp', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-3x.webp")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-3x.webp")');
-					updateBgs();
+				// ommitted 3x version of floral-crop because of file size (change 2x to 3x for support)
+				loadBg('images/floral-crop-2x.webp', function() {
+					headerBg.className = "header--webp-2x";
+					titleBg.className = "title-bg--webp-2x";
 				});
 			}
   		} else {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-3x.png', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.png")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-3x.png")');
-					updateBgs();
+					headerBg.className = "header--png-3x";
+					titleBg.className = "title-bg--png-3x";
 				});
 			} else {
-				loadBg('images/floral-crop-3x.png', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-3x.png")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-3x.png")');
-					updateBgs();
+				// ommitted 3x version of floral-crop because of file size (change 2x to 3x for support)
+				loadBg('images/floral-crop-2x.png', function() {
+					headerBg.className = "header--png-2x";
+					titleBg.className = "title-bg--png-2x";
 				});
 			}
   		}
@@ -131,36 +119,30 @@ function setHeaderBgs() {
 		if (html.classList.contains('webp')) {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-2x.webp', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.webp")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.webp")');
-					updateBgs();
+					headerBg.className = "header--webp-2x";
+					titleBg.className = "title-bg--webp-2x";
 				});
 			} else {
 				loadBg('images/floral-crop-2x.webp', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-2x.webp")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-2x.webp")');
-					updateBgs();
+					headerBg.className = "header--webp-2x";
+					titleBg.className = "title-bg--webp-2x";
 				});
 			}
   		} else {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-2x.png', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.png")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-540w-2x.png")');
-					updateBgs();
+					headerBg.className = "header--png-2x";
+					titleBg.className = "title-bg--png-2x";
 				});
 			} else {
 				loadBg('images/floral-crop-2x.png', function() {
-					headerBg.setAttribute('data-bg-img','url("images/floral-crop-2x.png")');
-					titleBg.setAttribute('data-bg-img','url("images/floral-crop-2x.png")');
-					updateBgs();
+					headerBg.className = "header--png-2x";
+					titleBg.className = "title-bg--png-2x";
 				});
 			}
   		}
   	}
 }
-
-
 
 function scrolling(){
 	navMove();
@@ -251,11 +233,6 @@ window.onload = load;
 //	} else {
 //	}
 //}
-//function run(){
-//	prefetch();
-//	setBg();
-//}
-//window.onload = run;
 
 // BELONGS INLINE ON INDEX.HTML
 // defer the loading of main.css so it's non-render-blocking 
@@ -267,4 +244,10 @@ window.onload = load;
 //	document.head.appendChild(link);
 //}
 
+//function run(){
+//	prefetch();
+//	setBg();
+//	deferStyles();
+//}
+//window.onload = run;
 
