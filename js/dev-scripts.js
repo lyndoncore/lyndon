@@ -76,6 +76,23 @@ function navHighlight() {
 	}
 }
 
+
+
+function navStop() {
+	var docHeight = document.body.clientHeight;
+	var stopper = 160;
+	var distanceToTop = document.body.scrollTop;
+	var distanceToTop2 = document.documentElement.scrollTop;
+	var sidebarTopMargin = 67;
+	var sidebarHeight = document.getElementById('sidebar').clientHeight;
+
+	if ((docHeight - stopper) < (distanceToTop + sidebarTopMargin + sidebarHeight)) {
+		document.getElementById("sidebar").className = "nav__list--bottom";
+	}
+}
+
+
+
 // In the header, load the right background images
 function setHeaderBgs() {
 	// Two backgrounds we are changing
@@ -145,6 +162,7 @@ function setHeaderBgs() {
   	}
 }
 
+
 // Get the Page's name from the data-attribute on the body class.
 var page = document.body.dataset.pageName;
 
@@ -155,8 +173,10 @@ controller = {
 		if (page === 'design') {
 			navMove();
 			navHighlight();
+			navStop();
 		} else if (page === 'resume') {
 			navMove();
+			navStop();
 		}
 	},
 
@@ -165,9 +185,11 @@ controller = {
 			navMove();
 			navHighlight();
 			setHeaderBgs();
+			navStop();
 		} else if (page === 'resume') {
 			navMove();
 			setHeaderBgs();
+			navStop();
 		}
 	}
 }

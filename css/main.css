@@ -113,8 +113,9 @@ code {
 
 .nav {
 	width: 240px;
-	padding-right: 10px;
+	padding: 0 10px 58px 0;
 	margin-top: 0px;
+	display: flex;
 }
 
 .nav__list {
@@ -143,7 +144,13 @@ code {
 	line-height: 2;
 	position: fixed;
 	top: 67px;
-	margin-top: 0;
+	margin: 0;
+}
+
+.nav__list--bottom {
+	list-style: none;
+	line-height: 2;
+	align-self: flex-end;
 }
 
 .nav--m {
