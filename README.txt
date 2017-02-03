@@ -1,5 +1,4 @@
-Read me
-=======
+# Read me
 
 You're here because you've stepped away from the project and look a little confused. To refresh your memory, here are some friendly reminders...
 
