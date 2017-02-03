@@ -17,11 +17,17 @@
   },
   "homepage": "https://github.com/lyndoncore/lyndon#readme",
   "devDependencies": {
+    "autoprefixer": "^6.7.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^2.1.0",
     "gulp-closure-compiler": "^0.4.0",
     "gulp-gzip": "^1.4.0",
-    "gulp-imagemin": "^3.1.1"
-  }
+    "gulp-imagemin": "^3.1.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-sourcemaps": "^2.4.0"
+  },
+    "browserslist": [
+    "last 15 versions"
+  ]
 }

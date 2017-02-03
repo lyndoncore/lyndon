@@ -1,7 +1,10 @@
-README.txt
+Read me
+=======
 
+You're here because you've stepped away from the project and look a little confused. To refresh your memory, here are some friendly reminders...
 
-========================= WHAT IS IT? =========================
+WHAT IS IT?
+===========
 
 === The "Crap" folder:
 
@@ -56,7 +59,15 @@ This is the css that goes in the Head of index.html. It has it's own gulp task t
 	- css with paths being "css/styles.css"
 	- javascript with paths being "js/dev-scripts.js"
 
+========================= Things to Test =========================
 
+1) On index.html:
+	- Do knockout letters look complete? (i.e. no white of the background image showing)
+	- Is the correct hidpi image fetched?
+	- Does the hidpi image class get applied after the hidpi image is loaded? (i.e. no FOUC)
+	- Does the JS that injects prefetch resource hint inject the proper image?
+	- Does fetching main.css.gz get defered after page load?
+	
 
 
 
