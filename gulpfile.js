@@ -6,6 +6,7 @@ var imagemin = require('gulp-imagemin');
 var gzip = require('gulp-gzip');
 var cleanCSS = require('gulp-clean-css');
 var closureCompiler = require('gulp-closure-compiler');
+var connect = require('gulp-connect');
  
 
 // =================================================== HTML tasks
@@ -95,6 +96,12 @@ gulp.task('images', function() {
         .pipe(gulp.dest('build/images'))
 }
 );
+
+// =================================================== Local Server tasks
+
+gulp.task('connect', function() {
+   connect.server()
+});
 
 // ===================================== Gulp build -- run all
 

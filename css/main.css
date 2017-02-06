@@ -120,13 +120,14 @@ code {
 
 .nav__list {
 	list-style: none;
-	line-height: 2;
+	line-height: 36px;
 	margin-top: 67px;
 }
 
 .nav__item {
 	color: #cace89;
 	text-decoration: none;
+	padding: 9px 0;
 }
 
 .nav__item:hover {
@@ -141,7 +142,7 @@ code {
 
 .nav__list--fixed {
 	list-style: none;
-	line-height: 2;
+	line-height: 34px;
 	position: fixed;
 	top: 67px;
 	margin: 0;
@@ -149,7 +150,7 @@ code {
 
 .nav__list--bottom {
 	list-style: none;
-	line-height: 2;
+	line-height: 34px;
 	align-self: flex-end;
 }
 
@@ -195,7 +196,7 @@ code {
 
 .content__list {
 	font-size: 14px;
-	line-height: 2;
+	line-height: 34px;
 	color: #555;
 	margin-left: -24px;
 }
@@ -211,7 +212,7 @@ code {
 
 .content__body {
 	font-size: 14px;
-	line-height: 2;
+	line-height: 34px;
 	color: #555;
 }
 
@@ -226,7 +227,7 @@ code {
 
 .content__body2 {
 	font-size: 14px;
-	line-height: 2;
+	line-height: 34px;
 	color: #555;
 	margin-left: -40px;
 }
