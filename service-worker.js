@@ -1,19 +1,18 @@
 var CACHE_NAME = 'v1';
-var cacheFiles = [
-	'index.html',
-	'css/main.css'
-]
+var urlsToCache = [
+  '/',
+  '/index.html'
+];
 
-self.addEventListener("install", function(event) {
-	console.log('WORKER: install event in progress.');
-
-	event.waitUntil(
-		caches.open(CACHE_NAME).then(function(cache) {
-				console.log('WORKER: caching cacheFiles')
-				return cache.addAll(cacheFiles);
-		})
-	)
-})
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
 
 self.addEventListener("activate", function(event) {
 	console.log('WORKER: activated.');
