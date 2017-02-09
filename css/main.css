@@ -1,578 +1,411 @@
+/* ========== Color Variables ========== */
 html {
-	/* Prevent font scaling in landscape while allowing user zoom */
-	-webkit-text-size-adjust: 100%;
-}
+  /* Prevent font scaling in landscape while allowing user zoom */
+  -webkit-text-size-adjust: 100%; }
 
 body {
-	color: #363636;
-	font-family: helvetica;
-	margin: 0;
-}
+  color: #363636;
+  font-family: helvetica;
+  margin: 0; }
 
 code {
-	background: #eee;
-    border: solid 1px #ddd;
-    border-radius: 2px;
-    padding: 0 5px;
-}
+  background: #eee;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  padding: 0 5px; }
 
 br {
-	line-height: 50px;
-}
+  line-height: 50px; }
 
 .cloak {
-	position: absolute;
-	top: 0;
-    width: 100%;
-    height: 300px;
-    background: #422139;
-    z-index: 2;
-    opacity: 0.15;
-}
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  background: #422039;
+  z-index: 2;
+  opacity: 0.15; }
 
 .header, .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
-	height: 190px;
-	width: 100%;
-	background: #422039;
-	background-position-y: center;
-	background-size: 100%;
-	padding: 55px 0;
-	color: #fff;
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 190px;
+  width: 100%;
+  background: #422039;
+  background-position-y: center;
+  background-size: 100%;
+  padding: 55px 0;
+  color: #fff; }
 
 /* Initial LQIP classes for header bgs */
-
 .webp .header {
-	background-image: url(../images/floral-crop.webp);
-}
+  background-image: url(../images/floral-crop.webp); }
 
 .no-webp .header {
-	background-image: url(../images/floral-crop.png);
-}
+  background-image: url(../images/floral-crop.png); }
 
 .no-js-header .header {
-	background-image: url(../images/floral-crop.png);
-}
+  background-image: url(../images/floral-crop.png); }
 
 /* end */
-
 .header__home {
-    padding: 10px 14px 10px 20px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    background: #422039;
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 8px;
-    color: #fff;
-    z-index: 5;
-}
+  padding: 10px 14px 10px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: #422039;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 8px;
+  color: #fff;
+  z-index: 5; }
 
 .header__home:hover {
-	background: #35182e;
-}
+  background: #35182e; }
 
 .title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
-	background-position: top left;
-	z-index: 5;
-}
+  background-position: top left;
+  z-index: 5; }
 
 /* Initial LQIP classes for header bgs */
-
 .webp .title-bg {
-	background-image: url(../images/floral-crop.webp);
-}
+  background-image: url(../images/floral-crop.webp); }
 
 .no-webp .title-bg {
-	background-image: url(../images/floral-crop.png);
-}
+  background-image: url(../images/floral-crop.png); }
 
 .no-js-header .title-bg {
-	background-image: url(../images/floral-crop.png);
-}
+  background-image: url(../images/floral-crop.png); }
 
 /* end */
-
 .title-bg-faux {
-	padding: 15px 20px;
-	margin: 8px;
-	background: #fff;
-}
+  padding: 15px 20px;
+  margin: 8px;
+  background: #fff; }
 
 .header__title {
-	margin: 0;
-	font-size: 45px;
-	color: #422039;
-}
+  margin: 0;
+  font-size: 45px;
+  color: #422039; }
 
 .main {
-	display: flex;
-	justify-content: center;
-}
+  display: flex;
+  justify-content: center; }
 
 .nav {
-	width: 240px;
-	padding: 0 10px 58px 0;
-	margin-top: 0px;
-	display: flex;
-}
+  width: 240px;
+  padding: 0 10px 58px 0;
+  margin-top: 0px;
+  display: flex; }
 
 .nav__list {
-	list-style: none;
-	line-height: 36px;
-	margin-top: 67px;
-}
+  list-style: none;
+  line-height: 36px;
+  margin-top: 67px; }
 
 .nav__item {
-	color: #cace89;
-	text-decoration: none;
-	padding: 9px 0;
-}
+  color: #cace89;
+  text-decoration: none;
+  padding: 9px 0; }
 
 .nav__item:hover {
-	color: #b4ba51;
-}
+  color: #b4ba51; }
 
 .nav__item--active {
-	color: #b4ba51;
-	font-weight: bold;
-	text-decoration: none;
-}
+  color: #b4ba51;
+  font-weight: bold;
+  text-decoration: none; }
 
 .nav__list--fixed {
-	list-style: none;
-	line-height: 34px;
-	position: fixed;
-	top: 67px;
-	margin: 0;
-}
+  list-style: none;
+  line-height: 34px;
+  position: fixed;
+  top: 67px;
+  margin: 0; }
 
 .nav__list--bottom {
-	list-style: none;
-	line-height: 34px;
-	align-self: flex-end;
-}
+  list-style: none;
+  line-height: 34px;
+  align-self: flex-end; }
 
 .nav--m {
-	display: none;
-}
+  display: none; }
 
 .content {
-	width: 680px;
-	padding-right: 10px;
-	margin: 27px 0 65px;
-}
+  width: 680px;
+  padding-right: 10px;
+  margin: 27px 0 65px; }
 
 .content__heading {
-	margin-top: 45px;
-	font-size: 22px;
-	color: #b4ba51;
-}
+  margin-top: 45px;
+  font-size: 22px;
+  color: #b4ba51; }
 
 .content__title {
-	font-size: 14px;
-	/* padding-left: 24px; */
-	margin: 35px 0 20px;
-}
+  font-size: 14px;
+  /* padding-left: 24px; */
+  margin: 35px 0 20px; }
 
 .content__title2 {
-	font-size: 14px;
-	/* padding-left: 24px; */
-	margin: 4px 0 20px 0;
-}
+  font-size: 14px;
+  /* padding-left: 24px; */
+  margin: 4px 0 20px 0; }
 
 .content__subtitle {
-	font-size: 14px;
-	/* padding-left: 24px; */
-	margin: 4px 0 20px 0;
-	color: #666;
-}
+  font-size: 14px;
+  /* padding-left: 24px; */
+  margin: 4px 0 20px 0;
+  color: #666; }
 
 .content__list--bold {
-	font-size: 14px;
-	margin: 5px 0 5px;
-}
+  font-size: 14px;
+  margin: 5px 0 5px; }
 
 .content__list {
-	font-size: 14px;
-	line-height: 34px;
-	color: #555;
-	margin-left: -24px;
-}
+  font-size: 14px;
+  line-height: 34px;
+  color: #555;
+  margin-left: -24px; }
 
 .content__list a {
-	color: #b4ba51;
-	text-decoration: none;
-}
+  color: #b4ba51;
+  text-decoration: none; }
 
 .content__list a:hover {
-	text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .content__body {
-	font-size: 14px;
-	line-height: 34px;
-	color: #555;
-}
+  font-size: 14px;
+  line-height: 34px;
+  color: #555; }
 
 .content__body a {
-	color: #b4ba51;
-	text-decoration: none;
-}
+  color: #b4ba51;
+  text-decoration: none; }
 
 .content__body a:hover {
-	text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .content__body2 {
-	font-size: 14px;
-	line-height: 34px;
-	color: #555;
-	margin-left: -40px;
-}
+  font-size: 14px;
+  line-height: 34px;
+  color: #555;
+  margin-left: -40px; }
 
 .content__body--example {
-	line-height: 2;
-	color: #555;
-	background: #eee;
-	padding: 8px 15px;
-	border-radius: 5px;
-}
+  line-height: 2;
+  color: #555;
+  background: #eee;
+  padding: 8px 15px;
+  border-radius: 5px; }
 
 footer {
-	display: flex;
-    align-items: center;
-    justify-content: center;
-	width: 100%;
-	background: #f3f3f3;
-	border-top: solid 3px #eee;
-	z-index: 2;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #f3f3f3;
+  border-top: solid 3px #eee;
+  z-index: 2; }
 
 .footer__contain {
-	display: flex;
-	align-items: center;
-    justify-content: space-between;
-	width: 940px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 940px; }
 
 .footer__contain--left {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	padding-left: 30px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 30px; }
 
 .footer__contain--right {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-}
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
 
 .footer__link {
-	color: #999;
-	font-size: 10px;
-	padding: 8px 10px;
-	letter-spacing: 3px;
-	margin-right: 20px;
-	cursor: pointer;
-	text-decoration: none;
-}
+  color: #999;
+  font-size: 10px;
+  padding: 8px 10px;
+  letter-spacing: 3px;
+  margin-right: 20px;
+  cursor: pointer;
+  text-decoration: none; }
 
 .footer__link:hover {
-	color: #b4ba51;
-}
+  color: #b4ba51; }
 
 .footer__blurb {
-	color: #999;
-	font-size: 14px;
-	font-family: monospace;
-}
+  color: #999;
+  font-size: 14px;
+  font-family: monospace; }
 
 .footer__blurb--sm {
-	display: none;
-}
+  display: none; }
 
 .footer__blurb--xsm {
-	display: none;
-}
+  display: none; }
 
 .footer__pseudo-code {
-	background: #eee;
-    border: solid 1px #ddd;
-    border-radius: 2px;
-    padding: 0 5px;
-}
+  background: #eee;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  padding: 0 5px; }
 
 .footer__avatar {
-    width: 32px;
-    margin: 20px 10px 20px 30px;
-}
-
-
-
+  width: 32px;
+  margin: 20px 10px 20px 30px; }
 
 @media (min-width: 1400px) {
-
-	.no-js-header .header {
-		background-repeat: repeat-x;
-	}
-
-	.webp .header {
-		background-repeat: repeat-x;
-	}
-
-	.no-webp .header {
-		background-repeat: repeat-x;
-	}
-
-	.header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
-		background-repeat: repeat-x;
-	}
-}
+  .no-js-header .header {
+    background-repeat: repeat-x; }
+  .webp .header {
+    background-repeat: repeat-x; }
+  .no-webp .header {
+    background-repeat: repeat-x; }
+  .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
+    background-repeat: repeat-x; } }
 
 @media (max-width: 800px) {
-
-	.nav {
-		display: none;
-	}
-
-	.nav--m {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0 20px;
-		background: #00687b;
-		color: #fff;
-		cursor: pointer;
-	}
-
-	.content {
-		margin-left: 20px;
-	}
-
-	.footer__contain {
-		display: flex;
-		align-items: center;
-  		justify-content: space-between;
-		width: 680px;
-		margin: 0 10px;
-	}
-
-	.footer__contain--left {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		padding: 0;
-	}
-
-	.footer__avatar {
-		margin-left: 15px;
-	}
-
-}
+  .nav {
+    display: none; }
+  .nav--m {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    background: #00687b;
+    color: #fff;
+    cursor: pointer; }
+  .content {
+    margin-left: 20px; }
+  .footer__contain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 680px;
+    margin: 0 10px; }
+  .footer__contain--left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0; }
+  .footer__avatar {
+    margin-left: 15px; } }
 
 @media (max-width: 700px) {
-
-	.footer__blurb {
-		display: none;
-	}
-
-	.footer__blurb--sm {
-		color: #999;
-		font-size: 14px;
-		font-family: monospace;
-		display: block;
-	}
-
-}
+  .footer__blurb {
+    display: none; }
+  .footer__blurb--sm {
+    color: #999;
+    font-size: 14px;
+    font-family: monospace;
+    display: block; } }
 
 @media (max-width: 575px) {
-
-	.footer__blurb--sm {
-		display: none;
-	}
-
-	.footer__blurb--xsm {
-		color: #999;
-		font-size: 14px;
-		font-family: monospace;
-		display: block;
-	}
-
-}
+  .footer__blurb--sm {
+    display: none; }
+  .footer__blurb--xsm {
+    color: #999;
+    font-size: 14px;
+    font-family: monospace;
+    display: block; } }
 
 @media (min-width: 540px) {
-
-	.title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
-		background-size: 1400px;
-	}
-
-	.no-js-header .header {
-		background-size: 1400px 100%;
-		background-position: center center;
-	}
-
-	.webp .header {
-		background-size: 1400px 100%;
-		background-position: center center;
-	}
-
-	.no-webp .header {
-		background-size: 1400px 100%;
-		background-position: center center;
-	}
-
-	.header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
-		background-size: 1400px 100%;
-		background-position: center center;
-	}
-
-	/* HiDPI classes for larger header bgs -- added with JS */
-
-	.header--webp-2x {
-		background-image: url(../images/floral-crop-2x.webp);
-	}
-
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
-	.header--webp-3x {
-		background-image: url(../images/floral-crop-2x.webp);
-	}
-
-	.header--png-2x {
-		background-image: url(../images/floral-crop-2x.png);
-	}
-
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
-	.header--png-3x {
-		background-image: url(../images/floral-crop-2x.png);
-	}
-
-	/* HiDPI classes for larger header bgs -- added with JS */
-
-	.title-bg--webp-2x {
-		background-image: url(../images/floral-crop-2x.webp);
-	}
-
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
-	.title-bg--webp-3x {
-		background-image: url(../images/floral-crop-2x.webp);
-	}
-
-	.title-bg--png-2x {
-		background-image: url(../images/floral-crop-2x.png);
-	}
-
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
-	.title-bg--png-3x {
-		background-image: url(../images/floral-crop-2x.png);
-	}
-
-}
+  .title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
+    background-size: 1400px; }
+  .no-js-header .header {
+    background-size: 1400px 100%;
+    background-position: center center; }
+  .webp .header {
+    background-size: 1400px 100%;
+    background-position: center center; }
+  .no-webp .header {
+    background-size: 1400px 100%;
+    background-position: center center; }
+  .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
+    background-size: 1400px 100%;
+    background-position: center center; }
+  /* HiDPI classes for larger header bgs -- added with JS */
+  .header--webp-2x {
+    background-image: url(../images/floral-crop-2x.webp); }
+  /* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+  .header--webp-3x {
+    background-image: url(../images/floral-crop-2x.webp); }
+  .header--png-2x {
+    background-image: url(../images/floral-crop-2x.png); }
+  /* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+  .header--png-3x {
+    background-image: url(../images/floral-crop-2x.png); }
+  /* HiDPI classes for larger header bgs -- added with JS */
+  .title-bg--webp-2x {
+    background-image: url(../images/floral-crop-2x.webp); }
+  /* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+  .title-bg--webp-3x {
+    background-image: url(../images/floral-crop-2x.webp); }
+  .title-bg--png-2x {
+    background-image: url(../images/floral-crop-2x.png); }
+  /* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+  .title-bg--png-3x {
+    background-image: url(../images/floral-crop-2x.png); } }
 
 @media (max-width: 540px) {
-
-	.title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
-		background-size: 540px;
-	}
-
-	.webp .header {
-		background-image: url(../images/floral-crop-540w.webp);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	.no-webp .header {
-		background-image: url(../images/floral-crop-540w.png);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	.no-js-header .header {
-		background-image: url(../images/floral-crop-540w.png);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	/* HiDPI classes for 540w header bgs -- added with JS */
-
-	.header--webp-2x {
-		background-image: url(../images/floral-crop-540w-2x.webp);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	.header--webp-3x {
-		background-image: url(../images/floral-crop-540w-3x.webp);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	.header--png-2x {
-		background-image: url(../images/floral-crop-540w-2x.png);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	.header--png-3x {
-		background-image: url(../images/floral-crop-540w-3x.png);
-		background-size: 540px 100%;
-		background-position: center center;
-	}
-
-	/* end */
-
-	.webp .title-bg {
-		background-image: url(../images/floral-crop-540w.webp);
-	}
-
-	.no-webp .title-bg {
-		background-image: url(../images/floral-crop-540w.png);
-	}
-
-	.no-js-header .title-bg {
-		background-image: url(../images/floral-crop-540w.png);
-	}
-
-	/* HiDPI classes for 540w header bgs -- added with JS */
-
-	.title-bg--webp-2x {
-		background-image: url(../images/floral-crop-540w-2x.webp);
-	}
-
-	.title-bg--webp-3x {
-		background-image: url(../images/floral-crop-540w-3x.webp);
-	}
-
-	.title-bg--png-2x {
-		background-image: url(../images/floral-crop-540w-2x.png);
-	}
-
-	.title-bg--png-3x {
-		background-image: url(../images/floral-crop-540w-3x.png);
-	}
-
-}
+  .title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
+    background-size: 540px; }
+  .webp .header {
+    background-image: url(../images/floral-crop-540w.webp);
+    background-size: 540px 100%;
+    background-position: center center; }
+  .no-webp .header {
+    background-image: url(../images/floral-crop-540w.png);
+    background-size: 540px 100%;
+    background-position: center center; }
+  .no-js-header .header {
+    background-image: url(../images/floral-crop-540w.png);
+    background-size: 540px 100%;
+    background-position: center center; }
+  /* HiDPI classes for 540w header bgs -- added with JS */
+  .header--webp-2x {
+    background-image: url(../images/floral-crop-540w-2x.webp);
+    background-size: 540px 100%;
+    background-position: center center; }
+  .header--webp-3x {
+    background-image: url(../images/floral-crop-540w-3x.webp);
+    background-size: 540px 100%;
+    background-position: center center; }
+  .header--png-2x {
+    background-image: url(../images/floral-crop-540w-2x.png);
+    background-size: 540px 100%;
+    background-position: center center; }
+  .header--png-3x {
+    background-image: url(../images/floral-crop-540w-3x.png);
+    background-size: 540px 100%;
+    background-position: center center; }
+  /* end */
+  .webp .title-bg {
+    background-image: url(../images/floral-crop-540w.webp); }
+  .no-webp .title-bg {
+    background-image: url(../images/floral-crop-540w.png); }
+  .no-js-header .title-bg {
+    background-image: url(../images/floral-crop-540w.png); }
+  /* HiDPI classes for 540w header bgs -- added with JS */
+  .title-bg--webp-2x {
+    background-image: url(../images/floral-crop-540w-2x.webp); }
+  .title-bg--webp-3x {
+    background-image: url(../images/floral-crop-540w-3x.webp); }
+  .title-bg--png-2x {
+    background-image: url(../images/floral-crop-540w-2x.png); }
+  .title-bg--png-3x {
+    background-image: url(../images/floral-crop-540w-3x.png); } }
 
 @media (max-width: 500px) {
-
-	.footer__blurb--xsm {
-		display: none;
-	}
-
-}
+  .footer__blurb--xsm {
+    display: none; } }
 
 @media (max-width: 410px) {
-
-	.footer__blurb {
-		font-size: 12px;
-	}
-
-}
-
-
+  .footer__blurb {
+    font-size: 12px; } }

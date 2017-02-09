@@ -58,6 +58,6 @@ This is the css that goes in the Head of index.html. It has it's own gulp task t
   4.  Does the JS that injects prefetch resource hint inject the proper image?
   5.  Does fetching main.css.gz get defered after page load?
 	
-
+  
 
 
