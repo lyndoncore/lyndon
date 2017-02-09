@@ -1,14 +1,15 @@
 // BUILD TASKS FOR LYNDONCORE.COM
 
-var gulp = require('gulp');
+var gulp           = require('gulp');
 
-var cleanCSS = require('gulp-clean-css');
-var closureCompiler = require('gulp-closure-compiler');
-var connect = require('gulp-connect');
-var imagemin = require('gulp-imagemin');
-var gzip = require('gulp-gzip');
-var sass = require('gulp-sass');
- 
+var autoprefixer   = require('autoprefixer');
+var cleanCSS       = require('gulp-clean-css');
+var connect        = require('gulp-connect');
+var imagemin       = require('gulp-imagemin');
+var gzip           = require('gulp-gzip');
+var postcss        = require('gulp-postcss');
+var sass           = require('gulp-sass');
+
 
 // =================================================== HTML tasks
 
@@ -21,10 +22,6 @@ gulp.task('gzip-html', function() {
 // =================================================== Styles (CSS) tasks
 
 gulp.task('css', function () {
-    var postcss      = require('gulp-postcss');
-    var sourcemaps   = require('gulp-sourcemaps');
-    var autoprefixer = require('autoprefixer');
-
     return gulp.src('css/main.css')
         .pipe(postcss([ autoprefixer() ]))
         .pipe(cleanCSS())
@@ -36,10 +33,8 @@ gulp.task('css', function () {
 // ISSUE - not adding -moz prefix to "text-fill-color". (maybe dont specify webkit in source)
 // ISSUE - wont work with autoprefixer being changed
 gulp.task('inline-css', function() {
-    gulp.src('css/inline-ignore.css')
-    .pipe(autoprefixer({
-        browsers: ['>1%']
-    }))
+    gulp.src('css/inline.css')
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(cleanCSS())
     .pipe(gulp.dest('ignore')); 
 });

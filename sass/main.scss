@@ -1,12 +1,8 @@
-/* ========== Color Variables ========== */
+// ==================== Import Partials ====================
 
-$primary-color: #B4BA51; // green
-	$primary-color-light: lighten($primary-color, 10%);
-	$primary-color-dark: darken($primary-color, 10%);
+@import 'colors';
 
-$secondary-color: #422039; // purple
-	$secondary-color-light: lighten($secondary-color, 10%);
-	$secondary-color-dark: darken($secondary-color, 10%);
+// ==================== Main Styles ====================
 
 html {
 	/* Prevent font scaling in landscape while allowing user zoom */
@@ -84,7 +80,7 @@ br {
 }
 
 .header__home:hover {
-	background: #35182e;
+	background: $secondary-color-dark;
 }
 
 .title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
@@ -117,7 +113,7 @@ br {
 .header__title {
 	margin: 0;
 	font-size: 45px;
-	color: #422039;
+	color: $secondary-color;
 }
 
 .main {
@@ -139,17 +135,17 @@ br {
 }
 
 .nav__item {
-	color: #cace89;
+	color: $primary-color-light;
 	text-decoration: none;
 	padding: 9px 0;
 }
 
 .nav__item:hover {
-	color: #b4ba51;
+	color: $primary-color;
 }
 
 .nav__item--active {
-	color: #b4ba51;
+	color: $primary-color;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -181,7 +177,7 @@ br {
 .content__heading {
 	margin-top: 45px;
 	font-size: 22px;
-	color: #b4ba51;
+	color: $primary-color;
 }
 
 .content__title {
@@ -216,7 +212,7 @@ br {
 }
 
 .content__list a {
-	color: #b4ba51;
+	color: $primary-color;
 	text-decoration: none;
 }
 
@@ -231,7 +227,7 @@ br {
 }
 
 .content__body a {
-	color: #b4ba51;
+	color: $primary-color;
 	text-decoration: none;
 }
 
@@ -295,7 +291,7 @@ footer {
 }
 
 .footer__link:hover {
-	color: #b4ba51;
+	color: $primary-color;
 }
 
 .footer__blurb {
