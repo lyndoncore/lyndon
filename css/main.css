@@ -16,6 +16,10 @@ code {
     padding: 0 5px;
 }
 
+br {
+	line-height: 50px;
+}
+
 .cloak {
 	position: absolute;
 	top: 0;
@@ -173,7 +177,7 @@ code {
 .content__title {
 	font-size: 14px;
 	/* padding-left: 24px; */
-	margin-bottom: 0px;
+	margin: 35px 0 20px;
 }
 
 .content__title2 {

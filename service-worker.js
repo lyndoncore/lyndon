@@ -1,27 +1,28 @@
-var CACHE_NAME = 'v1';
+var CACHE_NAME = 'v2';
 var urlsToCache = [
   '/',
-  '/index.html'
+  '/index.html',
+  '/resume.html',
+  '/design.html',
+  '/css/main.css.gz',
+  '/js/scripts.js.gz'
 ];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
 });
 
 self.addEventListener("activate", function(event) {
-	console.log('WORKER: activated.');
 
 	event.waitUntil(
 		caches.keys().then(function(cacheNames) {
 			return Promise.all(cacheNames.map(function(thisCacheName) {
 				if (thisCacheName !== CACHE_NAME) {
-					console.log("WORKER: removing outdated cached files from ", thisCacheName);
 					return caches.delete(thisCacheName);
 				}
 			}))
