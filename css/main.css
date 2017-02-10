@@ -1,5 +1,4 @@
 html {
-  /* Prevent font scaling in landscape while allowing user zoom */
   -webkit-text-size-adjust: 100%; }
 
 body {
@@ -16,15 +15,6 @@ code {
 br {
   line-height: 50px; }
 
-.cloak {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 300px;
-  background: #422039;
-  z-index: 2;
-  opacity: 0.15; }
-
 .header, .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
   display: flex;
   align-items: center;
@@ -38,17 +28,10 @@ br {
   padding: 55px 0;
   color: #fff; }
 
-/* Initial LQIP classes for header bgs */
-.webp .header {
-  background-image: url(../images/floral-crop.webp); }
+.header__titleBg, .header__titleBg--webp-2x, .header__titleBg--webp-3x, .header__titleBg--png-2x, .header__titleBg--png-3x {
+  background-position: top left;
+  z-index: 5; }
 
-.no-webp .header {
-  background-image: url(../images/floral-crop.png); }
-
-.no-js-header .header {
-  background-image: url(../images/floral-crop.png); }
-
-/* end */
 .header__home {
   padding: 10px 14px 10px 20px;
   text-decoration: none;
@@ -60,26 +43,10 @@ br {
   letter-spacing: 8px;
   color: #fff;
   z-index: 5; }
+  .header__home:hover {
+    background: #381b30; }
 
-.header__home:hover {
-  background: #381b30; }
-
-.title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
-  background-position: top left;
-  z-index: 5; }
-
-/* Initial LQIP classes for header bgs */
-.webp .title-bg {
-  background-image: url(../images/floral-crop.webp); }
-
-.no-webp .title-bg {
-  background-image: url(../images/floral-crop.png); }
-
-.no-js-header .title-bg {
-  background-image: url(../images/floral-crop.png); }
-
-/* end */
-.title-bg-faux {
+.header__titleBg--faux {
   padding: 15px 20px;
   margin: 8px;
   background: #fff; }
@@ -88,6 +55,24 @@ br {
   margin: 0;
   font-size: 45px;
   color: #422039; }
+
+.webp .header {
+  background-image: url(../images/floral-crop.webp); }
+
+.webp .header__titleBg {
+  background-image: url(../images/floral-crop.webp); }
+
+.no-webp .header {
+  background-image: url(../images/floral-crop.png); }
+
+.no-webp .header__titleBg {
+  background-image: url(../images/floral-crop.png); }
+
+.no-js-header .header {
+  background-image: url(../images/floral-crop.png); }
+
+.no-js-header .header__titleBg {
+  background-image: url(../images/floral-crop.png); }
 
 .main {
   display: flex;
@@ -98,109 +83,75 @@ br {
   padding: 0 10px 58px 0;
   margin-top: 0px;
   display: flex; }
-
-.nav__list {
-  list-style: none;
-  line-height: 36px;
-  margin-top: 67px; }
-
-.nav__item {
-  color: #ccd088;
-  text-decoration: none;
-  padding: 9px 0; }
-
-.nav__item:hover {
-  color: #B4BA51; }
-
-.nav__item--active {
-  color: #B4BA51;
-  font-weight: bold;
-  text-decoration: none; }
-
-.nav__list--fixed {
-  list-style: none;
-  line-height: 34px;
-  position: fixed;
-  top: 67px;
-  margin: 0; }
-
-.nav__list--bottom {
-  list-style: none;
-  line-height: 34px;
-  align-self: flex-end; }
-
-.nav--m {
-  display: none; }
+  .nav__list {
+    list-style: none;
+    line-height: 36px;
+    margin-top: 67px; }
+    .nav__list--fixed {
+      list-style: none;
+      line-height: 34px;
+      position: fixed;
+      top: 67px;
+      margin: 0; }
+    .nav__list--bottom {
+      list-style: none;
+      line-height: 34px;
+      align-self: flex-end; }
+  .nav__item {
+    color: #ccd088;
+    text-decoration: none;
+    padding: 9px 0; }
+    .nav__item:hover {
+      color: #B4BA51; }
+    .nav__item--active {
+      color: #B4BA51;
+      font-weight: bold;
+      text-decoration: none; }
+  .nav--m {
+    display: none; }
 
 .content {
   width: 680px;
   padding-right: 10px;
   margin: 27px 0 65px; }
+  .content__body {
+    font-size: 14px;
+    line-height: 34px;
+    color: #555; }
+  .content__body2 {
+    font-size: 14px;
+    line-height: 34px;
+    color: #555;
+    margin-left: -40px; }
+  .content__heading {
+    margin-top: 45px;
+    font-size: 22px;
+    color: #B4BA51; }
+  .content__title {
+    font-size: 14px;
+    margin: 35px 0 20px; }
+  .content__title2 {
+    font-size: 14px;
+    margin: 4px 0 20px 0; }
+  .content__subtitle {
+    font-size: 14px;
+    margin: 4px 0 20px 0;
+    color: #666; }
+  .content__list {
+    font-size: 14px;
+    line-height: 34px;
+    color: #555;
+    margin-left: -24px; }
+    .content__list--bold {
+      font-size: 14px;
+      margin: 5px 0 5px; }
+  .content__link {
+    color: #B4BA51;
+    text-decoration: none; }
+    .content__link:hover {
+      text-decoration: underline; }
 
-.content__heading {
-  margin-top: 45px;
-  font-size: 22px;
-  color: #B4BA51; }
-
-.content__title {
-  font-size: 14px;
-  /* padding-left: 24px; */
-  margin: 35px 0 20px; }
-
-.content__title2 {
-  font-size: 14px;
-  /* padding-left: 24px; */
-  margin: 4px 0 20px 0; }
-
-.content__subtitle {
-  font-size: 14px;
-  /* padding-left: 24px; */
-  margin: 4px 0 20px 0;
-  color: #666; }
-
-.content__list--bold {
-  font-size: 14px;
-  margin: 5px 0 5px; }
-
-.content__list {
-  font-size: 14px;
-  line-height: 34px;
-  color: #555;
-  margin-left: -24px; }
-
-.content__list a {
-  color: #B4BA51;
-  text-decoration: none; }
-
-.content__list a:hover {
-  text-decoration: underline; }
-
-.content__body {
-  font-size: 14px;
-  line-height: 34px;
-  color: #555; }
-
-.content__body a {
-  color: #B4BA51;
-  text-decoration: none; }
-
-.content__body a:hover {
-  text-decoration: underline; }
-
-.content__body2 {
-  font-size: 14px;
-  line-height: 34px;
-  color: #555;
-  margin-left: -40px; }
-
-.content__body--example {
-  line-height: 2;
-  color: #555;
-  background: #eee;
-  padding: 8px 15px;
-  border-radius: 5px; }
-
-footer {
+.footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,56 +159,44 @@ footer {
   background: #f3f3f3;
   border-top: solid 3px #eee;
   z-index: 2; }
-
-.footer__contain {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 940px; }
-
-.footer__contain--left {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 30px; }
-
-.footer__contain--right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; }
-
-.footer__link {
-  color: #999;
-  font-size: 10px;
-  padding: 8px 10px;
-  letter-spacing: 3px;
-  margin-right: 20px;
-  cursor: pointer;
-  text-decoration: none; }
-
-.footer__link:hover {
-  color: #B4BA51; }
-
-.footer__blurb {
-  color: #999;
-  font-size: 14px;
-  font-family: monospace; }
-
-.footer__blurb--sm {
-  display: none; }
-
-.footer__blurb--xsm {
-  display: none; }
-
-.footer__pseudo-code {
-  background: #eee;
-  border: solid 1px #ddd;
-  border-radius: 2px;
-  padding: 0 5px; }
-
-.footer__avatar {
-  width: 32px;
-  margin: 20px 10px 20px 30px; }
+  .footer__contain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 940px; }
+    .footer__contain--left {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 30px; }
+    .footer__contain--right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end; }
+  .footer__link {
+    color: #999;
+    font-size: 10px;
+    padding: 8px 10px;
+    letter-spacing: 3px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-decoration: none; }
+    .footer__link:hover {
+      color: #B4BA51; }
+  .footer__blurb {
+    color: #999;
+    font-size: 14px;
+    font-family: monospace; }
+    .footer__blurb--sm {
+      display: none; }
+  .footer__pseudoCode {
+    background: #eee;
+    border: solid 1px #ddd;
+    border-radius: 2px;
+    padding: 0 5px; }
+  .footer__avatar {
+    width: 32px;
+    margin: 20px 10px 20px 30px; }
 
 @media (min-width: 1400px) {
   .no-js-header .header {
@@ -306,16 +245,16 @@ footer {
     display: block; } }
 
 @media (max-width: 575px) {
-  .footer__blurb--sm {
+  .footer__blurb {
     display: none; }
-  .footer__blurb--xsm {
+  .footer__blurb--sm {
     color: #999;
     font-size: 14px;
     font-family: monospace;
     display: block; } }
 
 @media (min-width: 540px) {
-  .title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
+  .header__titleBg, .header__titleBg--webp-2x, .header__titleBg--webp-3x, .header__titleBg--png-2x, .header__titleBg--png-3x {
     background-size: 1400px; }
   .no-js-header .header {
     background-size: 1400px 100%;
@@ -341,19 +280,19 @@ footer {
   .header--png-3x {
     background-image: url(../images/floral-crop-2x.png); }
   /* HiDPI classes for larger header bgs -- added with JS */
-  .title-bg--webp-2x {
+  .header__titleBg--webp-2x {
     background-image: url(../images/floral-crop-2x.webp); }
   /* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
-  .title-bg--webp-3x {
+  .header__titleBg--webp-3x {
     background-image: url(../images/floral-crop-2x.webp); }
-  .title-bg--png-2x {
+  .header__titleBg--png-2x {
     background-image: url(../images/floral-crop-2x.png); }
   /* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
-  .title-bg--png-3x {
+  .header__titleBg--png-3x {
     background-image: url(../images/floral-crop-2x.png); } }
 
 @media (max-width: 540px) {
-  .title-bg, .title-bg--webp-2x, .title-bg--webp-3x, .title-bg--png-2x, .title-bg--png-3x {
+  .header__titleBg, .header__titleBg--webp-2x, .header__titleBg--webp-3x, .header__titleBg--png-2x, .header__titleBg--png-3x {
     background-size: 540px; }
   .webp .header {
     background-image: url(../images/floral-crop-540w.webp);
@@ -385,26 +324,22 @@ footer {
     background-size: 540px 100%;
     background-position: center center; }
   /* end */
-  .webp .title-bg {
+  .webp .header__titleBg {
     background-image: url(../images/floral-crop-540w.webp); }
-  .no-webp .title-bg {
+  .no-webp .header__titleBg {
     background-image: url(../images/floral-crop-540w.png); }
-  .no-js-header .title-bg {
+  .no-js-header .header__titleBg {
     background-image: url(../images/floral-crop-540w.png); }
   /* HiDPI classes for 540w header bgs -- added with JS */
-  .title-bg--webp-2x {
+  .header__titleBg--webp-2x {
     background-image: url(../images/floral-crop-540w-2x.webp); }
-  .title-bg--webp-3x {
+  .header__titleBg--webp-3x {
     background-image: url(../images/floral-crop-540w-3x.webp); }
-  .title-bg--png-2x {
+  .header__titleBg--png-2x {
     background-image: url(../images/floral-crop-540w-2x.png); }
-  .title-bg--png-3x {
+  .header__titleBg--png-3x {
     background-image: url(../images/floral-crop-540w-3x.png); } }
 
 @media (max-width: 500px) {
-  .footer__blurb--xsm {
+  .footer__blurb--sm {
     display: none; } }
-
-@media (max-width: 410px) {
-  .footer__blurb {
-    font-size: 12px; } }

@@ -106,7 +106,7 @@ function navStop() {
 function setHeaderBgs() {
 	// Two backgrounds we are changing
 	var headerBg = document.getElementById('header');
-	var titleBg = document.getElementById('title-bg');
+	var titleBg = document.getElementById('header__titleBg');
 	// Callback function to switch the background once the image has loaded
 	function loadBg(src, callback) {
     	var image = new Image();
@@ -119,26 +119,26 @@ function setHeaderBgs() {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-3x.webp', function() {
 					headerBg.className = "header--webp-3x";
-					titleBg.className = "title-bg--webp-3x";
+					titleBg.className = "header__titleBg--webp-3x";
 				});
 			} else {
 				// ommitted 3x version of floral-crop because of file size (change 2x to 3x for support)
 				loadBg('images/floral-crop-2x.webp', function() {
 					headerBg.className = "header--webp-2x";
-					titleBg.className = "title-bg--webp-2x";
+					titleBg.className = "header__titleBg--webp-2x";
 				});
 			}
   		} else {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-3x.png', function() {
 					headerBg.className = "header--png-3x";
-					titleBg.className = "title-bg--png-3x";
+					titleBg.className = "header__titleBg--png-3x";
 				});
 			} else {
 				// ommitted 3x version of floral-crop because of file size (change 2x to 3x for support)
 				loadBg('images/floral-crop-2x.png', function() {
 					headerBg.className = "header--png-2x";
-					titleBg.className = "title-bg--png-2x";
+					titleBg.className = "header__titleBg--png-2x";
 				});
 			}
   		}
@@ -147,24 +147,24 @@ function setHeaderBgs() {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-2x.webp', function() {
 					headerBg.className = "header--webp-2x";
-					titleBg.className = "title-bg--webp-2x";
+					titleBg.className = "header__titleBg--webp-2x";
 				});
 			} else {
 				loadBg('images/floral-crop-2x.webp', function() {
 					headerBg.className = "header--webp-2x";
-					titleBg.className = "title-bg--webp-2x";
+					titleBg.className = "header__titleBg--webp-2x";
 				});
 			}
   		} else {
 			if (window.matchMedia('(max-width: 540px)').matches) {
 				loadBg('images/floral-crop-540w-2x.png', function() {
 					headerBg.className = "header--png-2x";
-					titleBg.className = "title-bg--png-2x";
+					titleBg.className = "header__titleBg--png-2x";
 				});
 			} else {
 				loadBg('images/floral-crop-2x.png', function() {
 					headerBg.className = "header--png-2x";
-					titleBg.className = "title-bg--png-2x";
+					titleBg.className = "header__titleBg--png-2x";
 				});
 			}
   		}
