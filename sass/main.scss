@@ -1,6 +1,6 @@
 // ======================================== Import Partials
 
-@import 'colors';
+@import 'variables';
 
 // ======================================== /Import Partials 
 
@@ -115,28 +115,28 @@ br {
 
 .webp {
 	.header {
-		background-image: url(../images/floral-crop.webp);
+		background-image: $header-bg-webp;
 	}
 	.header__titleBg {
-		background-image: url(../images/floral-crop.webp);
+		background-image: $header-bg-webp;
 	}
 }
 
 .no-webp {
 	.header {
-		background-image: url(../images/floral-crop.png);
+		background-image: $header-bg-png;
 	}
 	.header__titleBg {
-		background-image: url(../images/floral-crop.png);
+		background-image: $header-bg-png;
 	}
 }
 
 .no-js-header {
 	.header {
-		background-image: url(../images/floral-crop.png);
+		background-image: $header-bg-png;
 	}
 	.header__titleBg {
-		background-image: url(../images/floral-crop.png);
+		background-image: $header-bg-png;
 	}
 }
 
@@ -414,44 +414,40 @@ br {
 		background-position: center center;
 	}
 
-	/* HiDPI classes for larger header bgs -- added with JS */
-
 	.header--webp-2x {
-		background-image: url(../images/floral-crop-2x.webp);
+		background-image: $header-bg-webp-2x;
 	}
 
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header--webp-3x {
-		background-image: url(../images/floral-crop-2x.webp);
+		background-image: $header-bg-webp-2x;
 	}
 
 	.header--png-2x {
-		background-image: url(../images/floral-crop-2x.png);
+		background-image: $header-bg-png-2x;
 	}
 
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header--png-3x {
-		background-image: url(../images/floral-crop-2x.png);
+		background-image: $header-bg-png-2x;
 	}
-
-	/* HiDPI classes for larger header bgs -- added with JS */
 
 	.header__titleBg--webp-2x {
-		background-image: url(../images/floral-crop-2x.webp);
+		background-image: $header-bg-webp-2x;
 	}
 
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header__titleBg--webp-3x {
-		background-image: url(../images/floral-crop-2x.webp);
+		background-image: $header-bg-webp-2x;
 	}
 
 	.header__titleBg--png-2x {
-		background-image: url(../images/floral-crop-2x.png);
+		background-image: $header-bg-png-2x;
 	}
 
-	/* ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support) */
+	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header__titleBg--png-3x {
-		background-image: url(../images/floral-crop-2x.png);
+		background-image: $header-bg-png-2x;
 	}
 
 }
@@ -463,79 +459,73 @@ br {
 	}
 
 	.webp .header {
-		background-image: url(../images/floral-crop-540w.webp);
+		background-image: $header-bg-webp-540;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
 	.no-webp .header {
-		background-image: url(../images/floral-crop-540w.png);
+		background-image: $header-bg-png-540;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
 	.no-js-header .header {
-		background-image: url(../images/floral-crop-540w.png);
+		background-image: $header-bg-png-540;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
-	/* HiDPI classes for 540w header bgs -- added with JS */
-
 	.header--webp-2x {
-		background-image: url(../images/floral-crop-540w-2x.webp);
+		background-image: $header-bg-webp-540-2x;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
 	.header--webp-3x {
-		background-image: url(../images/floral-crop-540w-3x.webp);
+		background-image: $header-bg-webp-540-3x;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
 	.header--png-2x {
-		background-image: url(../images/floral-crop-540w-2x.png);
+		background-image: $header-bg-png-540-2x;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
 	.header--png-3x {
-		background-image: url(../images/floral-crop-540w-3x.png);
+		background-image: $header-bg-png-540-3x;
 		background-size: 540px 100%;
 		background-position: center center;
 	}
 
-	/* end */
-
 	.webp .header__titleBg {
-		background-image: url(../images/floral-crop-540w.webp);
+		background-image: $header-bg-webp-540;
 	}
 
 	.no-webp .header__titleBg {
-		background-image: url(../images/floral-crop-540w.png);
+		background-image: $header-bg-png-540;
 	}
 
 	.no-js-header .header__titleBg {
-		background-image: url(../images/floral-crop-540w.png);
+		background-image: $header-bg-png-540;
 	}
 
-	/* HiDPI classes for 540w header bgs -- added with JS */
-
 	.header__titleBg--webp-2x {
-		background-image: url(../images/floral-crop-540w-2x.webp);
+		background-image: $header-bg-webp-540-2x;
 	}
 
 	.header__titleBg--webp-3x {
-		background-image: url(../images/floral-crop-540w-3x.webp);
+		background-image: $header-bg-webp-540-3x;
 	}
 
 	.header__titleBg--png-2x {
-		background-image: url(../images/floral-crop-540w-2x.png);
+		background-image: $header-bg-png-540-2x;
 	}
 
 	.header__titleBg--png-3x {
-		background-image: url(../images/floral-crop-540w-3x.png);
+		background-image: $header-bg-png-540-3x;
 	}
 
 }
