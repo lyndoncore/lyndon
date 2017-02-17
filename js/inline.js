@@ -31,46 +31,40 @@ function prefetch() {
 // Prefetch the proper image size based on media queries DPPX
 //
 function setBg() {
-	var textBgImage = document.getElementsByTagName('h1');
+	var knockout = document.getElementsByTagName('h1');
 	function loadBg(src, callback) {
     	var image = new Image();
     	image.onload = callback;
     	image.src = src;
 	}
-	function updateBg() {
-		var c = textBgImage[0].getAttribute('data-bg-img');
-		textBgImage[0].style.background = c;
-		textBgImage[0].style.webkitBackgroundClip = "text";
-		textBgImage[0].style.backgroundClip = "text";
-		textBgImage[0].style.webkitTextFillColor = "transparent";
-		textBgImage[0].style.backgroundSize = "235px";
+	function updateBg(img) {
+		knockout[0].style.background = img;
+		knockout[0].style.webkitBackgroundClip = "text";
+		knockout[0].style.backgroundClip = "text";
+		knockout[0].style.webkitTextFillColor = "transparent";
+		knockout[0].style.backgroundSize = "235px";
 	}
 	if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
 		if (html.classList.contains('webp')) {
 			loadBg('images/floral-xsm3x.webp', function() {
-    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm3x.webp")');
-    			updateBg();
+    			updateBg('url("images/floral-xsm3x.webp")');
 			});
   		} else {
   			loadBg('images/floral-xsm3x.png', function() {
-    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm3x.png")');
-    			updateBg();
+    			updateBg('url("images/floral-xsm3x.png")');
 			});
   		}
 	} else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
 		if (html.classList.contains('webp')) {
 			loadBg('images/floral-xsm2x.webp', function() {
-    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm2x.webp")');
-    			updateBg();
+    			updateBg('url("images/floral-xsm2x.webp")');
 			});
   		} else {
   			loadBg('images/floral-xsm2x.png', function() {
-    			textBgImage[0].setAttribute('data-bg-img','url("images/floral-xsm2x.png")');
-    			updateBg();
+    			updateBg('url("images/floral-xsm2x.png")');
 			});
   		}
-	} else {
-	}
+	} 
 }
 
 // BELONGS INLINE ON INDEX.HTML
@@ -88,4 +82,22 @@ function run(){
 	setBg();
 	deferStyles();
 }
+
 window.onload = run;
+
+// Register our Service Worker
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker
+		.register('service-worker.js')
+		.then(function() {
+			console.log('Service worker registration complete.');
+		}) 
+		.catch(function() {
+			console.log('Service worker registration failure.');
+		})
+	} else {
+  console.log('CLIENT: service worker is not supported.');
+}
+
+
+

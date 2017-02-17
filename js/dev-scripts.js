@@ -24,7 +24,7 @@ function getScrollTop() {
 
 // Event Handler to make the sidenav sticky function run on scroll
 function navMove() {
-    if (getScrollTop() > 300) {
+    if (getScrollTop() > 298) {
         document.getElementById("sidebar").className = "nav__list--fixed";
     } else {
         document.getElementById("sidebar").className = "nav__list";
@@ -88,7 +88,7 @@ function navHighlight() {
 }
 
 
-
+// Stop the sidebar nav from scrolling into the footer
 function navStop() {
 	var docHeight = document.body.clientHeight;
 	var stopper = 160;

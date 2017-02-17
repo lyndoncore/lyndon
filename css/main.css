@@ -83,13 +83,13 @@ br {
     margin-top: 67px; }
     .nav__list--fixed {
       list-style: none;
-      line-height: 34px;
+      line-height: 36px;
       position: fixed;
       top: 67px;
       margin: 0; }
     .nav__list--bottom {
       list-style: none;
-      line-height: 34px;
+      line-height: 36px;
       align-self: flex-end; }
   .nav__item {
     color: #ccd088;

@@ -268,8 +268,80 @@ window.onload = prefetch;
 				<p class="content__body">Regardless of the lean, latency-reducing image delivery methods we decide on, there's a good chance we'll incur at least one more round trip to our server anyways - Why? Because <a class="content__link" href="https://developers.google.com/web/fundamentals/design-and-ui/media/images#art_direction">art direction</a> is important. It's easy to send a small optimized image to our users and call it performant, although doing that doesn't always provide a complete and optimal user experience. Go figure. For one, screen resolution varies wildly between <a class="content__link" href="https://material.io/devices/">all the devices</a> front-end devs have to accomodate nowadays. It's unacceptable to show users with a 3dppx screen (i.e. the Samsung Galaxy S5) an image that was optimized for a 1dppx screen (i.e. my Macbook Air). Blurry images degrade the UX and are no bueno.</p>
 
 				<h5 class="content__title">Low Quality Image Placeholders</h5>
-				<p class="content__body">I use our implementation of floral-xsm.png and floral-crop.png as <a class="content__link" href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholders</a> (or LQIPs), then query the client's device resolution with some javascript (<code class="content__code">window.matchMedia</code>), and go fetch the best image for the user <i>after</i> our lower quality images first load. This means the user gets visual feedback immediatly, <i>then</i> recieve a high-res version to appropiratly compliment their device capabilities. We accomplish this with...</p>
+				<p class="content__body">I use our implementation of floral-xsm.png and floral-crop.png as <a class="content__link" href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholders</a> (or LQIPs), then query the client's device resolution with some javascript (<code class="content__code">window.matchMedia</code>), and go fetch the best image for the user <i>after</i> our lower quality images first load. This means the user gets visual feedback immediatly, <i>then</i> recieve a high-res version to appropiratly compliment their device capabilities. For floral-sm.png on index.html, we accomplish this with...</p>
 
+<div class="pre__container">
+<pre class="pre"><code class="pre__code">function setBg() {
+
+    var knockout = document.getElementsByTagName('h1');
+
+    function loadBg(src, callback) {
+        var image = new Image();
+        image.onload = callback;
+        image.src = src;
+    }
+
+    function updateBg(img) {
+        knockout[0].style.background = img;
+        knockout[0].style.webkitBackgroundClip = "text";
+        knockout[0].style.backgroundClip = "text";
+        knockout[0].style.webkitTextFillColor = "transparent";
+        knockout[0].style.backgroundSize = "235px";
+    }
+
+    if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
+        if (html.classList.contains('webp')) {
+            loadBg('images/floral-xsm3x.webp', function() {
+                updateBg('url("images/floral-xsm3x.webp")');
+            });
+        } else {
+            loadBg('images/floral-xsm3x.png', function() {
+                updateBg('url("images/floral-xsm3x.png")');
+            });
+        }
+    } else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
+        if (html.classList.contains('webp')) {
+            loadBg('images/floral-xsm2x.webp', function() {
+                updateBg('url("images/floral-xsm2x.webp")');
+            });
+        } else {
+            loadBg('images/floral-xsm2x.png', function() {
+                updateBg('url("images/floral-xsm2x.png")');
+            });
+        }
+    } 
+}
+</code></pre>
+</div>	
+
+				<p class="content__body">For floral-crop.png, we do some similar testing, but there is an extra step we have to think about - our prefetch. Our prefetch occurs on index.html, so to make sure we don't fetch an image we wont end up using, we have to do some testing upfront. We replace our simple resource hint (mentioned above) with a script injected resource hint...</p>
+
+<div class="pre__container">
+<pre class="pre"><code class="pre__code">function prefetch() {
+    var link = document.createElement('link');
+    link.rel = 'prefetch';
+    // If webp is supported, load 1x webp versions of floral-crop
+    if (html.classList.contains('webp')) {
+        if (window.matchMedia('(max-width: 540px)').matches) {
+            link.href = 'images/floral-crop-540w.webp';
+        } else {
+            link.href = 'images/floral-crop.webp';
+        }
+    // If webp isn't supported, load 1x png versions of floral-crop
+    } else {
+        if (window.matchMedia('(max-width: 540px)').matches) {
+            link.href = 'images/floral-crop-540w.png';
+        } else {
+            link.href = 'images/floral-crop.png';
+        }
+    }
+    link.as = 'image';
+    document.head.appendChild(link);
+}
+</code></pre>
+</div>	
+
+				<p class="content__body">The key is, in this case, is to only prefetch resources that make the image smaller, and on design.html and resume.html, load the images that pretty it up.</p>
 
 
 				<h5 class="content__title">Conditional loading with <code class="content__code">srcset</code></h5>
@@ -278,10 +350,6 @@ window.onload = prefetch;
 				<h5 class="content__title">Conditional loading images for poor connections</h5>
 				<p class="content__body">Because mobile networks can vary wildly in bandwidth and latency, partially due to some <a class="content__link" href="https://hpbn.co/assets/diagrams/773ecb15832075c0b56021aa3ad15233.svg">infrastructure overhead</a>, it's also important to consider the network connection and serve appropriate images based on network constraints. However, the <code class="content__code">navigator.connection</code> API is simply too unreliable and <a class="content__link" href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API#Browser_compatibility">unsupported</a> at the moment. For now, we're going to leave this test out of our javascript.</p>
 
-
-
-
-			
 				<h5 id="usingWebp" class="content__title">Using Webp</h5>
 				<p class="content__body">As it turns out, we can provide even smaller image files with Google's Webp image format... yep, still not done optimizing our images. <a class="content__link" href="https://developers.google.com/speed/webp/">Webp</a> is a relatively new image format, developed by the smart people at over at Google, that provides superior lossy and lossless compression for images on the web. However, the native support for webp (as of this writing) is only in Chrome, Opera, and Andriod Browser, which is around <a class="content__link" href="http://caniuse.com/#feat=webp">73% of the web</a>. But we're going to need 100% of our users to be able to see our images. If we could detect what browser the user was on, and serve them the best image format, that would be ideal. We can do this type of feature detection client-side with a custom <a class="content__link" href="https://modernizr.com/">Modernizr</a> javascript build. If the client's browser supports Webp, Modernizr will be able to detect it, and a "webp" class will be added to the html element. We can check for the presence of the "webp" class in our CSS, and conditionally set different background images (.webp or .png). But there's a performance gotcha when using Modernizr this way - <i>first</i>, the initial response will first be recieved by the user, <i>then</i> the external javascript file will be discovered during parsing, <i>then</i> the browser will have to wait for the javascript file to be fetched, <i>then</i> the javascript will execute and add our "webp" class to the html element, at which point the CSS can <i>finally</i> recognize which image format to go retreive. This approach doesn't seem optimal.<br>
 
