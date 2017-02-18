@@ -27,11 +27,13 @@
 				<li><a id="navIntro" class="nav__item" href="#intro">Intro</a></li>
 				<li><a id="navToolkit" class="nav__item" href="#toolkit">Toolkit</a></li>
 				<li><a id="navResponsiveness" class="nav__item" href="#responsiveness">Responsiveness</a></li>
+				<li><a id="navResilience" class="nav__item" href="#resilience">Resilience</a></li>
 				<li><a id="navCompression" class="nav__item" href="#compression">Compression</a></li>
 				<li><a id="navDesign" class="nav__item" href="#design">Design</a></li>
 				<li><a id="navCaching" class="nav__item" href="#caching">Caching</a></li>
 				<li><a id="navCssOptimizations" class="nav__item" href="#cssOptimizations">CSS optimizations</a></li>
 				<li><a id="navImageOptimizations" class="nav__item" href="#imageOptimizations">Image optimizations</a></li>
+				<li><a id="navArtDirection" class="nav__item" href="#artDirection">Art direction</a></li>
 				<li><a id="navInTheWorks" class="nav__item" href="#inTheWorks">In the works</a></li>
 			</ul>
 		</nav>
@@ -43,7 +45,7 @@
 				<p class="content__body">Brutally simple. From conception, this site was designed to embody that attribute visually, but not so much under the hood. This decevingly simple site is a performance pet project, and utilizes some neat technology, so it runs fast just about anywhere, on just about anything. This page's purpose is to document the design decisions that were made during the creation of this site, and the methodology behind them. I encourage you to verify and challenge these design methods before implementing them yourself in your own projects. It has been a learning process, so if you discover any information here that is definitively incorrect/outdated, any of the links have broken, any typos, or find a bug of sorts, please <a class="content__link" href="mailto:lyndoncore@gmail.com">reach out to me</a> so it can be corrected.</p>
 
 				<h5 class="content__title">An observation</h5>
-				<p class="content__body">I think it's interesting how web industry leaders approach their personal website design. You see many of these really smart people implementing superficially simple sites (to name a few: <a class="content__link" href="https://stevesouders.com/">Steve Souders</a>, <a class="content__link" href="http://chriscoyier.net/">Chris Coyier</a>, <a class="content__link" href="https://jakearchibald.com/">Jake Archibald</a>, and <a class="content__link" href="https://www.igvita.com/">Ilya Grigorik</a>). I mean, I'm sure these guys could build/design whatever they want - actually, <a class="content__link" href="http://imgur.com/a/2JEpq">not too sure about Jake</a>. It's my guess that they probably prioritize building things that <i>work</i>, and at the same time, I think they understand that introducing more components into our already <a class="content__link" href="https://en.wikipedia.org/wiki/Complex_systems">complex systems</a> makes things typically <i>not</i> work. Making things work, and making them sexy aren't mutually exclusive, however, it's considerably difficult to do both. I'm no industry leader, but I've noticed a strong correlation between the more I learn about the web and how simple I want to make my site.</p>
+				<p class="content__body">I think it's interesting how web industry leaders approach their personal website design. You see many of these really smart people implementing superficially simple sites (to name a few: <a class="content__link" href="https://stevesouders.com/">Steve Souders</a>, <a class="content__link" href="http://chriscoyier.net/">Chris Coyier</a>, <a class="content__link" href="https://jakearchibald.com/">Jake Archibald</a>, and <a class="content__link" href="https://www.igvita.com/">Ilya Grigorik</a>). I mean, I'm sure these guys could build/design whatever they want, but it's my guess that they probably prioritize building things that <i>work</i>. Making complex websites work, and making them sexy aren't mutually exclusive, however in our current web ecosystem, it's considerably difficult to do both, and typically takes a team. I'm no industry leader, but I've noticed a strong correlation between the more I learn about the web and how simple I want to make my site.</p>
 
 			<h3 id="toolkit" class="content__heading">Toolkit</h3>
 
@@ -96,6 +98,16 @@
 
 				<h5 class="content__title">Tap targets</h5>
 				<p class="content__body">Part of responsive web design entails building for an enviornment and interations we don't typically develop <i>with</i> - a big one being touch. Touch is a tricky interation to deal with, mainly because touch isn't as predictable as cursor interactions, and well, some people have sausage fingers, some have long pretty nails, and some people tap like they're trying to break the screen - <i>looking at you, Mum</i>. Your touch is not the same as my touch, so it's important to build in a buffer to make tap targets accessable, and for touch events to be successful. I've set each of the sidebar nav list items to have <code class="content__code">line-height: 36px;</code>, and made sure the inner anchor text has <code class="content__code">padding</code> that increases the target size for imprecise tappers. A similar <code class="content__code">line-height</code> was set for the text you're reading due to the links embedded into the content. This also helps with general legibility. However, the links in our content don't share the same padding as the links in our sidebar. This is because our content shares the same real-estate as much of the area that readers use to scroll, which increases the likelihood of accidental link-tapping while scrolling - something <i>I cant stand</i>. Because we've had such uncertain experiences while tapping on our devices in the past, it's also important that, in addition to increasing tap targets, we give the user some type of feedback that yes, yes you did touch that thing successfully. Many mobile browsers conveniently apply the styles of the pseudo classes <code class="content__code">:hover</code> and/or <code class="content__code">:focus</code> states after the target has been tapped - <a class="content__link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:hover">See this (mentioned near the bottom)</a>.</p>
+
+			<h3 id="resilience" class="content__heading">Resilience</h3>
+
+				<p class="content__body">Device states (low power mode, device overheating, memory constraints, etc.) and networks (especially mobile networks) are unpredictable. <a class="content__link" href="http://www.urbandictionary.com/define.php?term=lie-fi&defid=4841142">LieFi</a> is a thing, and well, what happens if our server goes down? This unpredictability means that fast isn't always enough, and we can't rely on our users always making it to our origin server. Our applications must be resilient.</p>
+
+				<h5 class="content__title">Offline First w/ Service Worker</h5>
+				<p class="content__body">asdf</p>
+
+				<h5 class="content__title">Distributed assets w/ CloudFront</h5>
+				<p class="content__body">asdf</p>
 
 			<h3 id="compression" class="content__heading">Compression</h3>
 
@@ -262,100 +274,55 @@ window.onload = prefetch;
 				<p class="content__body">Handling our prefetch this way seems a little hack-ish, and not entirely semantic, but it also gives us the most control over the behaviour of the prefetch. At the same time, it's arguable that we, as developers, shouldn't have this type of unlimited discression. It may be best for us to <a class="content__link" href="https://w3c.github.io/resource-hints/#prefetch">let the browser decide</a> how/when the prefetch occurs (if at all), mainly because it's not an integral function of this site, and the browser definately has a better understanding of the client's resource constraints than we do. For now, we're going to stick with the conservative and less supported approach - the prefetch resource hint. Heck, I don't know if Safari/iOS has plans of supporting the prefetching anytime soon, but if they do, it'll be an automatic win for us.</p>
 
 				<h5 id="prefetching" class="content__title">Prefetching + Service Worker</h5>
-				<p class="content__body">Our prefetching method and our Service Worker pair pretty well together - especially because browser support for each aligns nicely. As our resource hint issues a request for floral-crop.png, our service worker sees the request, clones the response, and then adds it to the user's cache. Although we can just explicitly set the Service Worker to cache the floral-crop.png, we'd rather not, due to the reasons stated in the following sections.</p>
+				<p class="content__body">Our prefetching method and our Service Worker pair pretty well together - especially because browser support for each aligns nicely. As our resource hint issues a request for floral-crop.png, our service worker sees the request, clones the response, and then adds it to the user's cache. Although we can just explicitly set the Service Worker to cache the floral-crop.png, we'd rather not, due to the reasons stated in the following section, Art direction.<br>
 
-				<h5 class="content__title">Art direction</h5>
-				<p class="content__body">Regardless of the lean, latency-reducing image delivery methods we decide on, there's a good chance we'll incur at least one more round trip to our server anyways - Why? Because <a class="content__link" href="https://developers.google.com/web/fundamentals/design-and-ui/media/images#art_direction">art direction</a> is important. It's easy to send a small optimized image to our users and call it performant, although doing that doesn't always provide a complete and optimal user experience. Go figure. For one, screen resolution varies wildly between <a class="content__link" href="https://material.io/devices/">all the devices</a> front-end devs have to accomodate nowadays. It's unacceptable to show users with a 3dppx screen (i.e. the Samsung Galaxy S5) an image that was optimized for a 1dppx screen (i.e. my Macbook Air). Blurry images degrade the UX and are no bueno.</p>
+				<i>Spoiler:</i> there are different versions of the image. We don't want to cache the wrong one, nor do we want to cache all of the different verisons. So, we don't directly specify which image to cache in the service worker. Instead, we intercept requests made by our JavaScript and cache those responses.</p>
+
+			<h3 id="artDirection" class="content__heading">Art direction</h3>
+
+				<p class="content__body">Regardless of the lean, latency-reducing image delivery methods we decide on, there's a good chance we'll incur at least one more round trip to our server anyways - Why? Because <a class="content__link" href="https://developers.google.com/web/fundamentals/design-and-ui/media/images#art_direction">art direction</a> is important. It's easy to send a tiny image to our users and call it performant, although doing that doesn't always provide a complete and optimal user experience. Go figure. For one, screen resolutions vary wildly between devices, so our once-normal images now look blurry on newer devices with "Retina displays" and whatnot. On top of that, we should be using newer image formats, like webp, where we can, and avoid sending huge desktop images to mobile devices. This all goes into our process of art direction.</p>
+
+				<h5 id="usingWebp" class="content__title">Using Webp</h5>
+				<p class="content__body">As it turns out, we can provide even smaller image files with Google's <a class="content__link" href="https://developers.google.com/speed/webp/">Webp image format</a>. It's a relatively new image format, developed by the smart people at over at Google, that provides superior lossy and lossless compression for images on the web. However, the native support for webp (as of this writing) is only in Chrome, Opera, and Andriod Browser, which is around <a class="content__link" href="http://caniuse.com/#feat=webp">73% of the web</a>. But we're going to need 100% of our users to be able to see our images. Hmmmm... If we could detect what browser the user was on, and serve them the best image format, that would be ideal. We can do this type of feature detection client-side with a custom <a class="content__link" href="https://modernizr.com/">Modernizr</a> javascript build. If the client's browser supports Webp, Modernizr will be able to detect it, and a "webp" class will be added to our <code class="content__code">&#60;html&#62;</code> element. We can set rules for the decendants of the "webp" class in our CSS, and conditionally set different background images (.webp or .png). But that's not enough...</p>
+
+				<h5 class="content__title">High-pixel-density displays</h5>
+				<p class="content__body">It's our job to consider <a class="content__link" href="https://material.io/devices/">all the devices</a> front-end devs have to accomodate nowadays, which includes their dppx (dots per pixel). Blurry images simply degrade the UX and are no bueno. It's unacceptable to show users with a 3dppx screen (i.e. the Samsung Galaxy S5) an image that was optimized for a 1dppx screen (i.e. my Macbook Air). At the same time, it's also unacceptable to use high-res images everywhere - that's not being a good web citizen. We're going to have to test for this, but even then, that's not enough...</p>
+
+				<h5 class="content__title">Images for smaller screens</h5>
+				<p class="content__body">Looking at a specific example, the Samsung Galaxy S5, although we have a high 1080 x 1920 px screen resolution, we're also dealing with a screen that has a <a class="content__link" href="https://en.wikipedia.org/wiki/Device-independent_pixel">device-independent pixel</a> size of only 360 x 640 dp. Despite the high-res screen, this means that we'll only display 360 pixels of floral-crop.png, when the image itself is 1400 px wide. In addition to that, floral-crop.png will also look blury on the S5. Well.. this kinda sucks. But no worries, we'll create a new version of floral-crop.png, at 540 px wide, and call it floral-crop-540.png. We can send this to clients where the media query <code class="content__code">max-width: 540px</code> resolves to true. This will save us (and our users) a lot of pain. So let's package this all together...</p>
 
 				<h5 class="content__title">Low Quality Image Placeholders</h5>
-				<p class="content__body">I use our implementation of floral-xsm.png and floral-crop.png as <a class="content__link" href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholders</a> (or LQIPs), then query the client's device resolution with some javascript (<code class="content__code">window.matchMedia</code>), and go fetch the best image for the user <i>after</i> our lower quality images first load. This means the user gets visual feedback immediatly, <i>then</i> recieve a high-res version to appropiratly compliment their device capabilities. For floral-sm.png on index.html, we accomplish this with...</p>
+				<p class="content__body">I use our implementation of floral-xsm.png as a <a class="content__link" href="http://www.guypo.com/introducing-lqip-low-quality-image-placeholders/">low quality image placeholder</a> (or LQIP), so the user gets immediate feedback with full support and minimal network overhead. Then, we query the client's device resolution and webp support with <a class="content__link" href="https://github.com/lyndoncore/lyndon/blob/master/js/inline.js#L33">this function</a> on inline.js (the JavaScript that gets placed inline on index.html), and send them the appropriate version of our floral-xsm image. With this function, we have these possible outcomes:</p>
 
-<div class="pre__container">
-<pre class="pre"><code class="pre__code">function setBg() {
+				<ol class="content__list">
+					<li>Client doesn't support Webp but has <i>at least</i> 3dppx - fetch floral-xsm-3x.png</li>
+					<li>Client does support Webp and has <i>at least</i> 3dppx - fetch floral-xsm-3x.webp</li>
+					<li>Client doesn't support Webp but has <i>at least</i> 2dppx - fetch floral-xsm-2x.png</li>
+					<li>Client does support Webp and has <i>at least</i> 2dppx - fetch floral-xsm-2x.webp</li>
+					<li>Client doesn't support Webp and has <i>less than</i> 2dppx - chill and do nothing</li>
+					<li>Client does support Webp and has <i>less than</i> 2dppx - chill and do nothing</li>
+				</ol>
 
-    var knockout = document.getElementsByTagName('h1');
+				<p class="content__body">After the most fitting image is fetched, we then replace our LQIP (floral-xsm.png) with our updated version. An important part here is that we do the swapping of the images <i>after</i> the new version is loaded, to avoid a FOUC.</p>
 
-    function loadBg(src, callback) {
-        var image = new Image();
-        image.onload = callback;
-        image.src = src;
-    }
+				<h5 class="content__title">Conditional prefetching</h5>
+				<p class="content__body">For floral-crop.png, we do some similar testing, but there is an extra step we have to think about - our prefetch. Our prefetch occurs on index.html, so to make sure we don't fetch an image we wont end up using, we have to do some testing upfront. We replace our simple resource hint (mentioned above) with a <a class="content__link" href="https://github.com/lyndoncore/lyndon/blob/master/js/inline.js#L8">script injected resource hint</a>. The key, in this case, is to only prefetch resources that <b>make floral-crop smaller</b>. One of the reasons for doing this is that the images get exponentially larger with a 1x increase in resolution. Our possible outcomes are:</p>
 
-    function updateBg(img) {
-        knockout[0].style.background = img;
-        knockout[0].style.webkitBackgroundClip = "text";
-        knockout[0].style.backgroundClip = "text";
-        knockout[0].style.webkitTextFillColor = "transparent";
-        knockout[0].style.backgroundSize = "235px";
-    }
+				<ol class="content__list">
+					<li>Client doesn't support Webp but has a screen width of <i>greater than</i> 540px - prefetch floral-crop.png</li>
+					<li>Client does support Webp and has a screen width of <i>greater than</i> 540px - prefetch floral-crop.webp</li>
+					<li>Client doesn't support Webp but has a screen width of 540px <i>or less</i> - prefetch floral-crop-540.png</li>
+					<li>Client does support Webp and has a screen width of 540px <i>or less</i> - prefetch floral-crop-540.webp</li>
+				</ol>
 
-    if (window.matchMedia('(min-resolution: 3dppx),(-webkit-min-device-pixel-ratio: 3)').matches) {
-        if (html.classList.contains('webp')) {
-            loadBg('images/floral-xsm3x.webp', function() {
-                updateBg('url("images/floral-xsm3x.webp")');
-            });
-        } else {
-            loadBg('images/floral-xsm3x.png', function() {
-                updateBg('url("images/floral-xsm3x.png")');
-            });
-        }
-    } else if (window.matchMedia('(min-resolution: 2dppx),(-webkit-min-device-pixel-ratio: 2)').matches) {
-        if (html.classList.contains('webp')) {
-            loadBg('images/floral-xsm2x.webp', function() {
-                updateBg('url("images/floral-xsm2x.webp")');
-            });
-        } else {
-            loadBg('images/floral-xsm2x.png', function() {
-                updateBg('url("images/floral-xsm2x.png")');
-            });
-        }
-    } 
-}
-</code></pre>
-</div>	
-
-				<p class="content__body">For floral-crop.png, we do some similar testing, but there is an extra step we have to think about - our prefetch. Our prefetch occurs on index.html, so to make sure we don't fetch an image we wont end up using, we have to do some testing upfront. We replace our simple resource hint (mentioned above) with a script injected resource hint...</p>
-
-<div class="pre__container">
-<pre class="pre"><code class="pre__code">function prefetch() {
-    var link = document.createElement('link');
-    link.rel = 'prefetch';
-    // If webp is supported, load 1x webp versions of floral-crop
-    if (html.classList.contains('webp')) {
-        if (window.matchMedia('(max-width: 540px)').matches) {
-            link.href = 'images/floral-crop-540w.webp';
-        } else {
-            link.href = 'images/floral-crop.webp';
-        }
-    // If webp isn't supported, load 1x png versions of floral-crop
-    } else {
-        if (window.matchMedia('(max-width: 540px)').matches) {
-            link.href = 'images/floral-crop-540w.png';
-        } else {
-            link.href = 'images/floral-crop.png';
-        }
-    }
-    link.as = 'image';
-    document.head.appendChild(link);
-}
-</code></pre>
-</div>	
-
-				<p class="content__body">The key is, in this case, is to only prefetch resources that make the image smaller, and on design.html and resume.html, load the images that pretty it up.</p>
-
+				<h5 class="content__title">Using the correct prefetched image</h5>
+				<p class="content__body">When we make the subsequent navigation to design.html/resume.html from index.html, we're going to have to make sure that the image that is used for our header <code class="content__code">background-image</code> is the same image that we prefetched - or else the prefetch was totally useless, huh. We accomplish this with CSS media queries. We nest the <code class="content__code">.webp .header</code> and <code class="content__code">.no-webp .header</code> CSS selectors inside a <code class="content__code">@media (min-width: 540px)</code> media query, along with the <code class="content__code">.no-js-header .header</code> fallback. With each one of these declarations, we specify the corresponding image, so it's picked from our cache and avoids the network. The image is then used as a fast-response LQIP, and javascript testing is done to fetch and replace the background with higher-resolution images (just like with floral-xsm).</p>
 
 				<h5 class="content__title">Conditional loading with <code class="content__code">srcset</code></h5>
 				<p class="content__body">Avatar.png hasn't been talked about much...</p>
 
 				<h5 class="content__title">Conditional loading images for poor connections</h5>
 				<p class="content__body">Because mobile networks can vary wildly in bandwidth and latency, partially due to some <a class="content__link" href="https://hpbn.co/assets/diagrams/773ecb15832075c0b56021aa3ad15233.svg">infrastructure overhead</a>, it's also important to consider the network connection and serve appropriate images based on network constraints. However, the <code class="content__code">navigator.connection</code> API is simply too unreliable and <a class="content__link" href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API#Browser_compatibility">unsupported</a> at the moment. For now, we're going to leave this test out of our javascript.</p>
-
-				<h5 id="usingWebp" class="content__title">Using Webp</h5>
-				<p class="content__body">As it turns out, we can provide even smaller image files with Google's Webp image format... yep, still not done optimizing our images. <a class="content__link" href="https://developers.google.com/speed/webp/">Webp</a> is a relatively new image format, developed by the smart people at over at Google, that provides superior lossy and lossless compression for images on the web. However, the native support for webp (as of this writing) is only in Chrome, Opera, and Andriod Browser, which is around <a class="content__link" href="http://caniuse.com/#feat=webp">73% of the web</a>. But we're going to need 100% of our users to be able to see our images. If we could detect what browser the user was on, and serve them the best image format, that would be ideal. We can do this type of feature detection client-side with a custom <a class="content__link" href="https://modernizr.com/">Modernizr</a> javascript build. If the client's browser supports Webp, Modernizr will be able to detect it, and a "webp" class will be added to the html element. We can check for the presence of the "webp" class in our CSS, and conditionally set different background images (.webp or .png). But there's a performance gotcha when using Modernizr this way - <i>first</i>, the initial response will first be recieved by the user, <i>then</i> the external javascript file will be discovered during parsing, <i>then</i> the browser will have to wait for the javascript file to be fetched, <i>then</i> the javascript will execute and add our "webp" class to the html element, at which point the CSS can <i>finally</i> recognize which image format to go retreive. This approach doesn't seem optimal.<br>
-
-				Alternatively, we could do this with server-side logic, and avoid the extra trips over the network, but we must also consider the additional CPU overhead, setup, and latency. In terms of performance, the CPU overhead and setup are pretty much neglectable, but added latency between Amazon's edge locations and our origin sever has a considerable performance implication - applicable in some cases when providing dynamic content. To simplify things and be decisive, we will just send floral-sm.png with index.html because: 1) we can fetch it right from the get-go with <a class="content__link" href="#preloading">our preload</a>, 2) the browser support for png is ideal, and 3) the difference between floral-sm.png (19.6KB) and floral-sm.webp (16.4KB) is only 3.2KB.<br>
-
-				But hey, we still have floral-cropped.png to think about. The difference between floral-cropped.png (117.2KB) and floral-cropped.webp (88.8KB) is 28.4KB, so the case to serve the image as a Webp is much more compelling. Because we'd like to use Webp, we're going to have to specify the appropriate format of floral-cropped during our prefetch, which means inserting a little javascript logic to handle which file to retreive. I've written a little function that queries the result of our Modernizr script, and injects the proper prefetch request into the document head. It's only 319 bytes, and although this complicates our prefetching process, it's worth the 28.4KB savings.</p>
 
 				<h5 class="content__title">Gulp-imagemin & OptiPNG</h5>
 				<p class="content__body">After all of our optimizations, the last attempt at making our images as compact as possible, is to run them through <a class="content__link" href="http://optipng.sourceforge.net/">OptiPNG</a> - a command line "PNG optimizer that recompresses image files to a smaller size, without losing any information". At this point, because all of our images have already been optimized through "save for web" in Photoshop, the additional savings from running OptiPNG's compression on our images folder was limited to XX%, or a measly XXX bytes. However, it's still a good catch to have in a build process. To learn more about how OptiPNG compresses PNGs, <a class="content__link" href="http://optipng.sourceforge.net/optipng-0.7.6.man.pdf">read this</a>. If you'd like more general info on how to optimize PNGs, <a class="content__link" href="http://optipng.sourceforge.net/pngtech/optipng.html">this</a> is a good resource. To make this process streamline with my build process, I incorporated Gulp task <a class="content__link" href="https://www.npmjs.com/package/gulp-imagemin">gulp-imagemin</a>, which actually leverages the OptiPNG compression methods, among others.</p>
@@ -367,9 +334,6 @@ window.onload = prefetch;
 			<h3 id="inTheWorks" class="content__heading">In the works</h3>
 
 				<p class="content__body">Over time, I will gradually add components to this site that test design principals and create challenging performance problems. There's so much I'd like to do with this site, and so many cool new toys I want to play around with, but they'll have to come one-at-a-time. For now, this is what's in the pipeline:</p>
-
-				<h5 class="content__title">Service worker</h5>
-				<p class="content__body">Device states (low power mode, device overheating, memory constraints, etc.) and netowrks (especially mobile networks) are unpredictable. This unpredictability means that fast isn't always enough. Our applications must be resilient. Offline first, bro</p>
 
 				<h5 class="content__title">Server Push - HTTP/2</h5>
 				<p class="content__body">I'd love to figure out how to implement <a class="content__link" href="https://http2.github.io/faq/#how-can-i-use-http2-server-push">Server Push</a> with CloudFront so I can play around with it, but it's not availbale with cloudfront.</p>

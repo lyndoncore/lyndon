@@ -48,23 +48,27 @@ function navHighlight() {
 	var navIntro = document.getElementById("navIntro");
 	var navToolkit = document.getElementById("navToolkit");
 	var navResponsiveness = document.getElementById("navResponsiveness");
+	var navResilience = document.getElementById("navResilience");
 	var navCompression = document.getElementById("navCompression");
 	var navDesign = document.getElementById("navDesign");
 	var navCaching = document.getElementById("navCaching");
 	var navCssOptimizations = document.getElementById("navCssOptimizations");
 	var navImageOptimizations = document.getElementById("navImageOptimizations");
+	var navArtDirection = document.getElementById("navArtDirection");
 	var navInTheWorks = document.getElementById("navInTheWorks");
 
 	// An Array of the nav items
 	var titles = [
 		navIntro, 
 		navToolkit, 
-		navResponsiveness, 
+		navResponsiveness,
+		navResilience, 
 		navCompression, 
 		navDesign, 
 		navCaching, 
 		navCssOptimizations, 
 		navImageOptimizations, 
+		navArtDirection,
 		navInTheWorks
 	];
 
