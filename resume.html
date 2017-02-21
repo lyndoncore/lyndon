@@ -3,14 +3,15 @@
 <head>
 <title>Lyndon Core</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script async src="js/dev-scripts.js"></script>
 </head>
-<body data-page-name="resume">
+<body data-page-name="resume" itemscope itemtype="http://schema.org/Person">
 
 	<noscript><div class="no-js-header"></noscript>
 	<header id="header" class="header">
-		<a href="index.html" class="header__home">LYNDON CORE</a>
+		<a href="index.html" class="header__home"><span itemprop="name">LYNDON CORE</span></a>
 		<div id="header__titleBg" class="header__titleBg">
 			<div class="header__titleBg--faux">
 				<h1 class="header__title">My Resume</h1>
@@ -35,12 +36,12 @@
 
 			<h3 id="summary" class="content__heading">Summary</h3>
 
-			<p class="content__body">Right out of college, I started a startup with a buddy of mine, then moved to Austin, TX for the <a class="content__link" href="https://capitalfactory.com/">Capital Factory</a>, got married in November, and somewhere along the way fell in love with frontend development... and no that's not my baby. I'm currently searching for a good home at a company/startup that will let me endulge in my (probably strange) fascination with making webpages really performant. I'm relentless, passionate, 24 years old, an Australian and American citizen, willing to travel just about anywhere in the world for the right job, and I have spent the past 2 years teaching myself to be a rockstar dev. I seriously encourage you to check out <a class="content__link" href="design.html">how I built this site</a>, and reach out to me at lyndoncore@gmail.com if you have any questions.</p>
+			<p class="content__body">Right out of college, I started a startup with a buddy of mine, then moved to Austin, TX for the <a class="content__link" href="https://capitalfactory.com/" itemprop="affiliation">Capital Factory</a>, got married in November, and somewhere along the way fell in love with frontend development... and no that's not my baby. I'm currently searching for a good home at a company/startup that will let me endulge in my (probably strange) fascination with making webpages really performant. I'm relentless, passionate, 24 years old, an <span itemprop="nationality">Australian and American</span> citizen, willing to travel just about anywhere in the world for the right job, and I have spent the past 2 years teaching myself the best practices to be a stellar <span itemprop="jobTitle">frontend web developer</span>. I seriously encourage you to check out <a class="content__link" href="design.html">how I built this site</a>, and reach out to me at <span itemprop="email">lyndoncore@gmail.com</span> if you have any questions.</p>
 
 
 			<h3 id="education" class="content__heading">Education</h3>
 
-				<h5 class="content__title">University of Maryland, College Park</h5>
+				<h5 class="content__title" itemprop="alumniOf">University of Maryland, College Park</h5>
 				<h5 class="content__subtitle"><i>B.A. Economics; Technology Entrepreneurship Minor</i></h5>
 
 
@@ -130,11 +131,11 @@
 
 	<footer class="footer">
 		<div class="footer__contain">
-			<div class="footer__contain--left">
+			<nav class="footer__contain--left">
 				<a href="index.html" class="footer__link">HOME</a>
 				<a href="design.html" class="footer__link">DESIGN</a>
 				<a href="resume.html" class="footer__link">RESUME</a>
-			</div>
+			</nav>
 			<div class="footer__contain--right">
 				<span class="footer__blurb">made with <span class="footer__pseudoCode">code</span> by</span>
 				<span class="footer__blurb--sm">...made by</span>

@@ -36,7 +36,7 @@ function navMove() {
 function navHighlight() {
 
 	// An Array of the title's distances to top
-	var heading = document.body.getElementsByTagName("h3");
+	var heading = document.body.getElementsByTagName("h2");
 	var distances = [];
 	for (i = 0; i < heading.length; i++) {
 		distances[i] = heading[i].offsetTop - 200;

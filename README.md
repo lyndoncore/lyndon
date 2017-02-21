@@ -39,8 +39,14 @@ This is the css that goes in the Head of index.html. It has it's own gulp task t
 		-
 		-
 		-
+  4.  set all Image files:
+    -
+    -
+    -
 
-6.  Invalidate Caches at Edge locations with a CloudFront invalidation.
+6.  Run all tests in the Testing section below.
+
+7.  Invalidate Caches at Edge locations with a CloudFront invalidation.
 
 
 # Working in Dev enviornment
@@ -57,6 +63,8 @@ This is the css that goes in the Head of index.html. It has it's own gulp task t
   3.  Does the hidpi image class get applied after the hidpi image is loaded? (i.e. no FOUC)
   4.  Does the JS that injects prefetch resource hint inject the proper image?
   5.  Does fetching main.css.gz get defered after page load?
+
+2. Run through Google's Structured Data Testing Tool to validate all microdata
 	
   
 

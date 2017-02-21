@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Lyndon Core</title>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>!function(e,g,f){function q(b){var c=m.className,a=d._config.classPrefix||"";if(r&&(c=c.baseVal),d._config.enableJSClass)c=c.replace(new RegExp("(^|\\s)"+a+"no-js(\\s|$)"),"$1"+a+"js$2");d._config.enableClasses&&(c+=" "+a+b.join(" "+a),r?m.className.baseVal=c:m.className=c)}function n(b,c){if("object"==typeof b)for(var a in b)t(b,a)&&n(a,b[a]);else{b=b.toLowerCase();a=b.split(".");var p=d[a[0]];if(2==a.length&&(p=p[a[1]]),"undefined"!=typeof p)return d;c="function"==typeof c?c():c;1==a.length?d[a[0]]=
 c:(!d[a[0]]||d[a[0]]instanceof Boolean||(d[a[0]]=new Boolean(d[a[0]])),d[a[0]][a[1]]=c);q([(c&&0!=c?"":"no-")+a.join("-")]);d._trigger(b,c)}return d}var u=[],l=[],k={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(b,c){var a=this;setTimeout(function(){c(a[b])},0)},addTest:function(b,c,a){l.push({name:b,fn:c,options:a})},addAsyncTest:function(b){l.push({name:null,fn:b})}},d=function(){};d.prototype=k;var d=new d,t,m=g.documentElement,r="svg"===
@@ -20,11 +21,11 @@ html{-webkit-text-size-adjust: 100%;}.i-body{color:#363636;font-family:helvetica
 </style>
 </head>
 <body class="i-body">
-	<div class="i-container">
-		<h1 class="i-name">Lyndon Core</h1>
-		<h4>Frontend Web Developer</h4>
+	<div class="i-container" itemscope itemtype="http://schema.org/Person">
+		<h1 class="i-name" itemprop="name">Lyndon Core</h1>
+		<h4 itemprop="jobTitle">Frontend Web Developer</h4>
 		<p>I'm passionate about optimizing the delivery, construction, and performance of frontend resources - see <a href="design.html">how I built this site</a> to get an idea of what I'm talking about. Also, feel free to check out <a href="resume.html">my resume</a>.</p>
-		<a href="mailto:lyndoncore@gmail.com">
+		<a href="mailto:lyndoncore@gmail.com" itemprop="email">
 			<button>email me</button>
 	    </a>
 	</div>
