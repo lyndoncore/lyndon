@@ -9,7 +9,7 @@ body {
 br {
   line-height: 50px; }
 
-.header, .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
+.header, .header--noRS, .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x, .header--webp-2x-noRS, .header--webp-3x-noRS, .header--png-2x-noRS, .header--png-3x-noRS {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -22,9 +22,13 @@ br {
   padding: 55px 0;
   color: #fff; }
 
-.header__titleBg, .header__titleBg--webp-2x, .header__titleBg--webp-3x, .header__titleBg--png-2x, .header__titleBg--png-3x {
+.header__titleBg, .header__titleBg--webp-2x, .header__titleBg--webp-3x, .header__titleBg--png-2x, .header__titleBg--png-3x, .header__titleBg--webp-2x-noRS, .header__titleBg--webp-3x-noRS, .header__titleBg--png-2x-noRS, .header__titleBg--png-3x-noRS {
   background-position: top left;
   z-index: 5; }
+
+.header--noRS {
+  background-size: 1400px 100%;
+  background-position: center center; }
 
 .header__home {
   padding: 10px 14px 10px 20px;
@@ -45,27 +49,63 @@ br {
   margin: 8px;
   background: #fff; }
 
+.header__titleBg--webp-2x-noRS {
+  background-size: 1400px;
+  background-image: url(../images/floral-crop-2x.webp); }
+
+.header__titleBg--webp-3x-noRS {
+  background-size: 1400px;
+  background-image: url(../images/floral-crop-2x.webp); }
+
+.header__titleBg--png-2x-noRS {
+  background-size: 1400px;
+  background-image: url(../images/floral-crop-2x.png); }
+
+.header__titleBg--png-3x-noRS {
+  background-size: 1400px;
+  background-image: url(../images/floral-crop-2x.png); }
+
 .header__title {
   margin: 0;
   font-size: 45px;
   color: #422039; }
 
-.webp .header {
+.header--webp-2x-noRS {
+  background-size: 1400px 100%;
+  background-position: center center;
+  background-image: url(../images/floral-crop-2x.webp); }
+
+.header--webp-3x-noRS {
+  background-size: 1400px 100%;
+  background-position: center center;
+  background-image: url(../images/floral-crop-2x.webp); }
+
+.header--png-2x-noRS {
+  background-size: 1400px 100%;
+  background-position: center center;
+  background-image: url(../images/floral-crop-2x.png); }
+
+.header--png-3x-noRS {
+  background-size: 1400px 100%;
+  background-position: center center;
+  background-image: url(../images/floral-crop-2x.png); }
+
+.webp .header, .webp .header--noRS {
   background-image: url(../images/floral-crop.webp); }
 
-.webp .header__titleBg {
+.webp .header__titleBg, .webp .header__titleBg--noRS {
   background-image: url(../images/floral-crop.webp); }
 
-.no-webp .header {
+.no-webp .header, .no-webp .header--noRS {
   background-image: url(../images/floral-crop.png); }
 
-.no-webp .header__titleBg {
+.no-webp .header__titleBg, .no-webp .header__titleBg--noRS {
   background-image: url(../images/floral-crop.png); }
 
-.no-js-header .header {
+.no-js-header .header, .no-js-header .header--noRS {
   background-image: url(../images/floral-crop.png); }
 
-.no-js-header .header__titleBg {
+.no-js-header .header__titleBg, .no-js-header .header__titleBg--noRS {
   background-image: url(../images/floral-crop.png); }
 
 .main {
@@ -73,7 +113,7 @@ br {
   justify-content: center; }
 
 .nav {
-  width: 240px;
+  min-width: 240px;
   padding: 0 10px 58px 0;
   margin-top: 0px;
   display: flex; }
@@ -106,6 +146,7 @@ br {
 
 .content {
   width: 680px;
+  min-width: 0;
   padding-right: 10px;
   margin: 27px 0 65px; }
   .content__body {
@@ -209,13 +250,17 @@ br {
     margin: 20px 10px 20px 30px; }
 
 @media (min-width: 1400px) {
-  .no-js-header .header {
+  .no-js-header .header, .no-js-header .header--noRS {
     background-repeat: repeat-x; }
-  .webp .header {
+  .no-js-header .header, .no-js-header .header--noRS {
     background-repeat: repeat-x; }
-  .no-webp .header {
+  .webp .header, .webp .header--noRS {
+    background-repeat: repeat-x; }
+  .no-webp .header, .no-webp .header--noRS {
     background-repeat: repeat-x; }
   .header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
+    background-repeat: repeat-x; }
+  .header--webp-2x-noRS, .header--webp-3x-noRS, .header--png-2x-noRS, .header--png-3x-noRS {
     background-repeat: repeat-x; } }
 
 @media (max-width: 800px) {
@@ -330,7 +375,7 @@ br {
     background-size: 540px 100%;
     background-position: center center; }
   .header--png-3x {
-    background-image: url(../images/floral-crop-540w-3x.png);
+    background-image: url(../images/floral-crop-540w-2x.png);
     background-size: 540px 100%;
     background-position: center center; }
   .webp .header__titleBg {
@@ -346,7 +391,7 @@ br {
   .header__titleBg--png-2x {
     background-image: url(../images/floral-crop-540w-2x.png); }
   .header__titleBg--png-3x {
-    background-image: url(../images/floral-crop-540w-3x.png); } }
+    background-image: url(../images/floral-crop-540w-2x.png); } }
 
 @media (max-width: 500px) {
   .footer__blurb--sm {

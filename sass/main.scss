@@ -52,6 +52,11 @@ br {
 
 .header {
 	@extend %header;
+	&--noRS {
+		@extend %header;
+		background-size: 1400px 100%;
+		background-position: center center;
+	}
 	&__home {
 	    padding: 10px 14px 10px 20px;
 	    text-decoration: none;
@@ -86,6 +91,26 @@ br {
 		&--png-3x {
 			@extend %header__titleBg;
 		}
+		&--webp-2x-noRS {
+			@extend %header__titleBg;
+			background-size: 1400px;
+			background-image: $header-bg-webp-2x;
+		}
+		&--webp-3x-noRS {
+			@extend %header__titleBg;
+			background-size: 1400px;
+			background-image: $header-bg-webp-3x;
+		}
+		&--png-2x-noRS {
+			@extend %header__titleBg;
+			background-size: 1400px;
+			background-image: $header-bg-png-2x;
+		}
+		&--png-3x-noRS {
+			@extend %header__titleBg;
+			background-size: 1400px;
+			background-image: $header-bg-png-3x;
+		}
 	}
 	&__title {
 		margin: 0;
@@ -104,31 +129,55 @@ br {
 	&--png-3x {
 		@extend %header;
 	}
+	&--webp-2x-noRS {
+		@extend %header;
+		background-size: 1400px 100%;
+		background-position: center center;
+		background-image: $header-bg-webp-2x;
+	}
+	&--webp-3x-noRS {
+		@extend %header;
+		background-size: 1400px 100%;
+		background-position: center center;
+		background-image: $header-bg-webp-3x;
+	}
+	&--png-2x-noRS {
+		@extend %header;
+		background-size: 1400px 100%;
+		background-position: center center;
+		background-image: $header-bg-png-2x;
+	}
+	&--png-3x-noRS {
+		@extend %header;
+		background-size: 1400px 100%;
+		background-position: center center;
+		background-image: $header-bg-png-3x;
+	}
 }
 
 .webp {
-	.header {
+	.header, .header--noRS {
 		background-image: $header-bg-webp;
 	}
-	.header__titleBg {
+	.header__titleBg, .header__titleBg--noRS {
 		background-image: $header-bg-webp;
 	}
 }
 
 .no-webp {
-	.header {
+	.header, .header--noRS {
 		background-image: $header-bg-png;
 	}
-	.header__titleBg {
+	.header__titleBg, .header__titleBg--noRS {
 		background-image: $header-bg-png;
 	}
 }
 
 .no-js-header {
-	.header {
+	.header, .header--noRS {
 		background-image: $header-bg-png;
 	}
-	.header__titleBg {
+	.header__titleBg, .header__titleBg--noRS {
 		background-image: $header-bg-png;
 	}
 }
@@ -139,7 +188,7 @@ br {
 }
 
 .nav {
-	width: 240px;
+	min-width: 240px;
 	padding: 0 10px 58px 0;
 	margin-top: 0px;
 	display: flex;
@@ -180,6 +229,7 @@ br {
 
 .content {
 	width: 680px;
+	min-width: 0;
 	padding-right: 10px;
 	margin: 27px 0 65px;
 	&__body {
@@ -313,21 +363,30 @@ br {
 
 @media (min-width: 1400px) {
 
-	.no-js-header .header {
+	.no-js-header .header, .no-js-header .header--noRS {
 		background-repeat: repeat-x;
 	}
 
-	.webp .header {
+	.no-js-header .header, .no-js-header .header--noRS {
 		background-repeat: repeat-x;
 	}
 
-	.no-webp .header {
+	.webp .header, .webp .header--noRS {
+		background-repeat: repeat-x;
+	}
+
+	.no-webp .header, .no-webp .header--noRS {
 		background-repeat: repeat-x;
 	}
 
 	.header--webp-2x, .header--webp-3x, .header--png-2x, .header--png-3x {
 		background-repeat: repeat-x;
 	}
+
+	.header--webp-2x-noRS, .header--webp-3x-noRS, .header--png-2x-noRS, .header--png-3x-noRS {
+		background-repeat: repeat-x;
+	}
+
 }
 
 @media (max-width: 800px) {
@@ -442,36 +501,32 @@ br {
 		background-image: $header-bg-webp-2x;
 	}
 
-	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header--webp-3x {
-		background-image: $header-bg-webp-2x;
+		background-image: $header-bg-webp-3x;
 	}
 
 	.header--png-2x {
 		background-image: $header-bg-png-2x;
 	}
 
-	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header--png-3x {
-		background-image: $header-bg-png-2x;
+		background-image: $header-bg-png-3x;
 	}
 
 	.header__titleBg--webp-2x {
 		background-image: $header-bg-webp-2x;
 	}
 
-	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header__titleBg--webp-3x {
-		background-image: $header-bg-webp-2x;
+		background-image: $header-bg-webp-3x;
 	}
 
 	.header__titleBg--png-2x {
 		background-image: $header-bg-png-2x;
 	}
 
-	// NOTE: ommitted 3x version of floral-crop because of file size (change 2x to 3x in file path below for support)
 	.header__titleBg--png-3x {
-		background-image: $header-bg-png-2x;
+		background-image: $header-bg-png-3x;
 	}
 
 }
@@ -551,7 +606,6 @@ br {
 	.header__titleBg--png-3x {
 		background-image: $header-bg-png-540-3x;
 	}
-
 }
 
 @media (max-width: 500px) {
