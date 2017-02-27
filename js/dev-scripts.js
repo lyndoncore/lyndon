@@ -191,14 +191,15 @@ var page = document.body.dataset.pageName;
 // controller to run the appropriate functions on each page
 controller = {
 
+	// Using rAF to throttle calls
 	scroll : function() {
 		if (page === 'design') {
-			navMove();
-			navHighlight();
-			navStop();
+			requestAnimationFrame(navMove);
+			requestAnimationFrame(navHighlight);
+			requestAnimationFrame(navStop);
 		} else if (page === 'resume') {
-			navMove();
-			navStop();
+			requestAnimationFrame(navMove);
+			requestAnimationFrame(navStop);
 		}
 	},
 
@@ -217,8 +218,7 @@ controller = {
 }
 
 // Run the controller's functions on these events
-// rAF to throttle the calling of the scroll function.
-window.onscroll = controller.scroll;
+window.addEventListener('scroll', controller.scroll, false);
 window.onload = controller.load;
 
 // Service Worker
