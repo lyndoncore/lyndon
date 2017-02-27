@@ -4,7 +4,11 @@ You're here because you've stepped away from the project and, well, you look a l
 
 #### Table of Contents:
 
-[Working in Dev enviornment](#working-in-dev-enviornment)
+[What is it?](#what-is-it)
+[Deploying to S3](#deploying-to-s3)
+[Working in dev enviornment](#working-in-dev-enviornment)
+[Pre-deployment testing](#pre-deployment-testing)
+[Post-deployment testing](#post-deployment-testing)
 
 # What is it?
 
@@ -66,15 +70,13 @@ This is JavaScript file that we use locally to test our scripts. We point to it 
 8.  Invalidate Caches at Edge locations with a CloudFront invalidation.
 
 
-# Working in Dev enviornment
+# Working in dev enviornment
 
 1.  Make sure that all HTML files have the proper reference to LOCAL and NON-GZIPed files:
   1.  css with paths being "css/styles.css"
   2.  javascript with paths being "js/dev-scripts.js"
 
-# Testing on S3
-
-### <a name="pdt">Pre-deployment testing</a>:
+# Pre-deployment testing
 
 1.  On index.html:
   1.  Do knockout letters look complete? (i.e. no white of the background image showing)
@@ -89,7 +91,7 @@ This is JavaScript file that we use locally to test our scripts. We point to it 
 
 3. Run js through JSHint
 	
-### Post-deployment testing:
+# Post-deployment testing
   
 
 
