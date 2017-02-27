@@ -4,11 +4,11 @@ You're here because you've stepped away from the project and, well, you look a l
 
 #### Table of Contents:
 
-[What is it?](#what-is-it)
-[Deploying to S3](#deploying-to-s3)
-[Working in dev enviornment](#working-in-dev-enviornment)
-[Pre-deployment testing](#pre-deployment-testing)
-[Post-deployment testing](#post-deployment-testing)
+[What is it?](#what-is-it)   
+[Deploying to S3](#deploying-to-s3)   
+[Working in dev enviornment](#working-in-dev-enviornment)   
+[Pre-deployment testing](#pre-deployment-testing)   
+[Post-deployment testing](#post-deployment-testing)   
 
 # What is it?
 
