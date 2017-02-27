@@ -2,7 +2,9 @@
 
 You're here because you've stepped away from the project and, well, you look a little confused. To refresh your memory, here are some friendly reminders...
 
-<a name="abcd">qefasdfasdf</a>
+#### Table of Contents:
+
+[Pre-deployment testing](#pdt)
 
 # What is it?
 
@@ -72,7 +74,7 @@ This is JavaScript file that we use locally to test our scripts. We point to it 
 
 # Testing on S3
 
-### [Pre-deployment testing](#abcd):
+### <a name="pdt">Pre-deployment testing</a>:
 
 1.  On index.html:
   1.  Do knockout letters look complete? (i.e. no white of the background image showing)
