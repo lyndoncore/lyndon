@@ -1,16 +1,24 @@
-# Read me
+# Read me (for Lyndon)
 
 You're here because you've stepped away from the project and, well, you look a little confused. To refresh your memory, here are some friendly reminders...
 
 # What is it?
 
-###### The "Crap" folder:
+###### The "misc" folder:
 
-The folder full of stuff that is related to the project, but has no current place in the development enviorment. 
+The folder full of stuff that is related to the project, but has no current place in the development enviorment - hence why it's in our .gitignore.
 
-###### css/inline-ignore.css
+###### css/embedded.css
 
 This is the css that goes in the Head of index.html. It has it's own gulp task to compress and autoprefix it. Use this file over modifying css directly on index.html. 
+
+###### js/embedded.js
+
+This is the JavaScript that goes in the head of index.html. It's manually run through JSHint, and Google Closure Compiler before being placed in the index.html head.
+
+###### js/dev-scripts.js
+
+This is JavaScript file that we use locally to test our scripts.
 
 
 # Deploying to S3
@@ -20,13 +28,13 @@ This is the css that goes in the Head of index.html. It has it's own gulp task t
   -  css with paths being "css/styles.css.gz"
   -  javascript with paths being "js/scripts.js.gz"
 
-2.  TEST: Run js through JSHint
+2.  TEST: Run all JavaScript through JSHint
 
 2.  Take js/dev-scripts.js to http://closure-compiler.appspot.com/home, compile with "simple", and paste code into js/scripts.js file. 
 
 3.  Run everything through Gulp. Go look at gulpfile.js if you need a reminder of what tasks to run.
 
-4.  Upload everything from "build" folder to S3 Buckets -- except HTML comes from the root project folder. 
+4.  Upload everything from "build" folder to S3 Buckets -- HTML comes from the root project folder. 
 
 5.  Set content-encoding, content-type, and cache directives in the Amazon Console.
   1.  set scripts.js.gz:
@@ -56,7 +64,7 @@ This is the css that goes in the Head of index.html. It has it's own gulp task t
   1.  css with paths being "css/styles.css"
   2.  javascript with paths being "js/dev-scripts.js"
 
-# Testing
+# Testing on S3
 
 1.  On index.html:
   1.  Do knockout letters look complete? (i.e. no white of the background image showing)

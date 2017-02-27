@@ -29,11 +29,8 @@ gulp.task('css', function () {
         .pipe(gulp.dest('build/css'));
 });
 
-// INLINE CSS TASK
-// ISSUE - not adding -moz prefix to "text-fill-color". (maybe dont specify webkit in source)
-// ISSUE - wont work with autoprefixer being changed
-gulp.task('inline-css', function() {
-    gulp.src('css/inline.css')
+gulp.task('embedded-css', function() {
+    gulp.src('css/embedded.css')
     .pipe(postcss([ autoprefixer() ]))
     .pipe(cleanCSS())
     .pipe(gulp.dest('ignore')); 
@@ -72,6 +69,3 @@ gulp.task('images', function() {
 gulp.task('connect', function() {
     connect.server()
 });
-
-// ===================================== Gulp build -- run all
-
