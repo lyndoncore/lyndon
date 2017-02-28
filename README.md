@@ -18,15 +18,15 @@ The folder full of stuff that is related to the project, but has no current plac
 
 ###### css/embedded.css
 
-This is the css that goes in the head of index.html. It has it's own gulp task to compress and autoprefix it. Use this file over modifying css directly on index.html. 
+This is the CSS that goes in the head of index.html. It has it's own gulp task to compress and autoprefix it. Use this file over modifying CSS directly on index.html. 
 
 ###### js/embedded.js
 
-This is the JavaScript that goes in the head of index.html. It's manually run through JSHint, and Google Closure Compiler before being placed in the index.html head.
+This is the JavaScript that goes in the head of index.html. It's run through JSHint, and Google Closure Compiler before being placed in the index.html head.
 
 ###### js/dev-scripts.js
 
-This is JavaScript file that we use locally to test our scripts. We point to it while developing, and reference it's product, scripts.js when deployed. 
+This is the JavaScript file that we use to locally test our scripts. We point to it while developing, and reference it's product, scripts.js when deployed. 
 
 
 # Deploying to S3
@@ -46,7 +46,8 @@ This is JavaScript file that we use locally to test our scripts. We point to it 
 
 3.  Run all Gulp tasks (Go look at gulpfile.js if you need a reminder of what tasks to run)
 
-4.  AWS -- Upload everything from "build" folder to S3 Buckets -- HTML comes from the root project folder. 
+4.  AWS -- Upload everything from "build" folder to S3 Buckets 
+  - HTML comes from the root project folder. 
 
 5.  Set headers in the Amazon Console.
   1.  set scripts.js.gz:
