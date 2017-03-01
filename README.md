@@ -66,9 +66,9 @@ This is the JavaScript file that we use to locally test our scripts. We point to
 
 6.  Set TTL on HTML, CSS, and JavaScript to 86,400 (one day).
 
-7.  Run all post-deployment tests in the Testing section below.
+7.  Invalidate Caches at Edge locations with a CloudFront invalidation.
 
-8.  Invalidate Caches at Edge locations with a CloudFront invalidation.
+8.  Run all post-deployment tests in the Testing section below.
 
 
 # Working in dev enviornment
@@ -77,9 +77,9 @@ This is the JavaScript file that we use to locally test our scripts. We point to
   1.  css with paths being "css/styles.css"
   2.  javascript with paths being "js/dev-scripts.js"
 
-# Pre-deployment testing
+# Pre-deployment testing (if applicable)
 
-1.  On index.html:
+-  On index.html:
   1.  Do knockout letters look complete? (i.e. no white of the background image showing)
     - Resize window until text wraps. 
     - Check Firefox.
@@ -88,11 +88,20 @@ This is the JavaScript file that we use to locally test our scripts. We point to
   4.  Does the JS that injects prefetch resource hint inject the proper image?
   5.  Does fetching main.css.gz get defered after page load?
 
-2. Run through Google's Structured Data Testing Tool to validate all microdata
+-  On design.html:
+  1.  Do links to Github still refrence the correct lines?
 
-3. Run js through JSHint
+- Run through Google's Structured Data Testing Tool to validate all microdata
+
+- Run js through JSHint
 	
 # Post-deployment testing
-  
+
+-  Are All files being served HTTPS/H2/Gzipped?
+
+-  Are requests hitting our CloudFront CDN?
+
+-  Is our service worker behaving as expected?
+
 
 
