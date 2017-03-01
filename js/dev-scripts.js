@@ -36,7 +36,7 @@ function navHighlight() {
 	// An Array of the title's distances to top
 	var heading = document.body.getElementsByTagName("h2");
 	var distances = [];
-	for (i = 0; i < heading.length; i++) {
+	for (var i = 0; i < heading.length; i++) {
 		distances[i] = heading[i].offsetTop - 200;
 	}
 	// Value to ensure the In The Works fits in between it's heading and somewhere (aka pageBottom)
@@ -74,14 +74,14 @@ function navHighlight() {
 	var counter = 0;
 
 	// for each title, check the distance to the top...
-	for (i = 0; i < distances.length; i++) {
+	for (var j = 0; j < distances.length; j++) {
 		// increment counter...
 		counter = counter + 1;
 		// Test to see if the window is scrolled between one heading and another...
-		if (getScrollTop() > distances[i] && getScrollTop() < distances[i + 1]) {
+		if (getScrollTop() > distances[j] && getScrollTop() < distances[j + 1]) {
 			// Remove nav__item--active from all nav__items by setting it to nav__item...
-			for (i = 0; i < titles.length; i++) {
-				titles[i].className = "nav__item";
+			for (var k = 0; k < titles.length; k++) {
+				titles[k].className = "nav__item";
 			}
 			// Set the desired nav__item to active
 			titles[counter - 1].className = "nav__item--active";
@@ -189,7 +189,7 @@ function setHeaderBGs() {
 var page = document.body.dataset.pageName;
 
 // controller to run the appropriate functions on each page
-controller = {
+var controller = {
 
 	// Using rAF to throttle calls
 	scroll : function() {
@@ -215,7 +215,7 @@ controller = {
 			navStop();
 		}
 	}
-}
+};
 
 // Run the controller's functions on these events
 window.addEventListener('scroll', controller.scroll, false);
@@ -230,7 +230,7 @@ if ('serviceWorker' in navigator) {
 		}) 
 		.catch(function() {
 			console.log('CLIENT: service worker registration failure.');
-		})
+		});
 	} else {
   console.log('CLIENT: service worker is not supported.');
 }
