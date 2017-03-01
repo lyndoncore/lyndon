@@ -77,7 +77,7 @@ This is the JavaScript file that we use to locally test our scripts. We point to
   1.  css with paths being "css/styles.css"
   2.  javascript with paths being "js/dev-scripts.js"
 
-# Pre-deployment testing (if applicable)
+# Pre-deployment testing (when applicable)
 
 -  On index.html:
   1.  Do knockout letters look complete? (i.e. no white of the background image showing)

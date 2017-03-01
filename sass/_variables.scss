@@ -9,6 +9,8 @@ $secondary-color: #422039; // purple
 	$secondary-color-dark: darken($secondary-color, 3%);
 
 // ==================== Image Variables ====================
+// If an image changes we must version it
+// this is because of our Cache-Control: max-age=31536000
 
 $header-bg-png: url(../images/floral-crop.png);
 $header-bg-png-2x: url(../images/floral-crop-2x.png);
