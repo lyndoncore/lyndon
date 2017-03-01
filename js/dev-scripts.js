@@ -81,10 +81,10 @@ function navHighlight() {
 		if (getScrollTop() > distances[j] && getScrollTop() < distances[j + 1]) {
 			// Remove nav__item--active from all nav__items by setting it to nav__item...
 			for (var k = 0; k < titles.length; k++) {
-				titles[k].className = "nav__item";
+				titles[k].className = "nav__child";
 			}
 			// Set the desired nav__item to active
-			titles[counter - 1].className = "nav__item--active";
+			titles[counter - 1].className = "nav__child--current";
 		} 
 	}
 }

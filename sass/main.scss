@@ -21,6 +21,10 @@ br {
 	line-height: 50px;
 }
 
+a {
+	cursor: pointer;
+}
+
 // ======================================== Placeholder 
 
 // Placeholder to extend header class to its --modifiers, without the variations also inheriting __element classes.
@@ -58,12 +62,13 @@ br {
 		background-position: center center;
 	}
 	&__home {
-	    padding: 10px 14px 10px 20px;
+	    padding: 12px 14px 12px 20px;
 	    text-decoration: none;
 	    border: none;
 	    cursor: pointer;
 	    background: $secondary-color;
 	    font-size: 10px;
+	    border-radius: 4px;
 	    font-weight: bold;
 	    letter-spacing: 8px;
 	    color: #fff;
@@ -196,30 +201,49 @@ br {
 		list-style: none;
 		line-height: 36px;
 		margin-top: 67px;
+		font-size: 15px;
 		&--fixed {
 			list-style: none;
 			line-height: 36px;
 			position: fixed;
 			top: 67px;
 			margin: 0;
+			font-size: 15px;
 		}
 		&--bottom {
 			list-style: none;
 			line-height: 36px;
 			align-self: flex-end;
+			font-size: 15px;
 		}
 	}
-	&__item {
-		color: $primary-color-light;
+	&__parent {
+		color: $primary-color;
 		text-decoration: none;
+		font-weight: bold;
 		padding: 9px 0;
+		cursor: pointer;
 		&:hover {
 			color: $primary-color;
 		}
-		&--active {
+	}
+	&__child {
+		color: $primary-color-light;
+		text-decoration: none;
+		padding: 9px 0 9px 12px;
+		&--current {
+			@extend .nav__child;
 			color: $primary-color;
-			font-weight: bold;
-			text-decoration: none;
+			list-style: initial;
+			&:before {
+				content:"\203A";
+				margin-left: -12px;
+				padding-right: 7px;
+				color: $primary-color;
+			}
+		}
+		&:hover {
+			color: lighten($primary-color, 5%);
 		}
 	}
 	&--m {

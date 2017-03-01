@@ -4,7 +4,7 @@
 <title>Lyndon Core</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<script async src="js/scripts.js.gz"></script>
+<script async src="js/dev-scripts.js"></script>
 <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -32,17 +32,20 @@
 
 		<nav class="nav">
 			<ul class="nav__list" id="sidebar">
-				<li><a id="navIntro" class="nav__item" href="#intro">Intro</a></li>
-				<li><a id="navToolkit" class="nav__item" href="#toolkit">Toolkit</a></li>
-				<li><a id="navResponsiveness" class="nav__item" href="#responsiveness">Responsiveness</a></li>
-				<li><a id="navResilience" class="nav__item" href="#resilience">Resilience</a></li>
-				<li><a id="navCompression" class="nav__item" href="#compression">Compression</a></li>
-				<li><a id="navDesign" class="nav__item" href="#design">Design</a></li>
-				<li><a id="navCaching" class="nav__item" href="#caching">Caching</a></li>
-				<li><a id="navCssOptimizations" class="nav__item" href="#cssOptimizations">CSS optimizations</a></li>
-				<li><a id="navImageOptimizations" class="nav__item" href="#imageOptimizations">Image optimizations</a></li>
-				<li><a id="navArtDirection" class="nav__item" href="#artDirection">Art direction</a></li>
-				<li><a id="navInTheWorks" class="nav__item" href="#inTheWorks">In the works</a></li>
+				<li><a class="nav__parent" href="index.html">Home</a></li>
+				<li><a class="nav__parent" href="#">Site Design</a></li>
+				<li><a id="navIntro" class="nav__child" href="#intro">Intro</a></li>
+				<li><a id="navToolkit" class="nav__child" href="#toolkit">Toolkit</a></li>
+				<li><a id="navResponsiveness" class="nav__child" href="#responsiveness">Responsiveness</a></li>
+				<li><a id="navResilience" class="nav__child" href="#resilience">Resilience</a></li>
+				<li><a id="navCompression" class="nav__child" href="#compression">Compression</a></li>
+				<li><a id="navDesign" class="nav__child" href="#design">Design</a></li>
+				<li><a id="navCaching" class="nav__child" href="#caching">Caching</a></li>
+				<li><a id="navCssOptimizations" class="nav__child" href="#cssOptimizations">CSS optimization</a></li>
+				<li><a id="navImageOptimizations" class="nav__child" href="#imageOptimizations">Image optimization</a></li>
+				<li><a id="navArtDirection" class="nav__child" href="#artDirection">Art direction</a></li>
+				<li><a id="navInTheWorks" class="nav__child" href="#inTheWorks">In the works</a></li>
+				<li><a class="nav__parent" href="resume.html">Resume</a></li>
 			</ul>
 		</nav>
 
@@ -191,7 +194,7 @@
 				<h3 id="CachingSW" class="content__title">Caching w/ Service Worker</h3>
 				<p class="content__body">Service Workers are crazy cool, and I introduced them in <a class="content__link" href="#offlineFirst">Resilience > Offline first</a> above, but because we're in the "Caching" section, I'm going to briefly touch on the caching aspect of this site's Service Worker. When <code class="content__code">service-worker.js</code> first installs, I've specified that a <a class="content__link" href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">cache</a> be opened with <code class="content__code">caches.open()</code>, and then populated with the files we'd like to cache, with <code class="content__code">cache.addAll()</code>. In our case, we initially cache all 3 HTML files, and our main.css. In addition to our initial population of the cache, as users navigate to different pages on this site, the resources that are requested successfully are <a class="content__link" href="https://fetch.spec.whatwg.org/#dom-response-clone">cloned</a> and then added to the cache. Items that are placed into this cache do not expire unless they are deleted, so we're responsible for some housecleaning, or else risk reaching our storage allowance by the browser and having everything trashed. To keep a clean shop, it's good practice to version your <code class="content__code">CACHE_NAME</code>, and explicitly delete outdated caches with <code class="content__code">caches.delete()</code>.</p>
 
-			<h2 id="cssOptimizations" class="content__heading">CSS optimizations</h2>
+			<h2 id="cssOptimizations" class="content__heading">CSS optimization</h2>
 
 				<p class="content__body">On this site, the CSS has been written in such a way that is maintainable and performant. It's also delivered in a form that's suitable for quick interpretation and construction by the browser.</p>
 
@@ -207,7 +210,7 @@
 				<h3 class="content__title">SASS</h3>
 				<p class="content__body"><a class="content__link" href="http://sass-lang.com/">SASS</a>, or "Syntactically Awesome Style Sheets", is a CSS preprocessor that transpiles feature-rich <code class="content__code">.scss</code> markup into <code class="content__code">.css</code> files. SASS is commonly used to add variables, mixins, nesting, and inheritance to CSS. I wanted to mention that SASS has been a godsend in some of my larger projects, however, its utility on this site has been pretty limited thus far. SASS provides the most value when stylesheets scale, however, because I've kept this site's CSS under tight control, I've mainly just used SASS to enable future scalability - something that is very important. Specifically, I've defined a few variables (like font, colors, and image paths), and put them in their own _variable.scss partial. I've also compartmentalized my CSS rules (BEM-style) by nesting element and modifier classes with the <code class="content__code">&amp;</code> directive. Take a look at <a class="content__link" href="">styles.scss on Github</a> if you would like to see what methods I've used to keep my CSS clean and scaleable.</p>
 
-			<h2 id="imageOptimizations" class="content__heading">Image optimizations</h2>
+			<h2 id="imageOptimizations" class="content__heading">Image optimization</h2>
 
 				<p class="content__body">The image that I've included on this site, in its original form (from a stock photo site), was a 6500 x 5000 JPEG weighing in at 8.9MB (floral.jpeg). Although this is a super high-res image, and great for flexibility when designing, it's also a horrendously inappropriate file to serve in production. This is not only because of the image's large file size, but also because this high of a resolution is simply not necessary for its purposes on this site; ergo, some serious optimization is in order.<br>
 
